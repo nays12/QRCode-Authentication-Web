@@ -56,8 +56,6 @@
 
         </div>
         <asp:Button ID="Button3" runat="server" Class="button btn btn-success" Text="Continue" />
-
-
     </div>
 
     </form>
