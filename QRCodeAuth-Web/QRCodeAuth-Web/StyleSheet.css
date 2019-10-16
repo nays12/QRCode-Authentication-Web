@@ -44,7 +44,7 @@ h1{
     width:100%;
 }
 
-.label{
+.lbl{
     display:block;
     margin:5px;
     padding:5px;
@@ -53,10 +53,11 @@ h1{
     color:#005073;
 }
 
-.lblSubTitles{
-    font-family:Ariel;
-    font-size:medium;
-    color:black;
+.lblSubTitles {
+    font-family: Ariel;
+    font-weight:bold;
+    font-size: medium;
+    color: #005073;
 }
 
 .txb{
@@ -78,12 +79,10 @@ h1{
 }
 
 .divTitle {
-    color:transparent;
     width: 50%;
     margin-left: auto;
     margin-right: auto;
     margin-top: 0px;
     margin-bottom: 0px;
     border: none;
-   
 }
