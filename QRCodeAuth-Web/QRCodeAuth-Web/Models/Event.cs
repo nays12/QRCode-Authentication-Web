@@ -22,8 +22,8 @@ namespace QRCodeAuth_Web.Models
 {
 	public class Event
 	{
-		private User owner { get; set; }
-		private string iD { get; set; }
+		private WebAccount owner { get; set; }
+		private string id { get; set; }
 		private string name { get; set; }
 		private EventType type { get; set; }
 		private string details { get; set; }
@@ -35,10 +35,10 @@ namespace QRCodeAuth_Web.Models
 		{
 		}
 
-		public Event(User owner, string iD, string name, EventType type, string details, DateTime startTime, DateTime endTime, ArrayList credentialsNeeded)
+		public Event(WebAccount owner, string id, string name, EventType type, string details, DateTime startTime, DateTime endTime, ArrayList credentialsNeeded)
 		{
 			this.owner = owner;
-			this.iD = iD;
+			this.id = id;
 			this.name = name;
 			this.type = type;
 			this.details = details;

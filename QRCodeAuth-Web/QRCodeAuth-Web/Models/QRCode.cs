@@ -24,6 +24,7 @@ namespace QRCodeAuth_Web.Models
 	{
 		private WebAccount owner { get; set; }
 		private string id { get; set; }
+		private DateTime validUntil { get; set; }
 		private ArrayList credentialsNeeded { get; set; }
 		private ArrayList scannedBy { get; set; }
 
