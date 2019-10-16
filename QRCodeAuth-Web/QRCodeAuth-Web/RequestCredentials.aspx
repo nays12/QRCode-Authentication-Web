@@ -5,10 +5,33 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+
+     <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="StyleSheet.css" rel="stylesheet" />
+
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
+        <div class="divTitle" style="background-color:transparent">
+            <img class="image" src="Images/title.JPG" />
+        </div>
+
+        <div class="divPageBody divSection">
+            <asp:Label ID="Label2" runat="server" Class="lblSubTitles" Text="Select the credentials to collect"></asp:Label>
+            <div class="divSection">
+                <asp:CheckBoxList ID="CheckBoxList1" runat="server" >
+                    <asp:ListItem>ID Number</asp:ListItem>
+                    <asp:ListItem>Last Name</asp:ListItem>
+                    <asp:ListItem>First Name</asp:ListItem>
+                    <asp:ListItem>Email</asp:ListItem>
+                    <asp:ListItem>Date of Birth</asp:ListItem>
+                </asp:CheckBoxList>
+            </div>
+            <asp:Button ID="Button1" runat="server" Class="button btn btn-success" Text="Comfirm" />
+            <asp:Button ID="Button2" runat="server" Class="button btn btn-success" Text="Cancel" />
         </div>
     </form>
 </body>
