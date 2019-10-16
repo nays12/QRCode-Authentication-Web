@@ -16,16 +16,12 @@
 <body>
     <form id="form1" runat="server">
         <div class="divTitle" style="background-color:transparent">
-        <img class="image" src="Images/title.JPG" />
-          
+            <img class="image" src="Images/title.JPG" />
        </div>
-
         <div class="divPageBody divSection">
-                <asp:Button ID="Button1" runat="server" Class="button btn btn-success" Text="Create an Event" />
-                <asp:Button ID="Button2" runat="server" Class="button btn btn-success" Text="Request Credentials" />
+            <asp:Button ID="Button1" runat="server" Class="button btn btn-success" Text="Create an Event" />
+            <asp:Button ID="Button2" runat="server" Class="button btn btn-success" Text="Request Credentials" />
          </div>
-
-
     </form>
 </body>
 </html>
