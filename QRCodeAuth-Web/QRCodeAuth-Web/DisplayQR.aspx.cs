@@ -19,15 +19,21 @@ namespace QRCodeAuth_Web
 
 		protected void generateQR_Click(object sender, EventArgs e)
 		{
+			// get current path
 			string path = AppDomain.CurrentDomain.BaseDirectory;
 
+			// create barcode writer that creates QR Code
 			BarcodeWriter writer = new BarcodeWriter();
 			writer.Format = BarcodeFormat.QR_CODE;
 
+			// encode this text into the qr code and save it to the specified path 
+			writer.Write("This is a test")
+					.Save(path + @"Images\QRCodes\generatedQR.jpg");
 
-			writer.Write("another test")
-					.Save(path + @"Images\QRCodes\geneatedQR.bmp");
 
+			// load genered qr image into QR image control
+			//QR.ImageUrl = Server.MapPath(@"~\Images\QRCodes\generatedQR.jpg");
+			//Image1.ImageUrl = path + @"Images\QRCodes\generatedQR.jpg";
 		}
 	}
 }
