@@ -73,6 +73,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\web_application.mdf" />
+    <Content Include="App_Data\web_application_log.ldf">
+      <DependentUpon>web_application.mdf</DependentUpon>
+    </Content>
     <Content Include="CreateEvent.aspx" />
     <Content Include="database_test.aspx" />
     <Content Include="Default.aspx" />
