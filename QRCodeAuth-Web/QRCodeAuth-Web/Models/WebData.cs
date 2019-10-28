@@ -2,6 +2,7 @@ namespace QRCodeAuth_Web.Models
 {
 	using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     using System.Data.Entity;
 	using System.Linq;
 
@@ -27,6 +28,7 @@ namespace QRCodeAuth_Web.Models
 
 	public class User
 	{
+		[Key]
 		public int user_id { get; set; }
 		public string first_name { get; set; }
 		public string last_name { get; set; }
@@ -36,6 +38,7 @@ namespace QRCodeAuth_Web.Models
 
 	public class Account
 	{
+		[Key]
 		public int account_id { get; set; }
 		public User owner { get; set; }
 		public string type { get; set; }
@@ -50,6 +53,7 @@ namespace QRCodeAuth_Web.Models
 
 	public class Event
 	{
+		[Key]
 		public int event_id { get; set; }
 		public Account owner { get; set; }
 		public string name { get; set; }
