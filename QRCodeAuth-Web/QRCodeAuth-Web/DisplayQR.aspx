@@ -25,7 +25,6 @@
 				<asp:Button ID="generateQR" runat="server" Text="Generate QR" OnClick="generateQR_Click" />
 			</div>
          </div>
-
     </form>
 </body>
 </html>
