@@ -19,13 +19,12 @@
         </div>
         <div class="divPageBody divSection" style="height:400px;">
             <div class="divSection">
-				<asp:Image ID="QR" runat="server" />
+				<asp:Image ID="Image1" runat="server" Height="300px" Width="300px" src="Images/QRCodes/generatedQR.jpg"/>
 			</div>
 			<div>
 				<asp:Button ID="generateQR" runat="server" Text="Generate QR" OnClick="generateQR_Click" />
 			</div>
          </div>
-
     </form>
 </body>
 </html>
