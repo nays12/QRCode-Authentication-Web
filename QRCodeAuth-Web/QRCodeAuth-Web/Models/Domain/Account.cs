@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -7,6 +8,7 @@ namespace QRCodeAuth_Web.Models
 {
 	public class Account
 	{
+		[Key]
 		public string ID { get; set; }
 		public User Owner { get; set; }
 		public string Type { get; set; }

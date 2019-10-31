@@ -170,7 +170,7 @@
     <Compile Include="Models\Domain\EventType.cs" />
     <Compile Include="Models\Domain\User.cs" />
     <Compile Include="Models\Domain\UserType.cs" />
-    <Compile Include="Models\Data\WebData.cs" />
+    <Compile Include="Models\WebData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RequestCredentials.aspx.cs">
       <DependentUpon>RequestCredentials.aspx</DependentUpon>
