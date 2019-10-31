@@ -86,16 +86,6 @@
       <DependentUpon>web_application.mdf</DependentUpon>
     </Content>
     <Content Include="CreateEvent.aspx" />
-    <Content Include="dbModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>dbModel.edmx</DependentUpon>
-      <LastGenOutput>dbModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="dbModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>dbModel.edmx</DependentUpon>
-      <LastGenOutput>dbModel.cs</LastGenOutput>
-    </Content>
     <Content Include="db_EF_test.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="DisplayQR.aspx" />
@@ -106,30 +96,12 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Account.cs">
-      <DependentUpon>dbModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="CreateEvent.aspx.cs">
       <DependentUpon>CreateEvent.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="CreateEvent.aspx.designer.cs">
       <DependentUpon>CreateEvent.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="dbModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>dbModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="dbModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>dbModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="dbModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>dbModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="db_EF_test.aspx.cs">
       <DependentUpon>db_EF_test.aspx</DependentUpon>
@@ -152,9 +124,6 @@
     <Compile Include="DisplayQR.aspx.designer.cs">
       <DependentUpon>DisplayQR.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Event.cs">
-      <DependentUpon>dbModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -162,13 +131,14 @@
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Data\WebSystemData.cs" />
     <Compile Include="Models\Logic\Account.cs" />
     <Compile Include="Models\Logic\AccountType.cs" />
     <Compile Include="Models\Logic\Event.cs" />
     <Compile Include="Models\Logic\EventType.cs" />
     <Compile Include="Models\Logic\User.cs" />
     <Compile Include="Models\Logic\UserType.cs" />
-    <Compile Include="Models\Data\WebData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RequestCredentials.aspx.cs">
       <DependentUpon>RequestCredentials.aspx</DependentUpon>
@@ -177,21 +147,8 @@
     <Compile Include="RequestCredentials.aspx.designer.cs">
       <DependentUpon>RequestCredentials.aspx</DependentUpon>
     </Compile>
-    <Compile Include="sysdiagram.cs">
-      <DependentUpon>dbModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="System_user.cs">
-      <DependentUpon>dbModel.tt</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="dbModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>dbModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="dbModel.edmx.diagram">
-      <DependentUpon>dbModel.edmx</DependentUpon>
-    </Content>
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

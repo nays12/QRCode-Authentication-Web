@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Text;
 using System.Threading.Tasks;
+using QRCodeAuth_Web.Models.Data;
 
 
 namespace QRCodeAuth_Web
@@ -14,7 +15,7 @@ namespace QRCodeAuth_Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            using (web_applicationEntities context = new web_applicationEntities()) {
+            using (var database  = new WebSystemData()) {
                 // insert
                 //System_user info = new System_user
                 //{
@@ -31,9 +32,9 @@ namespace QRCodeAuth_Web
                 //Response.Write("the selected is: " + info.Id + " ; " + info.First_name + " " + info.Last_name);
 
                 //update
-                System_user info = context.System_user.FirstOrDefault(i => i.Id == "1195191");
-                info.First_name = "zhimin";
-                context.SaveChanges();
+                User info = database.Users.FirstOrDefault(i => i.school_id == "1195191");
+                info.first_name = "zhimin";
+                database.SaveChanges();
 
                 //remove
                 //System_user info = context.System_user.FirstOrDefault(i => i.Id == "1453678");
