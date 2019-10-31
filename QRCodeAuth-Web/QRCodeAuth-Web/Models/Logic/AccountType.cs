@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace QRCodeAuth_Web.Models.Domain
+namespace QRCodeAuth_Web.Models.Logic
 {
-	public enum EventType
+	public enum AccountType
 	{
-		Campus,
-		Lecture,
-		Meeting
+		Web,
+		Mobile
 	}
 }

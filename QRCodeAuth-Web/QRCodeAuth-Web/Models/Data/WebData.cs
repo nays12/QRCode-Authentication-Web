@@ -1,4 +1,4 @@
-namespace QRCodeAuth_Web.Models
+namespace QRCodeAuth_Web.Models.Data
 {
 	using System;
     using System.Collections.Generic;
@@ -21,8 +21,25 @@ namespace QRCodeAuth_Web.Models
 		}
 
 		// DbSets
-		public DbSet<User> Users { get; set; }
-		public DbSet<Account> Accounts { get; set; }
-		public DbSet<Event> Events { get; set; }
+		public virtual DbSet<User> Users { get; set; }
+		public virtual DbSet<Account> Accounts { get; set; }
+		public virtual DbSet<Event> Events { get; set; }
 	}
+
+	public class Account
+	{
+		[Key]
+		public string ID { get; set; }
+		public virtual User Owner { get; set; }
+		public string Type { get; set; }
+		public string DepartmentID { get; set; }
+		public string DepartmentName { get; set; }
+		public bool IsActive { get; set; }
+		public bool IsCredentialAuthority { get; set; }
+		public bool IsAttendanceManager { get; set; }
+		public bool IsInformationCollector { get; set; }
+		public virtual List<Event> events { get; set; }
+
+	}
+
 }
