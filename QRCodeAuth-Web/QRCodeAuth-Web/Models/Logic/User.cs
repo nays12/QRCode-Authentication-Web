@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
 using System.Web;
 
 namespace QRCodeAuth_Web.Models.Logic
 {
 	public class User
 	{
-		[Key]
 		public string ID { get; set; }
 		public string SchoolID { get; set; }
 		public string LastName { get; set; }
@@ -20,8 +17,19 @@ namespace QRCodeAuth_Web.Models.Logic
 		{
 
 		}
-
-
+		public User(string iD, string schoolID, string lastName, string firstName, UserType group, List<Account> accounts)
+		{
+			ID = iD;
+			SchoolID = schoolID;
+			LastName = lastName;
+			FirstName = firstName;
+			Group = group;
+			Accounts = accounts;
+		}
+		public override string ToString()
+		{
+			return base.ToString();
+		}
 	}
 
 
