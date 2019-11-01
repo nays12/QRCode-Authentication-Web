@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using System.Web;
 
-namespace QRCodeAuth_Web.Models.Logic
+namespace QRCodeAuth_Web.Models
 {
 	public class Account
 	{
-		public string Id { get; set; }
-		public virtual User Owner { get; set; }
+		public string AccountId { get; set; }
 		public string Type { get; set; }
 		public string DepartmentID { get; set; }
 		public string DepartmentName { get; set; }
@@ -15,12 +14,17 @@ namespace QRCodeAuth_Web.Models.Logic
 		public bool IsCredentialAuthority { get; set; }
 		public bool IsAttendanceManager { get; set; }
 		public bool IsInformationCollector { get; set; }
-		public virtual List<Event> EventsOwned { get; set; }
+		public User Owner { get; set; }
+		public List<Event> EventsOwned { get; set; }
 
-		public Account(string iD, User owner, string type, string departmentID, string departmentName, bool isActive, bool isCredentialAuthority, bool isAttendanceManager, bool isInformationCollector, List<Event> events)
+		public Account()
 		{
-			Id = iD;
-			Owner = owner;
+
+		}
+
+		public Account(string accountId, string type, string departmentID, string departmentName, bool isActive, bool isCredentialAuthority, bool isAttendanceManager, bool isInformationCollector, User owner, List<Event> eventsOwned)
+		{
+			AccountId = accountId;
 			Type = type;
 			DepartmentID = departmentID;
 			DepartmentName = departmentName;
@@ -28,8 +32,10 @@ namespace QRCodeAuth_Web.Models.Logic
 			IsCredentialAuthority = isCredentialAuthority;
 			IsAttendanceManager = isAttendanceManager;
 			IsInformationCollector = isInformationCollector;
-			this.EventsOwned = events;
+			Owner = owner;
+			EventsOwned = eventsOwned;
 		}
+
 		public override string ToString()
 		{
 			return base.ToString();

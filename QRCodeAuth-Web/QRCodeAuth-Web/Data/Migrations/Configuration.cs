@@ -5,7 +5,7 @@ namespace QRCodeAuth_Web.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<QRCodeAuth_Web.Models.Data.WebSystemData>
+    internal sealed class Configuration : DbMigrationsConfiguration<QRCodeAuth_Web.Data.WebSystemData>
     {
         public Configuration()
         {
@@ -14,7 +14,7 @@ namespace QRCodeAuth_Web.Migrations
 
 		}
 
-        protected override void Seed(QRCodeAuth_Web.Models.Data.WebSystemData context)
+        protected override void Seed(QRCodeAuth_Web.Data.WebSystemData context)
         {
             //  This method will be called after migrating to the latest version.
 
