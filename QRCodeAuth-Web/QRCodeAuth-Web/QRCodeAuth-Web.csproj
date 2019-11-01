@@ -81,10 +81,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\web_application.mdf" />
-    <Content Include="App_Data\web_application_log.ldf">
-      <DependentUpon>web_application.mdf</DependentUpon>
-    </Content>
     <Content Include="CreateEvent.aspx" />
     <Content Include="db_EF_test.aspx" />
     <Content Include="Default.aspx" />
@@ -159,6 +155,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\" />
     <Folder Include="Images\QRCodes\" />
   </ItemGroup>
   <ItemGroup>
