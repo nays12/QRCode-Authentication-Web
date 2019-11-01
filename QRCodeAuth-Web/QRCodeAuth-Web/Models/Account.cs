@@ -19,9 +19,12 @@ namespace QRCodeAuth_Web.Models
 		public bool IsInformationCollector { get; set; }
 		public virtual List<Event> EventsOwned { get; set; }
 
-		public Account(int iD, User owner, string type, string departmentID, string departmentName, bool isActive, bool isCredentialAuthority, bool isAttendanceManager, bool isInformationCollector, List<Event> events)
+		public Account()
 		{
-			Id = iD;
+
+		}
+		public Account(User owner, string type, string departmentID, string departmentName, bool isActive, bool isCredentialAuthority, bool isAttendanceManager, bool isInformationCollector, List<Event> events)
+		{
 			Owner = owner;
 			Type = type;
 			DepartmentID = departmentID;

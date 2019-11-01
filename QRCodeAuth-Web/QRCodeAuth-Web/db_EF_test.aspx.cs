@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 using System.Text;
 using System.Threading.Tasks;
 using QRCodeAuth_Web.Data;
-using QRCodeAuth_Web.Models.Logic;
+using QRCodeAuth_Web.Models;
 
 
 namespace QRCodeAuth_Web
@@ -45,14 +45,44 @@ namespace QRCodeAuth_Web
 				//dbconn.SaveChanges();
 			}
 			// Create events to test EventsController
-			//using (var dbconn = new WebSystemData())
-			//{
-			//	Event e1 = new Event
-			//	{ 
-			//		name = "Delta Waffle Day",
-			//		type = eventType
-			//	};
-			//}
+			using (var dbconn = new WebSystemData())
+			{
+				// create list of credentials
+				List<CredentialType> credentials = new List<CredentialType>();
+				credentials.Add(CredentialType.Email);
+				credentials.Add(CredentialType.Major);
+
+				// create list of attendees
+				List<Account> eventAttendees = new List<Account>();
+
+				Event e1 = new Event
+				{
+					Owner = null,
+					Name = "Delta Waffle Day",
+					Type = EventType.Campus,
+					Description = "Free Waffles at the Delta building!",
+					StartTime = Convert.ToDateTime("10/30/2019 02:30pm"),
+					EndTime = Convert.ToDateTime("10/30/2019 06:30pm"),
+					CredentialsRequired = credentials,
+					Attendees = eventAttendees
+				};
+
+				Event e2 = new Event
+				{
+					Owner = null,
+					Name = "Trick or Treat at the Rec",
+					Type = EventType.Campus,
+					Description = "reat yourself to spooky treats, fun activities and more at UHCL's first Trick or Treat at The Rec!",
+					StartTime = Convert.ToDateTime("10/31/2019 04:00pm"),
+					EndTime = Convert.ToDateTime("10/31/2019 09:00pm"),
+					CredentialsRequired = credentials,
+					Attendees = eventAttendees
+				};
+
+				dbconn.Events.Add(e1);
+				dbconn.Events.Add(e2);
+				dbconn.SaveChanges();
+			}
 		}
 	}
 }
