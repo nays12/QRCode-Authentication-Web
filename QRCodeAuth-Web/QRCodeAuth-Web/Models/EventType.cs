@@ -11,4 +11,5 @@ namespace QRCodeAuth_Web.Models
 		Lecture,
 		Meeting
 	}
+
 }

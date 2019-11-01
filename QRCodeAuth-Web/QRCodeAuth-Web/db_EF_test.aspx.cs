@@ -46,44 +46,46 @@ namespace QRCodeAuth_Web
 			//}
 
 			// Create events to test EventsController
-			using (var dbconn = new WebSystemData())
-			{
-				// create list of credentials
-				List<CredentialType> credentials = new List<CredentialType>();
-				credentials.Add(CredentialType.Email);
-				credentials.Add(CredentialType.Major);
+			//using (var dbconn = new WebSystemData())
+			//{
+			//	// create list of credentials
+			//	List<CredentialType> credentials = new List<CredentialType>();
+			//	credentials.Add(CredentialType.Email);
+			//	credentials.Add(CredentialType.Major);
 
-				// create list of attendees
-				List<Account> eventAttendees = new List<Account>();
+			//	// create list of attendees
+			//	List<Account> eventAttendees = new List<Account>();
 
-				Event e1 = new Event
-				{
-					Owner = null,
-					Name = "Delta Waffle Day",
-					Type = EventType.Campus,
-					Description = "Free Waffles at the Delta building!",
-					StartTime = Convert.ToDateTime("10/30/2019 02:30pm"),
-					EndTime = Convert.ToDateTime("10/30/2019 06:30pm"),
-					CredentialsRequired = credentials,
-					Attendees = eventAttendees
-				};
+			//	Event e1 = new Event
+			//	{
+			//		Name = "Delta Waffle Day",
+			//		Location = "Delta Building Lobby",
+			//		Type = EventType.Campus,
+			//		Description = "Free Waffles at the Delta building!",
+			//		StartTime = Convert.ToDateTime("10/30/2019 02:30pm"),
+			//		EndTime = Convert.ToDateTime("10/30/2019 06:30pm"),
+			//		Owner = null,
+			//		CredentialsRequired = credentials,
+			//		Attendees = eventAttendees
+			//	};
 
-				Event e2 = new Event
-				{
-					Owner = null,
-					Name = "Trick or Treat at the Rec",
-					Type = EventType.Campus,
-					Description = "reat yourself to spooky treats, fun activities and more at UHCL's first Trick or Treat at The Rec!",
-					StartTime = Convert.ToDateTime("10/31/2019 04:00pm"),
-					EndTime = Convert.ToDateTime("10/31/2019 09:00pm"),
-					CredentialsRequired = credentials,
-					Attendees = eventAttendees
-				};
+			//	Event e2 = new Event
+			//	{
+			//		Name = "Trick or Treat at the Rec",
+			//		Location = "Recreation and Wellness Center",
+			//		Type = EventType.Campus,
+			//		Description = "reat yourself to spooky treats, fun activities and more at UHCL's first Trick or Treat at The Rec!",
+			//		StartTime = Convert.ToDateTime("10/31/2019 04:00pm"),
+			//		EndTime = Convert.ToDateTime("10/31/2019 09:00pm"),
+			//		Owner = null,
+			//		CredentialsRequired = credentials,
+			//		Attendees = eventAttendees
+			//	};
 
-				dbconn.Events.Add(e1);
-				dbconn.Events.Add(e2);
-				dbconn.SaveChanges();
-			}
+			//	dbconn.Events.Add(e1);
+			//	dbconn.Events.Add(e2);
+			//	dbconn.SaveChanges();
+			//}
 		}
 	}
 }
