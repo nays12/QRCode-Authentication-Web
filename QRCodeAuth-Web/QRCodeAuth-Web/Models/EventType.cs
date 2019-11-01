@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace QRCodeAuth_Web.Models.Logic
+namespace QRCodeAuth_Web.Models
 {
-	public enum UserType
+	public enum EventType
 	{
-		Student,
-		Staff,
-		Faculty
+		Campus,
+		Lecture,
+		Meeting
 	}
 }

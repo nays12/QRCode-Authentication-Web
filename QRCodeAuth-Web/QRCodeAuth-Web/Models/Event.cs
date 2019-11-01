@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Web;
 
-namespace QRCodeAuth_Web.Models.Logic
+namespace QRCodeAuth_Web.Models
 {
 	public class Event
 	{
+		[Key]
 		public string Id { get; set; }
 		public virtual Account Owner { get; set; }
 		public string Name { get; set; }

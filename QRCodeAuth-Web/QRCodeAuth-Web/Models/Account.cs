@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Web;
 
-namespace QRCodeAuth_Web.Models.Logic
+namespace QRCodeAuth_Web.Models
 {
 	public class Account
 	{
-		public string Id { get; set; }
+		[Key]
+		public int Id { get; set; }
 		public virtual User Owner { get; set; }
 		public string Type { get; set; }
 		public string DepartmentID { get; set; }
@@ -17,7 +19,7 @@ namespace QRCodeAuth_Web.Models.Logic
 		public bool IsInformationCollector { get; set; }
 		public virtual List<Event> EventsOwned { get; set; }
 
-		public Account(string iD, User owner, string type, string departmentID, string departmentName, bool isActive, bool isCredentialAuthority, bool isAttendanceManager, bool isInformationCollector, List<Event> events)
+		public Account(int iD, User owner, string type, string departmentID, string departmentName, bool isActive, bool isCredentialAuthority, bool isAttendanceManager, bool isInformationCollector, List<Event> events)
 		{
 			Id = iD;
 			Owner = owner;
