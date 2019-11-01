@@ -24,13 +24,13 @@ namespace QRCodeAuth_Web.Data
 		// on configuring and using a Code First model, see http://go.microsoft.com/fwlink/?LinkId=390109.
 
 		// DbSets
-		public virtual DbSet<User> Users { get; set; }
-		public virtual DbSet<Account> Accounts { get; set; }
-		public virtual DbSet<Event> Events { get; set; }
+		public DbSet<User> Users { get; set; }
+		public DbSet<Account> Accounts { get; set; }
+		public DbSet<Event> Events { get; set; }
 
 		protected override void OnModelCreating(DbModelBuilder modelBuilder)
 		{
-			// Setting Primary Keys
+			// Manually mapping Primary Keys for Entity Framework
 			modelBuilder.Entity<User>().HasKey(t => t.UserId);
 
 			modelBuilder.Entity<Event>().HasKey(t => new { t.Name, t.StartTime });

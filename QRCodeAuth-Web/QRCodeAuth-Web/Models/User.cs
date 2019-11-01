@@ -1,18 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Web;
 
 namespace QRCodeAuth_Web.Models
 {
 	public class User
 	{
-		[Key]
 		public string UserId { get; set; }
 		public string LastName { get; set; }
 		public string FirstName { get; set; }
 		public UserType Group { get; set; }
-		public virtual List<Account> Accounts { get; set; }
+		public List<Account> Accounts { get; set; }
 
 		public User()
 		{
