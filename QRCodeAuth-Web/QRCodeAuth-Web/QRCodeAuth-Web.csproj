@@ -1,5 +1,4 @@
 ﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\EntityFramework.6.3.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -87,16 +86,6 @@
       <DependentUpon>web_application.mdf</DependentUpon>
     </Content>
     <Content Include="CreateEvent.aspx" />
-    <Content Include="dbModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>dbModel.edmx</DependentUpon>
-      <LastGenOutput>dbModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="dbModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>dbModel.edmx</DependentUpon>
-      <LastGenOutput>dbModel.cs</LastGenOutput>
-    </Content>
     <Content Include="db_EF_test.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="DisplayQR.aspx" />
@@ -107,30 +96,12 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Account.cs">
-      <DependentUpon>dbModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="CreateEvent.aspx.cs">
       <DependentUpon>CreateEvent.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="CreateEvent.aspx.designer.cs">
       <DependentUpon>CreateEvent.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="dbModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>dbModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="dbModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>dbModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="dbModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>dbModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="db_EF_test.aspx.cs">
       <DependentUpon>db_EF_test.aspx</DependentUpon>
@@ -153,9 +124,6 @@
     <Compile Include="DisplayQR.aspx.designer.cs">
       <DependentUpon>DisplayQR.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Event.cs">
-      <DependentUpon>dbModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -164,7 +132,14 @@
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\WebData.cs" />
+    <Compile Include="Models\Data\WebSystemData.cs" />
+    <Compile Include="Models\Logic\Account.cs" />
+    <Compile Include="Models\Logic\AccountType.cs" />
+    <Compile Include="Models\Logic\CredentialType.cs" />
+    <Compile Include="Models\Logic\Event.cs" />
+    <Compile Include="Models\Logic\EventType.cs" />
+    <Compile Include="Models\Logic\User.cs" />
+    <Compile Include="Models\Logic\UserType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RequestCredentials.aspx.cs">
       <DependentUpon>RequestCredentials.aspx</DependentUpon>
@@ -173,21 +148,8 @@
     <Compile Include="RequestCredentials.aspx.designer.cs">
       <DependentUpon>RequestCredentials.aspx</DependentUpon>
     </Compile>
-    <Compile Include="sysdiagram.cs">
-      <DependentUpon>dbModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="System_user.cs">
-      <DependentUpon>dbModel.tt</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="dbModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>dbModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="dbModel.edmx.diagram">
-      <DependentUpon>dbModel.edmx</DependentUpon>
-    </Content>
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -232,10 +194,7 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
-    <Error Condition="!Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.3.0\build\EntityFramework.props'))" />
-    <Error Condition="!Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.3.0\build\EntityFramework.targets'))" />
   </Target>
-  <Import Project="..\packages\EntityFramework.6.3.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
