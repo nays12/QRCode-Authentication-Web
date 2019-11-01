@@ -28,6 +28,17 @@ namespace QRCodeAuth_Web.Data
 		public virtual DbSet<Account> Accounts { get; set; }
 		public virtual DbSet<Event> Events { get; set; }
 
+		protected override void OnModelCreating(DbModelBuilder modelBuilder)
+		{
+			// Setting Primary Keys
+			modelBuilder.Entity<User>().HasKey(t => t.UserId);
+
+			modelBuilder.Entity<Event>().HasKey(t => new { t.Name, t.StartTime });
+
+			modelBuilder.Entity<Account>().HasKey(t => new { t.Owner, t.Type });
+
+		}
+
 	}
 
 }

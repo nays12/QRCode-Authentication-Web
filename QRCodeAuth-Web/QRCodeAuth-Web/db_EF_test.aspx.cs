@@ -16,34 +16,35 @@ namespace QRCodeAuth_Web
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			using (var dbconn = new WebSystemData())
-			{
-				// insert
-				//User info = new User
-				//{
-				//    SchoolIdNumber = "7865293",
-				//    FirstName = "MARRY",
-				//    LastName = "KIM",
-				//    group = "CS"
-				//};
-				//dbconn.Users.Add(info);
-				//dbconn.SaveChanges();
+			//using (var dbconn = new WebSystemData())
+			//{
+			//	// insert
+			//	//User info = new User
+			//	//{
+			//	//    UserId = "7865293",
+			//	//    FirstName = "MARRY",
+			//	//    LastName = "KIM",
+			//	//    group = "CS"
+			//	//};
+			//	//dbconn.Users.Add(info);
+			//	//dbconn.SaveChanges();
 
-				//selected
-				//Users info = context.System_user.FirstOrDefault(i => i.SchoolIdNumber == "1195191");
-				//Response.Write("the selected is: " + info.SchoolIdNumber + " ; " + info.FirstName + " " + info.LastName);
+			//	//selected
+			//	//Users info = context.System_user.FirstOrDefault(i => i.UserId == "1195191");
+			//	//Response.Write("the selected is: " + info.UserId + " ; " + info.FirstName + " " + info.LastName);
 
-				//update
-				User info = dbconn.Users.FirstOrDefault(i => i.SchoolIdNumber == "1195191");
-				info.FirstName = "zhimin";
-				dbconn.SaveChanges();
+			//	//update
+			//	//User info = dbconn.Users.FirstOrDefault(i => i.UserId == "1195191");
+			//	//info.FirstName = "zhimin";
+			//	//dbconn.SaveChanges();
 
-				//remove
-				//Users info = dbconn.Users.FirstOrDefault(i => i.SchoolIdNumber == "1453678");
-				//dbconn.Users.Remove(info);
+			//	//remove
+			//	//Users info = dbconn.Users.FirstOrDefault(i => i.UserId == "1453678");
+			//	//dbconn.Users.Remove(info);
 
-				//dbconn.SaveChanges();
-			}
+			//	//dbconn.SaveChanges();
+			//}
+
 			// Create events to test EventsController
 			using (var dbconn = new WebSystemData())
 			{
