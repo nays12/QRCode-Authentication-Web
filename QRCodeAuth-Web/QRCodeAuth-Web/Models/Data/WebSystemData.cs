@@ -42,7 +42,7 @@ namespace QRCodeAuth_Web.Models.Data
 		public bool is_credential_authority { get; set; }
 		public bool is_attendance_manager { get; set; }
 		public bool is_information_collector { get; set; }
-		public virtual List<Event> events { get; set; }
+		public virtual List<Event> eventsOwned { get; set; }
 	}
 	public class Event
 	{
@@ -54,14 +54,14 @@ namespace QRCodeAuth_Web.Models.Data
 		public string description { get; set; }
 		public DateTime start_time { get; set; }
 		public DateTime end_time { get; set; }
-		public string credentials_required { get; set; }
+		public List<CredentialType> credentials_required { get; set; }
 		public virtual List<Account> attendees { get; set; }
 	}
 	public class User
 	{
 		[Key]
 		public int id { get; set; }
-		public string school_id { get; set; }
+		public string school_id_number { get; set; }
 		public string last_name { get; set; }
 		public string first_name { get; set; }
 		public UserType group { get; set; }

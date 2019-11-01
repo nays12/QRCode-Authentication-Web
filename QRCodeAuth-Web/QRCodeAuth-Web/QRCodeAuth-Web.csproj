@@ -135,6 +135,7 @@
     <Compile Include="Models\Data\WebSystemData.cs" />
     <Compile Include="Models\Logic\Account.cs" />
     <Compile Include="Models\Logic\AccountType.cs" />
+    <Compile Include="Models\Logic\CredentialType.cs" />
     <Compile Include="Models\Logic\Event.cs" />
     <Compile Include="Models\Logic\EventType.cs" />
     <Compile Include="Models\Logic\User.cs" />

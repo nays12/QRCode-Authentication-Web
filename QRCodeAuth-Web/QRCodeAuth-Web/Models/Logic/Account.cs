@@ -6,7 +6,7 @@ namespace QRCodeAuth_Web.Models.Logic
 {
 	public class Account
 	{
-		public string ID { get; set; }
+		public string Id { get; set; }
 		public virtual User Owner { get; set; }
 		public string Type { get; set; }
 		public string DepartmentID { get; set; }
@@ -15,11 +15,11 @@ namespace QRCodeAuth_Web.Models.Logic
 		public bool IsCredentialAuthority { get; set; }
 		public bool IsAttendanceManager { get; set; }
 		public bool IsInformationCollector { get; set; }
-		public virtual List<Event> events { get; set; }
+		public virtual List<Event> EventsOwned { get; set; }
 
 		public Account(string iD, User owner, string type, string departmentID, string departmentName, bool isActive, bool isCredentialAuthority, bool isAttendanceManager, bool isInformationCollector, List<Event> events)
 		{
-			ID = iD;
+			Id = iD;
 			Owner = owner;
 			Type = type;
 			DepartmentID = departmentID;
@@ -28,7 +28,7 @@ namespace QRCodeAuth_Web.Models.Logic
 			IsCredentialAuthority = isCredentialAuthority;
 			IsAttendanceManager = isAttendanceManager;
 			IsInformationCollector = isInformationCollector;
-			this.events = events;
+			this.EventsOwned = events;
 		}
 		public override string ToString()
 		{

@@ -32,7 +32,7 @@ namespace QRCodeAuth_Web
                 //Response.Write("the selected is: " + info.Id + " ; " + info.First_name + " " + info.Last_name);
 
                 //update
-                User info = database.Users.FirstOrDefault(i => i.school_id == "1195191");
+                User info = database.Users.FirstOrDefault(i => i.school_id_number == "1195191");
                 info.first_name = "zhimin";
                 database.SaveChanges();
 
