@@ -15,35 +15,35 @@ namespace QRCodeAuth_Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            using (var database  = new WebSystemData()) {
-                // insert
-                //System_user info = new System_user
-                //{
-                //    Id = "7865293",
-                //    First_name = "MARRY",
-                //    Last_name = "KIM",
-                //    Group = "CS"
-                //};
-                //context.System_user.Add(info);
-                //context.SaveChanges();
+            using (var dbconn  = new WebSystemData()) {
+				// insert
+				//User info = new System_user
+				//{
+				//    school_id_number = "7865293",
+				//    first_name = "MARRY",
+				//    last_name = "KIM",
+				//    group = "CS"
+				//};
+				//dbconn.Users.Add(info);
+				//dbconn.SaveChanges();
 
-                //selected
-                //System_user info = context.System_user.FirstOrDefault(i => i.Id == "1195191");
-                //Response.Write("the selected is: " + info.Id + " ; " + info.First_name + " " + info.Last_name);
+				//selected
+				//Users info = context.System_user.FirstOrDefault(i => i.school_id_number == "1195191");
+				//Response.Write("the selected is: " + info.school_id_number + " ; " + info.first_name + " " + info.last_name);
 
-                //update
-                User info = database.Users.FirstOrDefault(i => i.school_id_number == "1195191");
+				//update
+				User info = dbconn.Users.FirstOrDefault(i => i.school_id_number == "1195191");
                 info.first_name = "zhimin";
-                database.SaveChanges();
+				dbconn.SaveChanges();
 
-                //remove
-                //System_user info = context.System_user.FirstOrDefault(i => i.Id == "1453678");
-                //context.System_user.Remove(info);
+				//remove
+				//Users info = dbconn.Users.FirstOrDefault(i => i.school_id_number == "1453678");
+				//dbconn.Users.Remove(info);
 
-                //context.SaveChanges();
+				//dbconn.SaveChanges();
 
 
-            }
-        }
+			}
+		}
     }
 }
