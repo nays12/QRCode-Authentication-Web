@@ -18,9 +18,9 @@ namespace QRCodeAuth_Web.Models
 		{
 
 		}
-		public User(string schoolID, string lastName, string firstName, UserType group, List<Account> accounts)
+		public User(string userid, string lastName, string firstName, UserType group, List<Account> accounts)
 		{
-			SchoolId = schoolID;
+			UserId = userid;
 			LastName = lastName;
 			FirstName = firstName;
 			Group = group;

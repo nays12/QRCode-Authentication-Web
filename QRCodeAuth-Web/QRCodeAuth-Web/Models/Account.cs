@@ -8,7 +8,7 @@ namespace QRCodeAuth_Web.Models
 	public class Account
 	{
 		[Key]
-		public int Id { get; set; }
+		public string AccountId { get; set; }
 		public virtual User Owner { get; set; }
 		public string Type { get; set; }
 		public string DepartmentID { get; set; }
@@ -23,8 +23,9 @@ namespace QRCodeAuth_Web.Models
 		{
 
 		}
-		public Account(User owner, string type, string departmentID, string departmentName, bool isActive, bool isCredentialAuthority, bool isAttendanceManager, bool isInformationCollector, List<Event> events)
+		public Account(string accountid, User owner, string type, string departmentID, string departmentName, bool isActive, bool isCredentialAuthority, bool isAttendanceManager, bool isInformationCollector, List<Event> events)
 		{
+			AccountId = accountid;
 			Owner = owner;
 			Type = type;
 			DepartmentID = departmentID;

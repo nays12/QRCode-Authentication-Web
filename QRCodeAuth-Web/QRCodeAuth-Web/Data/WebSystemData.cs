@@ -35,7 +35,7 @@ namespace QRCodeAuth_Web.Data
 
 			modelBuilder.Entity<Event>().HasKey(t => new { t.Name, t.StartTime });
 
-			modelBuilder.Entity<Account>().HasKey(t => new { t.Owner, t.Type });
+			modelBuilder.Entity<Account>().HasKey(t => new { t.AccountId, t.Type });
 
 		}
 
