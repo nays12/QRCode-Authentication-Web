@@ -25,8 +25,16 @@ namespace QRCodeAuth_Web.Controllers
             return db.Events;
         }
 
-        // GET: api/Events/5
-        [ResponseType(typeof(Event))]
+		// For testing the API on azure
+		[Route("api/Events/Test")]
+		[HttpGet]
+		public string GetTest()
+		{
+			return "hi there! Your API test worked!";
+		}
+
+		// GET: api/Events/5
+		[ResponseType(typeof(Event))]
         public IHttpActionResult GetEvent(string id)
         {
             Event @event = db.Events.Find(id);
