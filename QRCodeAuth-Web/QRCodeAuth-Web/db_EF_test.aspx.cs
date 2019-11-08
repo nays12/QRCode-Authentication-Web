@@ -86,6 +86,22 @@ namespace QRCodeAuth_Web
 			//	dbconn.Events.Add(e2);
 			//	dbconn.SaveChanges();
 			//}
+
+			//// How to add a new user object
+			//using (var dbconn = new WebSystemData())
+			//{
+
+			//	User u1 = new User
+			//	{
+			//		UserId = "0984302",
+			//		LastName = "Smith",
+			//		FirstName = "John",
+			//		Group = UserType.Student
+			//	};
+
+			//	dbconn.Users.Add(u1);
+			//	dbconn.SaveChanges();
+			//}
 		}
 	}
 }
