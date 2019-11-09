@@ -10,9 +10,7 @@ namespace QRCodeAuth_Web.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-			AutomaticMigrationDataLossAllowed = true;
-
-		}
+        }
 
         protected override void Seed(QRCodeAuth_Web.Data.WebSystemData context)
         {

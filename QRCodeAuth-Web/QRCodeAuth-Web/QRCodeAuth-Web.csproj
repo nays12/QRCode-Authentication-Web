@@ -146,8 +146,8 @@
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Data\Migrations\Configuration.cs" />
     <Compile Include="Data\WebSystemData.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\AccountType.cs" />
     <Compile Include="Models\CredentialType.cs" />
