@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+﻿/*
+ * Purpose: Generates and displays QR codes from Event data that is passed in
+ * 
+ * Algorithm: 
+ * Generate QRCode from test data
+ * Load QR into image control for display
+ */
+
+using System;
 using ZXing;
-using ZXing.Common;
-using ZXing.QrCode;
 
 namespace QRCodeAuth_Web
 {
@@ -27,13 +28,10 @@ namespace QRCodeAuth_Web
 			writer.Format = BarcodeFormat.QR_CODE;
 
 			// encode this text into the qr code and save it to the specified path 
-			writer.Write("This is a test")
-					.Save(path + @"Images\QRCodes\generatedQR.jpg");
-
+			writer.Write("This is a test").Save(path + @"Images\QRCodes\generatedQR.jpg");
 
 			// load genered qr image into QR image control
-			//QR.ImageUrl = Server.MapPath(@"~\Images\QRCodes\generatedQR.jpg");
-			//Image1.ImageUrl = path + @"Images\QRCodes\generatedQR.jpg";
+			Image1.ImageUrl = path + @"Images\QRCodes\generatedQR.jpg";
 		}
 	}
 }

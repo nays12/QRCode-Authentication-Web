@@ -1,11 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿/*
+ * Purpose: To configure the application to use all of the controllers in the Controllers folder
+ * 
+ * Methods: Register
+ */
+
 using System.Web.Http;
 
 namespace QRCodeAuth_Web
 {
-    public static class WebApiConfig
+	public static class WebApiConfig
     {
         public static void Register(HttpConfiguration config)
         {

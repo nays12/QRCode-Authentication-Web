@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Http;
-using System.Web.Routing;
+﻿using System.Web.Http;
 
 namespace QRCodeAuth_Web
 {
-    public class WebApiApplication : System.Web.HttpApplication
+	public class WebApiApplication : System.Web.HttpApplication
     {
         protected void Application_Start()
         {

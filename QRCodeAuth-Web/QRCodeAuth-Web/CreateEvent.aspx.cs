@@ -1,9 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+﻿/*
+ * Purpose: Enables an Web Account user to create an event in which they collect the 
+ * digital credentials of its attendees.
+ * 
+ * Algorithm: 
+ */
+
+using System;
 
 namespace QRCodeAuth_Web
 {

@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+﻿/*
+ * Purpose: Web User's home page which allows them to create an Event or request digital 
+ * credentials from Mobile users
+ */
+
+using System;
 
 namespace QRCodeAuth_Web
 {
