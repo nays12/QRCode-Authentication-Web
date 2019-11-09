@@ -1,4 +1,11 @@
-﻿using System.Data.Entity;
+﻿/*
+ * Purpose: To allow outside entities to send and retrive data from the Events table
+ * 
+ * Methods: GetEvents
+ * 
+ */
+
+using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
@@ -21,13 +28,13 @@ namespace QRCodeAuth_Web.Controllers
             return db.Events;
         }
 
-		// For testing the API on azure
-		[Route("api/Events/Test")]
-		[HttpGet]
-		public string GetTest()
-		{
-			return "hi there! Your API test worked!";
-		}
+		//// For testing the API on azure
+		//[Route("api/Events/Test")]
+		//[HttpGet]
+		//public string GetTest()
+		//{
+		//	return "hi there! Your API test worked!";
+		//}
 
 		// GET: api/Events/5
 		[ResponseType(typeof(Event))]
