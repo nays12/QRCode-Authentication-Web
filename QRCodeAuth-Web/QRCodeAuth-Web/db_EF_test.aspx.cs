@@ -1,14 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Text;
-using System.Threading.Tasks;
-using QRCodeAuth_Web.Data;
-using QRCodeAuth_Web.Models;
-
 
 namespace QRCodeAuth_Web
 {

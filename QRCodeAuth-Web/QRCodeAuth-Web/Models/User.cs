@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Web;
+﻿using System.Collections.Generic;
 
 namespace QRCodeAuth_Web.Models
 {
@@ -16,6 +14,7 @@ namespace QRCodeAuth_Web.Models
 		{
 
 		}
+
 		public User(string userid, string lastName, string firstName, UserType group, List<Account> accounts)
 		{
 			UserId = userid;
@@ -24,11 +23,10 @@ namespace QRCodeAuth_Web.Models
 			Group = group;
 			Accounts = accounts;
 		}
+
 		public override string ToString()
 		{
 			return base.ToString();
 		}
 	}
-
-
 }

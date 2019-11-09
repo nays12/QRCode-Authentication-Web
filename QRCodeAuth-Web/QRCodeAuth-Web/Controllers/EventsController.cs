@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using QRCodeAuth_Web.Data;
@@ -13,7 +9,7 @@ using QRCodeAuth_Web.Models;
 
 namespace QRCodeAuth_Web.Controllers
 {
-    public class EventsController : ApiController
+	public class EventsController : ApiController
     {
         private WebSystemData db = new WebSystemData();
 

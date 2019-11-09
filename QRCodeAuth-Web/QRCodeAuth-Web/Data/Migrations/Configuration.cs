@@ -1,25 +1,18 @@
 namespace QRCodeAuth_Web.Migrations
 {
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Migrations;
-    using System.Linq;
+	using System.Data.Entity.Migrations;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<QRCodeAuth_Web.Data.WebSystemData>
+	internal sealed class Configuration : DbMigrationsConfiguration<QRCodeAuth_Web.Data.WebSystemData>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
 			AutomaticMigrationDataLossAllowed = true;
-
 		}
 
         protected override void Seed(QRCodeAuth_Web.Data.WebSystemData context)
         {
-            //  This method will be called after migrating to the latest version.
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data.
         }
     }
 }

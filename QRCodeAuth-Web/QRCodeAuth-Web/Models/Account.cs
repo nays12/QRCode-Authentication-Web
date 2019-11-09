@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Web;
+﻿using System.Collections.Generic;
 
 namespace QRCodeAuth_Web.Models
 {
