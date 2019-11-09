@@ -1,9 +1,6 @@
 ﻿/*
  * Purpose: Web User's home page which allows them to create an Event or request digital 
  * credentials from Mobile users
- * 
- * Algorithm: 
- * 
  */
 
 using System;
