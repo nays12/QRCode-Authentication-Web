@@ -108,6 +108,7 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\EventsController.cs" />
+    <Compile Include="Controllers\OTPController.cs" />
     <Compile Include="CreateEvent.aspx.cs">
       <DependentUpon>CreateEvent.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -153,6 +154,7 @@
     <Compile Include="Models\CredentialType.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\EventType.cs" />
+    <Compile Include="Models\OTP.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
