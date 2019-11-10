@@ -22,13 +22,13 @@ namespace QRCodeAuth_Web
             Random randrom = new Random((int)DateTime.Now.Ticks);
 
             string str = "";
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i <=5; i++)
             {
                 str += chars[randrom.Next(chars.Length)];
             }
 
             //test random number
-            //Response.Write(str);
+            Response.Write(str);
             //Console.Read();
         }
     }
