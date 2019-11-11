@@ -18,7 +18,8 @@ namespace QRCodeAuth_Web.Controllers
         [HttpGet]
         public string Value()
         {
-            return OTP.generateOTP();
+            //return OTP.generateOTP();
+            return "123456";
         }
     }
 }
