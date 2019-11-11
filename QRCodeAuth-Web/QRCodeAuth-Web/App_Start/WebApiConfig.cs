@@ -14,6 +14,13 @@ namespace QRCodeAuth_Web
         {
             config.MapHttpAttributeRoutes();
 
+            // OTP
+            config.Routes.MapHttpRoute(
+                name: "OTP",
+                routeTemplate: "api/OTP/{id}",
+                defaults: new { controller = "OTP", id = RouteParameter.Optional }
+            );
+
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
