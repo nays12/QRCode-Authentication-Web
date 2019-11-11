@@ -13,7 +13,7 @@ namespace QRCodeAuth_Web.Controllers
     {
         private WebSystemData db = new WebSystemData();
 
-        // GET: api/OTP
+        // GET: api/Otp
         [Route("api/Otp")]
         [HttpGet]
         public string Value()

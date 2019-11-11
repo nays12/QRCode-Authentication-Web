@@ -5,10 +5,12 @@ using System.Web;
 
 namespace QRCodeAuth_Web.Models
 {
-    public class OTP
+    public class Otp
     {
+        public string otpCode { get; set; }
 
-        public OTP()
+
+        public Otp()
         {
 
         }

@@ -31,10 +31,11 @@ namespace QRCodeAuth_Web.Controllers
 		// For testing the API on azure
 		[Route("api/Events/Test")]
 		[HttpGet]
-		public int GetTest()
+		public string GetTest()
 		{
-			return 123456;
-		}
+            //return 123456;
+            return Otp.generateOTP();
+        }
 
 		// GET: api/Events/5
 		[ResponseType(typeof(Event))]
