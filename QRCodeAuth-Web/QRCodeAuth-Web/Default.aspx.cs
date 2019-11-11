@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace QRCodeAuth_Web
 {
@@ -18,8 +19,9 @@ namespace QRCodeAuth_Web
 		protected static int generatedCode; // stores the generated code from the API call
         protected void Page_Load(object sender, EventArgs e)
         {
+            
 
-		}
+        }
 		public static int getGenCode()
 		{
 			int code = generateCode();
@@ -58,19 +60,27 @@ namespace QRCodeAuth_Web
 
 		protected void btnLogin_Click(object sender, EventArgs e)
 		{
+            Regex regex = new Regex(@"\d{6}");
+            Match match = regex.Match(txtCode.Text);
+            if (!match.Success)
+            {
+                lblValidCode.Text = "* Error - Invalid Code. Please try again.";
+            }
+            else
+            {
+                int userCode = Convert.ToInt32(txtCode.Text); // get user's code form text input
+                bool isCodeValid = validateCode(generatedCode, userCode); // check validity
+                lblValidCode.Text = isCodeValid.ToString();
 
-			int userCode = Convert.ToInt32(txtCode.Text); // get user's code form text input
-			bool isCodeValid = validateCode(generatedCode, userCode); // check validity
-			lblValidCode.Text = isCodeValid.ToString();
-
-			if (isCodeValid)
-			{
-				Response.Redirect("Home.aspx");
-			}
-			else
-			{
-				lblValidCode.Text = "The code you entered is incorrect. Please Try Again";
-			}
+                if (isCodeValid)
+                {
+                    Response.Redirect("Home.aspx");
+                }
+                else
+                {
+                    lblValidCode.Text = "* The code you entered is incorrect. Please Try Again";
+                }
+            }
 		}
 
 		public string generateOTP()

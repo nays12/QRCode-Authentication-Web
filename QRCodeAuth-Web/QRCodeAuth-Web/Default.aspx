@@ -26,8 +26,7 @@
                 
                 <asp:TextBox ID="txtCode" Class="txb" runat="server"></asp:TextBox>
                 
-                <br />
-            	<asp:Label ID="lblValidCode" runat="server" ForeColor="Red"></asp:Label>
+            	<asp:Label ID="lblValidCode" Class="lblError" runat="server"></asp:Label>
             </div>
 
         </div>
