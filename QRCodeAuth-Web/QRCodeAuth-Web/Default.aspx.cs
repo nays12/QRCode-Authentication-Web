@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Web.UI;
 
 namespace QRCodeAuth_Web
 {
@@ -19,7 +20,7 @@ namespace QRCodeAuth_Web
 		protected static int generatedCode; // stores the generated code from the API call
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            ValidationSettings.UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
 
         }
 		public static int getGenCode()
@@ -60,13 +61,7 @@ namespace QRCodeAuth_Web
 
 		protected void btnLogin_Click(object sender, EventArgs e)
 		{
-            Regex regex = new Regex(@"\d{6}");
-            Match match = regex.Match(txtCode.Text);
-            if (!match.Success)
-            {
-                lblValidCode.Text = "* Error - Invalid Code. Please try again.";
-            }
-            else
+            if(Page.IsValid)
             {
                 int userCode = Convert.ToInt32(txtCode.Text); // get user's code form text input
                 bool isCodeValid = validateCode(generatedCode, userCode); // check validity
@@ -81,6 +76,7 @@ namespace QRCodeAuth_Web
                     lblValidCode.Text = "* The code you entered is incorrect. Please Try Again";
                 }
             }
+ 
 		}
 
 		public string generateOTP()
