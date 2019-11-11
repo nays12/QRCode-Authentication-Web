@@ -20,13 +20,14 @@
         </div>
 
         <div class="divPageBody divSection">
-            <asp:Button ID="Button1" Class="button btn btn-success" runat="server" Text="Log In to Web" />
+            <asp:Button ID="btnLogin" Class="button btn btn-success" runat="server" Text="Login" OnClick="btnLogin_Click"/>
             <div class="divSection">
                 <asp:Label ID="Label2" Class="lblSubTitles" runat="server" Text="6-digit code"></asp:Label>
                 
-                <asp:TextBox ID="TextBox1" Class="txb" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtCode" Class="txb" runat="server"></asp:TextBox>
                 
                 <br />
+            	<asp:Label ID="lblValidCode" runat="server" ForeColor="Red"></asp:Label>
             </div>
 
         </div>

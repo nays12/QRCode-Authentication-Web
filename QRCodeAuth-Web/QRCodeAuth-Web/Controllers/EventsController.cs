@@ -36,6 +36,14 @@ namespace QRCodeAuth_Web.Controllers
 			return 123456;
 		}
 
+		// For testing random number
+		[Route("api/Events/RandCode")]
+		[HttpGet]
+		public int GetRandCode()
+		{
+			return Default.getGenCode();
+		}
+
 		// GET: api/Events/5
 		[ResponseType(typeof(Event))]
         public IHttpActionResult GetEvent(string id)
