@@ -9,12 +9,12 @@ using QRCodeAuth_Web.Models;
 
 namespace QRCodeAuth_Web.Controllers
 {
-    public class OTPController : ApiController
+    public class OtpController : ApiController
     {
         private WebSystemData db = new WebSystemData();
 
         // GET: api/OTP
-        [Route("api/OTP")]
+        [Route("api/Otp")]
         [HttpGet]
         public string Value()
         {
