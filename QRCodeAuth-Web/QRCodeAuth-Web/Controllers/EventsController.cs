@@ -28,13 +28,13 @@ namespace QRCodeAuth_Web.Controllers
             return db.Events;
         }
 
-		//// For testing the API on azure
-		//[Route("api/Events/Test")]
-		//[HttpGet]
-		//public string GetTest()
-		//{
-		//	return "hi there! Your API test worked!";
-		//}
+		// For testing the API on azure
+		[Route("api/Events/Test")]
+		[HttpGet]
+		public int GetTest()
+		{
+			return 123456;
+		}
 
 		// GET: api/Events/5
 		[ResponseType(typeof(Event))]
