@@ -21,5 +21,12 @@ namespace QRCodeAuth_Web.Controllers
             //return OTP.generateOTP();
             return "123456";
         }
-    }
+
+		[Route("api/OPT/RandCode")]
+		[HttpGet]
+		public int GetRandCode()
+		{
+			return Default.getGenCode();
+		}
+	}
 }

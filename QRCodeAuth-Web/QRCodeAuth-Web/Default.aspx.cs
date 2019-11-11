@@ -15,12 +15,11 @@ namespace QRCodeAuth_Web
 {
     public partial class Default : System.Web.UI.Page
     {
-		protected static int generatedCode;
+		protected static int generatedCode; // stores the generated code from the API call
         protected void Page_Load(object sender, EventArgs e)
         {
 
 		}
-
 		public static int getGenCode()
 		{
 			int code = generateCode();
@@ -43,6 +42,7 @@ namespace QRCodeAuth_Web
 
 			return code;
 		}
+
 		// Check to see if generated number matched entered number
 		public bool validateCode(int code1, int code2)
 		{
