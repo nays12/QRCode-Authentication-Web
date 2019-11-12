@@ -25,7 +25,7 @@
                 <asp:Label ID="Label2" Class="lblSubTitles" runat="server" Text="6-digit code"></asp:Label>
                 
                 <asp:TextBox ID="txtCode" Class="txb" runat="server"></asp:TextBox>
-                <asp:RegularExpressionValidator Class="lblError" runat="server" id="revCodeValidator" validationexpression="^[0-9]{6}$" ErrorMessage="*Error - Invalid Input. Please try again." ControlToValidate="txtCode" />
+                <asp:RegularExpressionValidator Class="lblError" runat="server" id="revCodeValidator" validationexpression="^[0-9]{6}$" ErrorMessage="Invalid Format: Please enter a 6-digit number." ControlToValidate="txtCode" />
             	<asp:Label ID="lblValidCode" Class="lblError" runat="server"></asp:Label>
             </div>
 

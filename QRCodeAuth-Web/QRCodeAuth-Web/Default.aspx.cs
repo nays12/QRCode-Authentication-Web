@@ -21,7 +21,6 @@ namespace QRCodeAuth_Web
         protected void Page_Load(object sender, EventArgs e)
         {
             ValidationSettings.UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
-
         }
 		public static int getGenCode()
 		{
@@ -34,14 +33,12 @@ namespace QRCodeAuth_Web
 		// Generate random 6 digit number;
 		public static int generateCode()
 		{
+			// specifying the range for the generated number
 			int min = 100000;
 			int max = 999999;
 
 			Random ran = new Random();
 			int code = ran.Next(min, max);
-
-			// see generated code
-			
 
 			return code;
 		}
@@ -64,8 +61,7 @@ namespace QRCodeAuth_Web
             if(Page.IsValid)
             {
                 int userCode = Convert.ToInt32(txtCode.Text); // get user's code form text input
-                bool isCodeValid = validateCode(generatedCode, userCode); // check validity
-                lblValidCode.Text = isCodeValid.ToString();
+                bool isCodeValid = validateCode(generatedCode, userCode); // check equality
 
                 if (isCodeValid)
                 {
@@ -76,7 +72,6 @@ namespace QRCodeAuth_Web
                     lblValidCode.Text = "* The code you entered is incorrect. Please Try Again";
                 }
             }
- 
 		}
 
 		public string generateOTP()
