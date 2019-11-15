@@ -86,3 +86,10 @@ h1{
     margin-bottom: 0px;
     border: none;
 }
+
+.lblError {
+    display: block;
+    text-align: left;
+    font-size: xx-small;
+    color: darkred;
+}
