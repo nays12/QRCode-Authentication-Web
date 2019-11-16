@@ -32,7 +32,6 @@ namespace QRCodeAuth_Web.Models
 			AccountOwner = accountOwner;
 			CredentialsOwned = credentialsOwned;
 			EventsOwned = eventsOwned;
-			
 		}
 
 		public override string ToString()

@@ -2,6 +2,7 @@
 {
 	public enum CredentialType
 	{
+		Name,
 		Email,
 		IdNumber,
 		Birthdate,

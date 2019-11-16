@@ -7,7 +7,7 @@ namespace QRCodeAuth_Web.Models
 		public string UserId { get; set; }
 		public string LastName { get; set; }
 		public string FirstName { get; set; }
-		public UserType Group { get; set; }
+		public UserType UserType { get; set; }
 		public List<Account> Accounts { get; set; }
 
 		public User()
@@ -15,12 +15,12 @@ namespace QRCodeAuth_Web.Models
 
 		}
 
-		public User(string userid, string lastName, string firstName, UserType group, List<Account> accounts)
+		public User(string userid, string lastName, string firstName, UserType userType, List<Account> accounts)
 		{
 			UserId = userid;
 			LastName = lastName;
 			FirstName = firstName;
-			Group = group;
+			UserType = userType;
 			Accounts = accounts;
 		}
 

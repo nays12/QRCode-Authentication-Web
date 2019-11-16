@@ -18,7 +18,7 @@ namespace QRCodeAuth_Web
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			
+		
 		}
 
 		protected void UsersCRUD()
@@ -31,7 +31,7 @@ namespace QRCodeAuth_Web
 					UserId = "4093722",
 					FirstName = "Shirley",
 					LastName = "Schultz",
-					Group = UserType.Staff
+					UserType = UserType.Staff
 				};
 
 				User u2 = new User
@@ -39,7 +39,7 @@ namespace QRCodeAuth_Web
 					UserId = "8220423",
 					FirstName = "Reina",
 					LastName = "Reyes",
-					Group = UserType.Staff
+					UserType = UserType.Staff
 				};
 
 				dbconn.Users.Add(info);
@@ -69,42 +69,81 @@ namespace QRCodeAuth_Web
 			using (var dbconn = new WebSystemData())
 			{
 				// create list of credentials
-				List<CredentialType> credentials = new List<CredentialType>();
-				credentials.Add(CredentialType.Email);
-				credentials.Add(CredentialType.Major);
+				List<CredentialType> credentials1 = new List<CredentialType>();
+				credentials1.Add(CredentialType.Name);
+
+				List<CredentialType> credentials2 = new List<CredentialType>();
+				credentials2.Add(CredentialType.Name);
+				credentials2.Add(CredentialType.IdNumber);
+
+				List<CredentialType> credentials3 = new List<CredentialType>();
+				credentials3.Add(CredentialType.Name);
+				credentials3.Add(CredentialType.IdNumber);
+
+				// get Accounts to be Event owner
+				Account eventOwner1 = new Account();
+				eventOwner1 = dbconn.Accounts.Find("8764710", AccountType.Web);
+
+				// get Accounts to be Event owner
+				Account eventOwner2 = new Account();
+				eventOwner2 = dbconn.Accounts.Find("4582055", AccountType.Web);
+
+				// get Accounts to be Event owner
+				Account eventOwner3 = new Account();
+				eventOwner3 = dbconn.Accounts.Find("0646825", AccountType.Web);
 
 				// create list of attendees
-				List<Account> eventAttendees = new List<Account>();
+				List<Account> eventAttendees1 = new List<Account>();
+				eventAttendees1.Add(dbconn.Accounts.Find("1304693", AccountType.Mobile));
+				eventAttendees1.Add(dbconn.Accounts.Find("2496678", AccountType.Mobile));
+				eventAttendees1.Add(dbconn.Accounts.Find("6247868", AccountType.Mobile));
+
+				List<Account> eventAttendees2 = new List<Account>();
+				List<Account> eventAttendees3 = new List<Account>();
 
 				// Create event object
 				Event e1 = new Event
 				{
 					Name = "Delta Waffle Day",
 					Location = "Delta Building Lobby",
-					Type = EventType.Campus,
+					EventType = EventType.Campus,
 					Description = "Free Waffles at the Delta building!",
 					StartTime = Convert.ToDateTime("10/30/2019 02:30pm"),
 					EndTime = Convert.ToDateTime("10/30/2019 06:30pm"),
-					Owner = null,
-					CredentialsRequired = credentials,
-					Attendees = eventAttendees
+					EventOwner = eventOwner1,
+					CredentialsRequired = credentials1,
+					Attendees = eventAttendees1
 				};
 
 				Event e2 = new Event
 				{
-					Name = "Trick or Treat at the Rec",
-					Location = "Recreation and Wellness Center",
-					Type = EventType.Campus,
-					Description = "reat yourself to spooky treats, fun activities and more at UHCL's first Trick or Treat at The Rec!",
-					StartTime = Convert.ToDateTime("10/31/2019 04:00pm"),
-					EndTime = Convert.ToDateTime("10/31/2019 09:00pm"),
-					Owner = null,
-					CredentialsRequired = credentials,
-					Attendees = eventAttendees
+					Name = "Study PAWS",
+					Location = "Neumann Library Main Floor",
+					EventType = EventType.Campus,
+					Description = "Pet Away Worry and Stress (PAWS) during your studies for mid-terms at this Neumann Library fall event.",
+					StartTime = Convert.ToDateTime("11/20/2019 03:00pm"),
+					EndTime = Convert.ToDateTime("11/20/2019 04:30pm"),
+					EventOwner = eventOwner2,
+					CredentialsRequired = credentials2,
+					Attendees = eventAttendees2
+				};
+
+				Event e3 = new Event
+				{
+					Name = "Senior Projects Seminar Lecture",
+					Location = "Delta 242",
+					EventType = EventType.Lecture,
+					Description = "Your Test Plans are due along with your presentations, Thank you.",
+					StartTime = Convert.ToDateTime("11/20/2019 07:00pm"),
+					EndTime = Convert.ToDateTime("11/20/2019 09:50pm"),
+					EventOwner = eventOwner3,
+					CredentialsRequired = credentials3,
+					Attendees = eventAttendees3
 				};
 
 				dbconn.Events.Add(e1);
 				dbconn.Events.Add(e2);
+				dbconn.Events.Add(e3);
 				dbconn.SaveChanges();
 			}
 		}

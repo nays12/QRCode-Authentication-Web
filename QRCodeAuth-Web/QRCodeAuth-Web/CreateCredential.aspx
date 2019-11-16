@@ -25,6 +25,7 @@
 				<asp:Label ID="Label2" runat="server" Class="lbl" Text="Credential Type"></asp:Label>
 
 				<asp:DropDownList ID="ddlCredentialType" runat="server" Class="txb">
+					<asp:ListItem>Name</asp:ListItem>
 					<asp:ListItem>Email</asp:ListItem>
 					<asp:ListItem>IdNumber</asp:ListItem>
 					<asp:ListItem>Birthdate</asp:ListItem>
