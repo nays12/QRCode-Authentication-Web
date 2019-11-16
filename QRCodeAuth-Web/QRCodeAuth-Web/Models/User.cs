@@ -8,7 +8,7 @@ namespace QRCodeAuth_Web.Models
 		public string LastName { get; set; }
 		public string FirstName { get; set; }
 		public UserType UserType { get; set; }
-		public List<Account> Accounts { get; set; }
+		public virtual List<Account> Accounts { get; set; }
 
 		public User()
 		{
