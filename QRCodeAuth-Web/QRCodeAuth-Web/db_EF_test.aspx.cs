@@ -115,27 +115,59 @@ namespace QRCodeAuth_Web
 			{
 				// create list of events
 				List<Event> eventsOwned = new List<Event>();
+				List<Credential> credentialsOwned = new List<Credential>();
 
 				// get Users to be account owner
 				User accountOwner1 = new User();
-				accountOwner1 = dbconn.Users.Find("8764710");
+				accountOwner1 = dbconn.Users.Find("1304693");
 
 				Account acc1 = new Account
 				{
-					AccountType = AccountType.Web,
-					DepartmentName = "Student Government Association",
+					AccountType = AccountType.Mobile,
+					Department = "College of Science and Engineering",
 					IsActive = true,
 					IsCredentialAuthority = false,
-					IsAttendanceManager = true,
+					IsAttendanceManager = false,
 					IsInformationCollector = false,
 					Owner = accountOwner1,
-					EventsOwned = eventsOwned
+					EventsOwned = eventsOwned,
+					CredentialsOwned = credentialsOwned
 				};
 
 				dbconn.Accounts.Add(acc1);
 				dbconn.SaveChanges();
 			}
 		}
-		
+
+		protected void CredentialsCRUD()
+		{
+			using (var dbconn = new WebSystemData())
+			{
+
+				// get Users to be credential owner or issuer
+				Account credentialIssuer = new Account();
+				credentialIssuer = dbconn.Accounts.Find(3);
+
+				Account credentialOwner = new Account();
+				credentialOwner = dbconn.Accounts.Find(5);
+
+				Credential cred = new Credential
+				{
+					Name = "Naomi's Gmail",
+					CredentialType = CredentialType.Email,
+					Issuer = credentialIssuer,
+					Owner = credentialOwner,
+					IssueDate = Convert.ToDateTime("01/15/2016"),
+					ExpirationDate = Convert.ToDateTime("12/21/2019"),
+					Value = "naomiwiggins08@gmail.com",
+					IsValid = true
+				};
+
+				dbconn.Credentials.Add(cred);
+				dbconn.SaveChanges();
+			}
+		}
+
+
 	}
 }

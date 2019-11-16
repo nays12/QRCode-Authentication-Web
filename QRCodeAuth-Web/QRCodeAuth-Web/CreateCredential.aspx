@@ -24,7 +24,7 @@
 					<div class="divSection">
 				<asp:Label ID="Label2" runat="server" Class="lbl" Text="Credential Type"></asp:Label>
 
-				<asp:DropDownList ID="ddlType" runat="server" Class="txb">
+				<asp:DropDownList ID="ddlCredentialType" runat="server" Class="txb">
 					<asp:ListItem>Email</asp:ListItem>
 					<asp:ListItem>IdNumber</asp:ListItem>
 					<asp:ListItem>Birthdate</asp:ListItem>
@@ -35,7 +35,7 @@
 				</asp:DropDownList>
 
 				<asp:Label ID="txtName" runat="server" Class="lbl" Text="Name"></asp:Label>
-				<asp:TextBox ID="TextBox3" runat="server" Class="txb"></asp:TextBox>
+				<asp:TextBox ID="txtCredentialName" runat="server" Class="txb"></asp:TextBox>
 
 				<asp:Label ID="Label6" runat="server" Class="lbl" Text="Value"></asp:Label>
 				<asp:TextBox ID="txtValue" runat="server" Class="txb"></asp:TextBox>
@@ -47,7 +47,7 @@
 				<asp:TextBox ID="txtIssueTo" runat="server" Class="txb"></asp:TextBox>
 
 			</div>
-			<asp:Button ID="btnCreate" runat="server" Class="button btn btn-success" Text="Create Credential" />
+			<asp:Button ID="btnCreate" runat="server" Class="button btn btn-success" Text="Create Credential" OnClick="btnCreate_Click" />
 		</div>
     </form>
 </body>

@@ -42,13 +42,13 @@ namespace QRCodeAuth_Web
 		protected global::System.Web.UI.WebControls.Label Label2;
 
 		/// <summary>
-		/// ddlType control.
+		/// ddlCredentialType control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.DropDownList ddlType;
+		protected global::System.Web.UI.WebControls.DropDownList ddlCredentialType;
 
 		/// <summary>
 		/// txtName control.
@@ -60,13 +60,13 @@ namespace QRCodeAuth_Web
 		protected global::System.Web.UI.WebControls.Label txtName;
 
 		/// <summary>
-		/// TextBox3 control.
+		/// txtCredentialName control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox TextBox3;
+		protected global::System.Web.UI.WebControls.TextBox txtCredentialName;
 
 		/// <summary>
 		/// Label6 control.
