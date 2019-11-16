@@ -33,7 +33,7 @@ namespace QRCodeAuth_Web.Data
 
 			modelBuilder.Entity<Event>().HasKey(t => t.Id).Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
-			modelBuilder.Entity<Account>().HasKey(t => t.Id).Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+			modelBuilder.Entity<Account>().HasKey(t => new { t.AccountId, t.AccountType });
 
 			modelBuilder.Entity<Credential>().HasKey(t => t.Id).Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 		}

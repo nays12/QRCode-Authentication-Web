@@ -121,20 +121,20 @@ namespace QRCodeAuth_Web
 				User accountOwner1 = new User();
 				accountOwner1 = dbconn.Users.Find("1304693");
 
-				Account acc1 = new Account
-				{
-					AccountType = AccountType.Mobile,
-					Department = "College of Science and Engineering",
-					IsActive = true,
-					IsCredentialAuthority = false,
-					IsAttendanceManager = false,
-					IsInformationCollector = false,
-					Owner = accountOwner1,
-					EventsOwned = eventsOwned,
-					CredentialsOwned = credentialsOwned
-				};
+				//Account acc1 = new Account
+				//{
+				//	AccountType = AccountType.Mobile,
+				//	Department = "College of Science and Engineering",
+				//	IsActive = true,
+				//	IsCredentialAuthority = false,
+				//	IsAttendanceManager = false,
+				//	IsInformationCollector = false,
+				//	Owner = accountOwner1,
+				//	EventsOwned = eventsOwned,
+				//	CredentialsOwned = credentialsOwned
+				//};
 
-				dbconn.Accounts.Add(acc1);
+				//dbconn.Accounts.Add(acc1);
 				dbconn.SaveChanges();
 			}
 		}

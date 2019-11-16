@@ -5,32 +5,31 @@ namespace QRCodeAuth_Web.Models
 {
 	public class Account
 	{
-		public int Id { get; set; }
+		public string AccountId { get; set; }
 		public AccountType AccountType { get; set; }
 		public string Department { get; set; }
 		public bool IsActive { get; set; }
 		public bool IsCredentialAuthority { get; set; }
 		public bool IsAttendanceManager { get; set; }
 		public bool IsInformationCollector { get; set; }
-		public User Owner { get; set; }
+		public User AccountOwner { get; set; }
 		public List<Credential> CredentialsOwned { get; set; }
 		public List<Event> EventsOwned { get; set; }
 		
 		public Account()
 		{
-
 		}
 
-		public Account(int id, AccountType type, string department, bool isActive, bool isCredentialAuthority, bool isAttendanceManager, bool isInformationCollector, User owner, List<Credential> credentialsOwned, List<Event> eventsOwned)
+		public Account(string accountId, AccountType accountType, string department, bool isActive, bool isCredentialAuthority, bool isAttendanceManager, bool isInformationCollector, User accountOwner, List<Credential> credentialsOwned, List<Event> eventsOwned)
 		{
-			Id = id;
-			AccountType = type;
+			AccountId = accountId;
+			AccountType = accountType;
 			Department = department;
 			IsActive = isActive;
 			IsCredentialAuthority = isCredentialAuthority;
 			IsAttendanceManager = isAttendanceManager;
 			IsInformationCollector = isInformationCollector;
-			Owner = owner;
+			AccountOwner = accountOwner;
 			CredentialsOwned = credentialsOwned;
 			EventsOwned = eventsOwned;
 			
