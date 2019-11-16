@@ -10,6 +10,7 @@
 namespace QRCodeAuth_Web.Data
 {
 	using QRCodeAuth_Web.Models;
+	using System.ComponentModel.DataAnnotations.Schema;
 	using System.Data.Entity;
 
 	public class WebSystemData : DbContext
@@ -29,9 +30,9 @@ namespace QRCodeAuth_Web.Data
 			// Manually mapping Primary Keys for Entity Framework
 			modelBuilder.Entity<User>().HasKey(t => t.UserId);
 
-			modelBuilder.Entity<Event>().HasKey(t => new { t.Name, t.StartTime });
+			modelBuilder.Entity<Event>().HasKey(t => t.Id).Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
-			modelBuilder.Entity<Account>().HasKey(t => new { t.AccountId, t.Type });
+			modelBuilder.Entity<Account>().HasKey(t => t.Id).Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 		}
 	}
 }

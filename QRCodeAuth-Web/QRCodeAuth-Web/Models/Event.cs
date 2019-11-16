@@ -5,6 +5,7 @@ namespace QRCodeAuth_Web.Models
 {
 	public class Event
 	{
+		public int Id { get; set; }
 		public string Name { get; set; }
 		public string Location { get; set; }
 		public EventType Type { get; set; }
@@ -20,8 +21,9 @@ namespace QRCodeAuth_Web.Models
 
 		}
 
-		public Event(string name, string location, EventType type, string description, DateTime startTime, DateTime endTime, Account owner, List<CredentialType> credentialsRequired, List<Account> attendees)
+		public Event(int id, string name, string location, EventType type, string description, DateTime startTime, DateTime endTime, Account owner, List<CredentialType> credentialsRequired, List<Account> attendees)
 		{
+			Id = id;
 			Name = name;
 			Location = location;
 			Type = type;
