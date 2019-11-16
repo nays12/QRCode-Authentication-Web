@@ -13,38 +13,42 @@ namespace QRCodeAuth_Web
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
-
+			
 		}
 
 		protected void btnCreate_Click(object sender, EventArgs e)
 		{
-
+			CreateNewCredential();
 		}
 
 		protected void CreateNewCredential()
 		{
-			var type = ddlCredentialType.SelectedItem;
+			var selection = ddlCredentialType.SelectedIndex;
+			CredentialType type = (CredentialType)selection;
 
 
 			using (var dbconn = new WebSystemData())
 			{
 				Account credentialIssuer = new Account();
-				credentialIssuer = dbconn.Accounts.Find(3);
+				credentialIssuer = dbconn.Accounts.Find("8220423", AccountType.Web);
 
 				Account credentialOwner = new Account();
-				credentialOwner = dbconn.Accounts.Find(5);
+				credentialOwner = dbconn.Accounts.Find(txtIssueTo.Text, AccountType.Mobile);
 
 				Credential cred = new Credential
 				{
-					Name = txtCredentialName.ToString(),
-					CredentialType = CredentialType.Email,
+					Name = txtCredentialName.Text,
+					CredentialType = type,
 					Issuer = credentialIssuer,
 					Owner = credentialOwner,
-					IssueDate = Convert.ToDateTime("01/15/2016"),
-					ExpirationDate = Convert.ToDateTime("12/21/2019"),
-					Value = "naomiwiggins08@gmail.com",
+					IssueDate = DateTime.UtcNow,
+					ExpirationDate = Convert.ToDateTime(txtExpDate.Text),
+					Value = txtValue.Text,
 					IsValid = true
 				};
+
+				dbconn.Credentials.Add(cred);
+				dbconn.SaveChanges();
 			}
 		}
 	}
