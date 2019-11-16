@@ -94,6 +94,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CreateCredential.aspx" />
     <Content Include="CreateEvent.aspx" />
     <Content Include="db_EF_test.aspx" />
     <Content Include="Default.aspx" />
@@ -109,6 +110,13 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\OtpController.cs" />
+    <Compile Include="CreateCredential.aspx.cs">
+      <DependentUpon>CreateCredential.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateCredential.aspx.designer.cs">
+      <DependentUpon>CreateCredential.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CreateEvent.aspx.cs">
       <DependentUpon>CreateEvent.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -151,6 +159,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\AccountType.cs" />
+    <Compile Include="Models\Credential.cs" />
     <Compile Include="Models\CredentialType.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\EventType.cs" />

@@ -3,9 +3,10 @@
 	public enum CredentialType
 	{
 		Email,
+		IdNumber,
 		Birthdate,
 		Address,
-		PhoneNumber,
+		Phone_Number,
 		Major,
 		Classification
 	}

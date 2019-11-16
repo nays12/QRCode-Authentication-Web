@@ -11,7 +11,7 @@ namespace QRCodeAuth_Web
 {
 
 
-	public partial class CreateEvent
+	public partial class CreateCredential
 	{
 
 		/// <summary>
@@ -42,22 +42,13 @@ namespace QRCodeAuth_Web
 		protected global::System.Web.UI.WebControls.Label Label2;
 
 		/// <summary>
-		/// ddlEventType control.
+		/// ddlType control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.DropDownList ddlEventType;
-
-		/// <summary>
-		/// Label5 control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.Label Label5;
+		protected global::System.Web.UI.WebControls.DropDownList ddlType;
 
 		/// <summary>
 		/// txtName control.
@@ -66,7 +57,34 @@ namespace QRCodeAuth_Web
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox txtName;
+		protected global::System.Web.UI.WebControls.Label txtName;
+
+		/// <summary>
+		/// TextBox3 control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.TextBox TextBox3;
+
+		/// <summary>
+		/// Label6 control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Label Label6;
+
+		/// <summary>
+		/// txtValue control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.TextBox txtValue;
 
 		/// <summary>
 		/// Label7 control.
@@ -78,13 +96,13 @@ namespace QRCodeAuth_Web
 		protected global::System.Web.UI.WebControls.Label Label7;
 
 		/// <summary>
-		/// txtLocation control.
+		/// txtExpDate control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox txtLocation;
+		protected global::System.Web.UI.WebControls.TextBox txtExpDate;
 
 		/// <summary>
 		/// Label8 control.
@@ -96,67 +114,13 @@ namespace QRCodeAuth_Web
 		protected global::System.Web.UI.WebControls.Label Label8;
 
 		/// <summary>
-		/// txtDate control.
+		/// txtIssueTo control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox txtDate;
-
-		/// <summary>
-		/// Label9 control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.Label Label9;
-
-		/// <summary>
-		/// txtStartTime control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox txtStartTime;
-
-		/// <summary>
-		/// Label10 control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.Label Label10;
-
-		/// <summary>
-		/// txtEndTime control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox txtEndTime;
-
-		/// <summary>
-		/// Label3 control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.Label Label3;
-
-		/// <summary>
-		/// cblCredentialsNeeded control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.CheckBoxList cblCredentialsNeeded;
+		protected global::System.Web.UI.WebControls.TextBox txtIssueTo;
 
 		/// <summary>
 		/// btnCreate control.

@@ -24,6 +24,7 @@ namespace QRCodeAuth_Web.Data
 		public DbSet<User> Users { get; set; }
 		public DbSet<Account> Accounts { get; set; }
 		public DbSet<Event> Events { get; set; }
+		public DbSet<Credential> Credentials { get; set; }
 
 		protected override void OnModelCreating(DbModelBuilder modelBuilder)
 		{
@@ -33,6 +34,8 @@ namespace QRCodeAuth_Web.Data
 			modelBuilder.Entity<Event>().HasKey(t => t.Id).Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
 			modelBuilder.Entity<Account>().HasKey(t => t.Id).Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+
+			modelBuilder.Entity<Credential>().HasKey(t => t.Id).Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 		}
 	}
 }
