@@ -13,8 +13,8 @@ namespace QRCodeAuth_Web
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			
-		}
+            ValidationSettings.UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
+        }
 
 		protected void btnCreate_Click(object sender, EventArgs e)
 		{

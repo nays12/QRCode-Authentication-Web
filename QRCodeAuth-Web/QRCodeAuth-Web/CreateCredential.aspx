@@ -34,18 +34,29 @@
 					<asp:ListItem>Major</asp:ListItem>
 					<asp:ListItem>Classification</asp:ListItem>
 				</asp:DropDownList>
+			    <asp:RequiredFieldValidator ID="rfvCredentialType" runat="server" Class="lblError" ErrorMessage="* Please select a credentail Type. " ControlToValidate="ddlCredentialType"></asp:RequiredFieldValidator>
 
 				<asp:Label ID="txtName" runat="server" Class="lbl" Text="Name"></asp:Label>
 				<asp:TextBox ID="txtCredentialName" runat="server" Class="txb"></asp:TextBox>
 
+			    <asp:RequiredFieldValidator ID="rfvName" runat="server" Class="lblError" ErrorMessage="* Field Required - Please enter a value." ControlToValidate="txtCredentialName"></asp:RequiredFieldValidator>
+
 				<asp:Label ID="Label6" runat="server" Class="lbl" Text="Value"></asp:Label>
 				<asp:TextBox ID="txtValue" runat="server" Class="txb"></asp:TextBox>
+
+			    <asp:RequiredFieldValidator ID="rfvValue" runat="server" Class="lblError" ErrorMessage="* Field Required - Please enter a value." ControlToValidate="txtValue"></asp:RequiredFieldValidator>
 
 				<asp:Label ID="Label7" runat="server" Class="lbl" Text="Expiration Date"></asp:Label>
 				<asp:TextBox ID="txtExpDate" runat="server" Class="txb"></asp:TextBox>
 
+				        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtExpDate" Class="lblError" ErrorMessage="*Invalid Date. Please try again. " ValidationExpression="^((0|1)\d{1})/((0|1|2)\d{1})/((19|20)\d{2})$"></asp:RegularExpressionValidator>
+
+			    <asp:RequiredFieldValidator ID="rfvExpDate" runat="server" Class="lblError" ErrorMessage="* Field Required - Please enter a value." ControlToValidate="txtExpDate"></asp:RequiredFieldValidator>
+
 				<asp:Label ID="Label8" runat="server" Class="lbl" Text="Issue To"></asp:Label>
 				<asp:TextBox ID="txtIssueTo" runat="server" Class="txb"></asp:TextBox>
+
+			    <asp:RequiredFieldValidator ID="rfvIssueTo" runat="server" Class="lblError" ErrorMessage="* Field Required - Please enter a value." ControlToValidate="txtIssueTo"></asp:RequiredFieldValidator>
 
 			</div>
 			<asp:Button ID="btnCreate" runat="server" Class="button btn btn-success" Text="Create Credential" OnClick="btnCreate_Click" />
