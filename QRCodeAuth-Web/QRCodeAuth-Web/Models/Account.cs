@@ -23,8 +23,8 @@ namespace QRCodeAuth_Web.Models
 		public bool IsInformationCollector { get; set; }
 
 		// Foreign Keys
-		public string AccountOwner_Id { get; set; }
-		public AccountType AccountOwner_Type { get; set; }
+		public string Owner_Id { get; set; }
+		public AccountType Owner_Type { get; set; }
 
 		// Navigation Properties
 		public virtual User AccountOwner { get; set; }

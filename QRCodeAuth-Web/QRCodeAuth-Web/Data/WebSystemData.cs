@@ -36,9 +36,7 @@ namespace QRCodeAuth_Web.Data
 
 			// Accounts Table
 			modelBuilder.Entity<Account>().HasKey(t => new { t.AccountId, t.AccountType });
-
 			modelBuilder.Entity<Account>().HasMany(a => a.CredentialsOwned);
-
 			modelBuilder.Entity<Account>().HasMany(a => a.EventsOwned);
 
 			//modelBuilder.Entity<Account>()
@@ -47,11 +45,7 @@ namespace QRCodeAuth_Web.Data
 			//	.HasForeignKey(u => new { u.AccountId, u.AccountType });
 
 			// Events Table
-			modelBuilder.Entity<Event>()
-				.HasKey(t => t.Id)
-				.Property(t => t.Id)
-				.HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-
+			modelBuilder.Entity<Event>().HasKey(t => t.Id).Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 			modelBuilder.Entity<Event>().HasMany(ev => ev.Attendees);
 
 			//modelBuilder.Entity<Event>()
@@ -60,10 +54,7 @@ namespace QRCodeAuth_Web.Data
 			//	.HasForeignKey(a => new { a.EventOwner_Id, a.EventOwner_Type });
 
 			// Credentials Table
-			modelBuilder.Entity<Credential>()
-				.HasKey(t => t.Id)
-				.Property(t => t.Id)
-				.HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+			modelBuilder.Entity<Credential>().HasKey(t => t.Id).Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
 			//modelBuilder.Entity<Credential>()
 			//	.HasRequired(c => c.CredentialOwner)

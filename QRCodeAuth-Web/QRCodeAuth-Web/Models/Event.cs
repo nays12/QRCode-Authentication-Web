@@ -24,8 +24,8 @@ namespace QRCodeAuth_Web.Models
 		public DateTime EndTime { get; set; }
 
 		// Foreign Key
-		public string EventOwner_Id { get; set; }
-		public CredentialType EventOwner_Type { get; set; }
+		public string Owner_Id { get; set; }
+		public CredentialType Owner_Type { get; set; }
 
 		// Navigation properties
 		public virtual Account EventOwner { get; set; }
