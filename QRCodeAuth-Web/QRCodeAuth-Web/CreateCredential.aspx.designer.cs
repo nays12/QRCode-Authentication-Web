@@ -51,15 +51,6 @@ namespace QRCodeAuth_Web
 		protected global::System.Web.UI.WebControls.DropDownList ddlCredentialType;
 
 		/// <summary>
-		/// rfvCredentialType control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCredentialType;
-
-		/// <summary>
 		/// txtName control.
 		/// </summary>
 		/// <remarks>
@@ -76,15 +67,6 @@ namespace QRCodeAuth_Web
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.TextBox txtCredentialName;
-
-		/// <summary>
-		/// rfvName control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvName;
 
 		/// <summary>
 		/// Label6 control.
@@ -105,15 +87,6 @@ namespace QRCodeAuth_Web
 		protected global::System.Web.UI.WebControls.TextBox txtValue;
 
 		/// <summary>
-		/// rfvValue control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvValue;
-
-		/// <summary>
 		/// Label7 control.
 		/// </summary>
 		/// <remarks>
@@ -132,24 +105,6 @@ namespace QRCodeAuth_Web
 		protected global::System.Web.UI.WebControls.TextBox txtExpDate;
 
 		/// <summary>
-		/// RegularExpressionValidator1 control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
-
-		/// <summary>
-		/// rfvExpDate control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvExpDate;
-
-		/// <summary>
 		/// Label8 control.
 		/// </summary>
 		/// <remarks>
@@ -166,15 +121,6 @@ namespace QRCodeAuth_Web
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.TextBox txtIssueTo;
-
-		/// <summary>
-		/// rfvIssueTo control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvIssueTo;
 
 		/// <summary>
 		/// btnCreate control.

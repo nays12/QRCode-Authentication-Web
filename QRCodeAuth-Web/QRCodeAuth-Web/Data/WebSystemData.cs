@@ -1,40 +1,39 @@
-/*
- * Purpose: Declare a dbcontext for the application
- * 
- * Algorithm: 
- * Construct database context
- * Define DbSets for the tables in the database: Users, Accounts, Events
- * Override OnModelCreating method
- */
-
 namespace QRCodeAuth_Web.Data
 {
-	using QRCodeAuth_Web.Models;
-	using System.ComponentModel.DataAnnotations.Schema;
+	using System;
 	using System.Data.Entity;
+	using System.ComponentModel.DataAnnotations.Schema;
+	using System.Linq;
+	using QRCodeAuth_Web.Models;
 
-	public class WebSystemData : DbContext
+	public partial class WebSystemData : DbContext
 	{
-		public WebSystemData(): base("name=WebSystemData")
+		public WebSystemData()
+			: base("name=WebSystemData")
 		{
-			
 		}
 
-		// DbSets
-		public DbSet<User> Users { get; set; }
-		public DbSet<Account> Accounts { get; set; }
-		public DbSet<Event> Events { get; set; }
-		public DbSet<Credential> Credentials { get; set; }
+		public virtual DbSet<User> Users { get; set; }
+		public virtual DbSet<Account> Accounts { get; set; }
+		public virtual DbSet<Event> Events { get; set; }
+		public virtual DbSet<Credential> Credentials { get; set; }
 
 		protected override void OnModelCreating(DbModelBuilder modelBuilder)
 		{
-			// Manually mapping Primary Keys for Entity Framework
-			modelBuilder.Entity<User>().HasKey(t => t.UserId);
+			// Users Table
+			modelBuilder.Entity<User>().HasKey(u => u.UserId);
+			modelBuilder.Entity<User>().HasMany(u => u.AccountsOwned);
 
+			// Accounts Table
 			modelBuilder.Entity<Account>().HasKey(t => new { t.AccountId, t.AccountType });
+			modelBuilder.Entity<Account>().HasMany(a => a.CredentialsOwned);
+			modelBuilder.Entity<Account>().HasMany(a => a.EventsOwned);
 
+			// Events Table
 			modelBuilder.Entity<Event>().HasKey(t => t.Id).Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+			modelBuilder.Entity<Event>().HasMany(ev => ev.Attendees);
 
+			// Credentials Table
 			modelBuilder.Entity<Credential>().HasKey(t => t.Id).Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 		}
 	}
