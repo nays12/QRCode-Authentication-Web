@@ -6,36 +6,30 @@ namespace QRCodeAuth_Web.Models
 {
 	public class Credential
 	{
+		public Credential()
+		{
+
+		}
+
+		// Primary Key
 		public int Id { get; set; }
+
 		public string Name { get; set; }
 		public CredentialType CredentialType { get; set; }
-		public Account Issuer { get; set; }
-		public Account Owner { get; set; }
 		public DateTime IssueDate { get; set; }
 		public DateTime ExpirationDate { get; set; }
 		public string Value { get; set; }
 		public bool IsValid { get; set; }
 
-		public Credential()
-		{
-		}
+		// Foreign Keys
+		public string CredentialIssuer_Id { get; set; }
+		public CredentialType CredentialIssuer_Type { get; set; }
+		public string CredentialOwner_Id { get; set; }
+		public CredentialType CredentialOwner_Type { get; set; }
 
-		public Credential(int id, string name, CredentialType credentialType, Account issuer, Account owner, DateTime issueDate, DateTime expirationDate, string value, bool isValid)
-		{
-			Id = id;
-			Name = name;
-			CredentialType = credentialType;
-			Issuer = issuer;
-			Owner = owner;
-			IssueDate = issueDate;
-			ExpirationDate = expirationDate;
-			Value = value;
-			IsValid = isValid;
-		}
-		public override string ToString()
-		{
-			return base.ToString();
-		}
+		// Navigation Properties
+		public virtual Account CredentialIssuer { get; set; }
+	
+		public virtual Account CredentialOwner { get; set; }
 	}
-
 }

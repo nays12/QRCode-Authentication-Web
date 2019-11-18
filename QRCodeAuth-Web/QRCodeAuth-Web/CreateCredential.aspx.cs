@@ -39,8 +39,8 @@ namespace QRCodeAuth_Web
 				{
 					Name = txtCredentialName.Text,
 					CredentialType = type,
-					Issuer = credentialIssuer,
-					Owner = credentialOwner,
+					CredentialIssuer = credentialIssuer,
+					CredentialOwner = credentialOwner,
 					IssueDate = DateTime.UtcNow,
 					ExpirationDate = Convert.ToDateTime(txtExpDate.Text),
 					Value = txtValue.Text,

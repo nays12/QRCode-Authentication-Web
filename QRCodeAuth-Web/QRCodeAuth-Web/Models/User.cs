@@ -4,29 +4,19 @@ namespace QRCodeAuth_Web.Models
 {
 	public class User
 	{
+		public User()
+		{
+			this.AccountsOwned = new List<Account>();
+		}
+
+		// Primary Key
 		public string UserId { get; set; }
+
 		public string LastName { get; set; }
 		public string FirstName { get; set; }
 		public UserType UserType { get; set; }
-		public List<Account> Accounts { get; set; }
 
-		public User()
-		{
-
-		}
-
-		public User(string userid, string lastName, string firstName, UserType userType, List<Account> accounts)
-		{
-			UserId = userid;
-			LastName = lastName;
-			FirstName = firstName;
-			UserType = userType;
-			Accounts = accounts;
-		}
-
-		public override string ToString()
-		{
-			return base.ToString();
-		}
+		// Navigation properties
+		public virtual List<Account> AccountsOwned { get; set; }
 	}
 }

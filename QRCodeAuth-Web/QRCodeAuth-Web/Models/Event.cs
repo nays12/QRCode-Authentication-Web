@@ -1,10 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace QRCodeAuth_Web.Models
 {
 	public class Event
 	{
+		public Event()
+		{
+			this.Attendees = new List<Account>();
+			this.CredentialsRequired = new List<CredentialType>();
+		}
+
+		// Primary Key
+		[Key]
 		public int Id { get; set; }
 		public string Name { get; set; }
 		public string Location { get; set; }
@@ -12,32 +22,14 @@ namespace QRCodeAuth_Web.Models
 		public string Description { get; set; }
 		public DateTime StartTime { get; set; }
 		public DateTime EndTime { get; set; }
-		public Account EventOwner { get; set; }
-		public List<Account> Attendees { get; set; }
-		public List<CredentialType> CredentialsRequired { get; set; }
 
-		public Event()
-		{
+		// Foreign Key
+		public string EventOwner_Id { get; set; }
+		public CredentialType EventOwner_Type { get; set; }
 
-		}
-
-		public Event(int id, string name, string location, EventType eventType, string description, DateTime startTime, DateTime endTime, Account eventOwner, List<CredentialType> credentialsRequired, List<Account> attendees)
-		{
-			Id = id;
-			Name = name;
-			Location = location;
-			EventType = eventType;
-			Description = description;
-			StartTime = startTime;
-			EndTime = endTime;
-			EventOwner = eventOwner;
-			CredentialsRequired = credentialsRequired;
-			Attendees = attendees;
-		}
-
-		public override string ToString()
-		{
-			return base.ToString();
-		}
+		// Navigation properties
+		public virtual Account EventOwner { get; set; }
+		public virtual List<Account> Attendees { get; set; }
+		public virtual List<CredentialType> CredentialsRequired { get; set; }
 	}
 }

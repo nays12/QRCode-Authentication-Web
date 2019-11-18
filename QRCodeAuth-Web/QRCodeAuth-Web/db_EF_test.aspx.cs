@@ -194,8 +194,8 @@ namespace QRCodeAuth_Web
 				{
 					Name = "Naomi's School Email",
 					CredentialType = CredentialType.Email,
-					Issuer = null,
-					Owner = null,
+					CredentialIssuer = null,
+					CredentialOwner = null,
 					IssueDate = DateTime.UtcNow,
 					ExpirationDate = Convert.ToDateTime("12/21/2019"),
 					Value = "WigginsN7499@uhcl.edu",
