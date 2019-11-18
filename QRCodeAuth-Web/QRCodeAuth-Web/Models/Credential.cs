@@ -21,13 +21,13 @@ namespace QRCodeAuth_Web.Models
 		public bool IsValid { get; set; }
 
 		// Foreign Keys
-		public string Issuer_Id { get; set; }
-		public CredentialType Issuer_Type { get; set; }
-		public string Owner_Id { get; set; }
-		public CredentialType Owner_Type { get; set; }
+		//public string Issuer_Id { get; set; }
+		//public CredentialType Issuer_Type { get; set; }
+		//public string Owner_Id { get; set; }
+		//public CredentialType Owner_Type { get; set; }
 
 		// Navigation Properties
-		public virtual Account Issuer { get; set; }
-		public virtual Account Owner { get; set; }
+		public virtual WebAccount Issuer { get; set; }
+		public virtual MobileAccount Owner { get; set; }
 	}
 }

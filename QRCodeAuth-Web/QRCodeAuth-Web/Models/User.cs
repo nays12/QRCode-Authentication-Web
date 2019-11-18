@@ -6,7 +6,6 @@ namespace QRCodeAuth_Web.Models
 	{
 		public User()
 		{
-			this.AccountsOwned = new List<Account>();
 		}
 
 		// Primary Key
@@ -17,6 +16,7 @@ namespace QRCodeAuth_Web.Models
 		public UserType UserType { get; set; }
 
 		// Navigation properties
-		public virtual List<Account> AccountsOwned { get; set; }
+		public virtual MobileAccount MobileTokenAccount { get; set; }
+		public virtual MobileAccount WebAccount { get; set; }
 	}
 }

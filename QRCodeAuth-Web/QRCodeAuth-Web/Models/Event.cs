@@ -7,7 +7,7 @@ namespace QRCodeAuth_Web.Models
 	{
 		public Event()
 		{
-			this.Attendees = new List<Account>();
+			this.Attendees = new List<MobileAccount>();
 			this.CredentialsRequired = new List<CredentialType>();
 		}
 
@@ -21,12 +21,12 @@ namespace QRCodeAuth_Web.Models
 		public string Description { get; set; }
 
 		// Foreign Key
-		public string Owner_Id { get; set; }
-		public CredentialType Owner_Type { get; set; }
+		//public string Owner_Id { get; set; }
+		//public CredentialType Owner_Type { get; set; }
 
 		// Navigation properties
-		public virtual Account Owner { get; set; }
-		public virtual List<Account> Attendees { get; set; }
+		public virtual WebAccount Owner { get; set; }
+		public virtual List<MobileAccount> Attendees { get; set; }
 		public virtual List<CredentialType> CredentialsRequired { get; set; }
 	}
 }

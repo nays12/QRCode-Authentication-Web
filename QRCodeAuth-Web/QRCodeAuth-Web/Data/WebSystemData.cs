@@ -14,7 +14,9 @@ namespace QRCodeAuth_Web.Data
 		}
 
 		public virtual DbSet<User> Users { get; set; }
-		public virtual DbSet<Account> Accounts { get; set; }
+		public virtual DbSet<MobileAccount> MobileAccounts { get; set; }
+
+		public virtual DbSet<WebAccount> WebAccounts { get; set; }
 		public virtual DbSet<Event> Events { get; set; }
 		public virtual DbSet<Credential> Credentials { get; set; }
 
@@ -22,19 +24,25 @@ namespace QRCodeAuth_Web.Data
 		{
 			// Users Table
 			modelBuilder.Entity<User>().HasKey(u => u.UserId);
-			modelBuilder.Entity<User>().HasMany(u => u.AccountsOwned);
+			modelBuilder.Entity<User>().HasOptional(u => u.MobileTokenAccount);
+			modelBuilder.Entity<User>().HasOptional(u => u.WebAccount);
 
-			// Accounts Table
-			modelBuilder.Entity<Account>().HasKey(t => new { t.AccountId, t.AccountType });
-			modelBuilder.Entity<Account>().HasMany(a => a.CredentialsOwned);
-			modelBuilder.Entity<Account>().HasMany(a => a.EventsOwned);
+			// MobileAccounts Table
+			modelBuilder.Entity<MobileAccount>().HasKey(m => m.AccountId);
+			modelBuilder.Entity<MobileAccount>().HasRequired(m => m.Owner);
+
+			// WebAccounts Table
+			modelBuilder.Entity<WebAccount>().HasKey(w => w.AccountId);
+			modelBuilder.Entity<WebAccount>().HasRequired(w => w.Owner);
 
 			// Events Table
-			modelBuilder.Entity<Event>().HasKey(t => t.Id).Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+			modelBuilder.Entity<Event>().HasKey(ev => ev.Id).Property(ev => ev.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+			modelBuilder.Entity<Event>().HasRequired(ev => ev.Owner);
 			modelBuilder.Entity<Event>().HasMany(ev => ev.Attendees);
 
 			// Credentials Table
 			modelBuilder.Entity<Credential>().HasKey(t => t.Id).Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+			modelBuilder.Entity<Credential>().HasRequired(c => c.Owner);
 		}
 	}
 }
