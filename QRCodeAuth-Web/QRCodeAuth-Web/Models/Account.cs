@@ -12,9 +12,9 @@ namespace QRCodeAuth_Web.Models
 		public bool IsCredentialAuthority { get; set; }
 		public bool IsAttendanceManager { get; set; }
 		public bool IsInformationCollector { get; set; }
-		public virtual User AccountOwner { get; set; }
-		public virtual List<Credential> CredentialsOwned { get; set; }
-		public virtual List<Event> EventsOwned { get; set; }
+		public User AccountOwner { get; set; }
+		public List<Credential> CredentialsOwned { get; set; }
+		public List<Event> EventsOwned { get; set; }
 		
 		public Account()
 		{

@@ -31,9 +31,9 @@ namespace QRCodeAuth_Web.Data
 			// Manually mapping Primary Keys for Entity Framework
 			modelBuilder.Entity<User>().HasKey(t => t.UserId);
 
-			modelBuilder.Entity<Event>().HasKey(t => t.Id).Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-
 			modelBuilder.Entity<Account>().HasKey(t => new { t.AccountId, t.AccountType });
+
+			modelBuilder.Entity<Event>().HasKey(t => t.Id).Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
 			modelBuilder.Entity<Credential>().HasKey(t => t.Id).Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 		}

@@ -25,7 +25,7 @@ namespace QRCodeAuth_Web.Controllers
 
         // GET: api/Credentials/5
         [ResponseType(typeof(Credential))]
-        public IHttpActionResult GetCredential(int id)
+        public IHttpActionResult GetCredential(string id)
         {
             Credential credential = db.Credentials.Find(id);
             if (credential == null)

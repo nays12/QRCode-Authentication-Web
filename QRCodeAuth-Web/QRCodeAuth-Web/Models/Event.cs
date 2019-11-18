@@ -12,9 +12,9 @@ namespace QRCodeAuth_Web.Models
 		public string Description { get; set; }
 		public DateTime StartTime { get; set; }
 		public DateTime EndTime { get; set; }
-		public virtual Account EventOwner { get; set; }
-		public virtual List<Account> Attendees { get; set; }
-		public virtual List<CredentialType> CredentialsRequired { get; set; }
+		public Account EventOwner { get; set; }
+		public List<Account> Attendees { get; set; }
+		public List<CredentialType> CredentialsRequired { get; set; }
 
 		public Event()
 		{
