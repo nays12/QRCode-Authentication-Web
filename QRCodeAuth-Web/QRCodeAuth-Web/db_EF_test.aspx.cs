@@ -18,8 +18,7 @@ namespace QRCodeAuth_Web
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			CredentialsCRUD();
-			AccountCRUD();
+			// UsersCRUD();
 		}
 
 		protected void UsersCRUD()
@@ -47,20 +46,20 @@ namespace QRCodeAuth_Web
 				dbconn.Users.Add(u2);
 				dbconn.SaveChanges();
 
-				// Finds a user by their ID
-				info = dbconn.Users.Find("1195191");
-				Response.Write("the selected is: " + info.UserId + " ; " + info.FirstName + " " + info.LastName);
+				//// Finds a user by their ID
+				//info = dbconn.Users.Find("1195191");
+				//Response.Write("the selected is: " + info.UserId + " ; " + info.FirstName + " " + info.LastName);
 
-				// Finds a user by thier ID and then updates their first name
-				info = dbconn.Users.Find("1195191");
-				info.FirstName = "zhimin";
-				dbconn.SaveChanges();
+				//// Finds a user by thier ID and then updates their first name
+				//info = dbconn.Users.Find("1195191");
+				//info.FirstName = "zhimin";
+				//dbconn.SaveChanges();
 
-				// Finds a user by thier ID and then deletes them from the database
-				info = dbconn.Users.Find("1453678");
-				dbconn.Users.Remove(info);
+				//// Finds a user by thier ID and then deletes them from the database
+				//info = dbconn.Users.Find("1453678");
+				//dbconn.Users.Remove(info);
 
-				dbconn.SaveChanges(); // updates the changes in the database
+				//dbconn.SaveChanges(); // updates the changes in the database
 			}
 		}
 
@@ -111,7 +110,7 @@ namespace QRCodeAuth_Web
 					Description = "Free Waffles at the Delta building!",
 					StartTime = Convert.ToDateTime("10/30/2019 02:30pm"),
 					EndTime = Convert.ToDateTime("10/30/2019 06:30pm"),
-					EventOwner = eventOwner1,
+					Owner = eventOwner1,
 					CredentialsRequired = credentials1,
 					Attendees = eventAttendees1
 				};
@@ -124,7 +123,7 @@ namespace QRCodeAuth_Web
 					Description = "Pet Away Worry and Stress (PAWS) during your studies for mid-terms at this Neumann Library fall event.",
 					StartTime = Convert.ToDateTime("11/20/2019 03:00pm"),
 					EndTime = Convert.ToDateTime("11/20/2019 04:30pm"),
-					EventOwner = eventOwner2,
+					Owner = eventOwner2,
 					CredentialsRequired = credentials2,
 					Attendees = eventAttendees2
 				};
@@ -137,7 +136,7 @@ namespace QRCodeAuth_Web
 					Description = "Your Test Plans are due along with your presentations, Thank you.",
 					StartTime = Convert.ToDateTime("11/20/2019 07:00pm"),
 					EndTime = Convert.ToDateTime("11/20/2019 09:50pm"),
-					EventOwner = eventOwner3,
+					Owner = eventOwner3,
 					CredentialsRequired = credentials3,
 					Attendees = eventAttendees3
 				};
@@ -159,52 +158,55 @@ namespace QRCodeAuth_Web
 
 				// get Users to be account owner
 				User accountOwner1 = new User();
-				accountOwner1 = dbconn.Users.Find("1344328");
+				accountOwner1 = dbconn.Users.Find("1304693");
 
-				Account acc1 = new Account
-				{
-					AccountType = AccountType.Mobile,
-					Department = "College of Education",
-					IsActive = true,
-					IsCredentialAuthority = false,
-					IsAttendanceManager = false,
-					IsInformationCollector = false,
-					AccountOwner = accountOwner1,
-					EventsOwned = eventsOwned,
-					CredentialsOwned = credentialsOwned
-				};
+				//Account acc1 = new Account
+				//{
+				//	AccountType = AccountType.Mobile,
+				//	Department = "College of Science and Engineering",
+				//	IsActive = true,
+				//	IsCredentialAuthority = false,
+				//	IsAttendanceManager = false,
+				//	IsInformationCollector = false,
+				//	Owner = accountOwner1,
+				//	EventsOwned = eventsOwned,
+				//	CredentialsOwned = credentialsOwned
+				//};
 
-				dbconn.Accounts.Add(acc1);
+				//dbconn.Accounts.Add(acc1);
 				dbconn.SaveChanges();
 			}
 		}
 
 		protected void CredentialsCRUD()
 		{
-				// get Users to be credential owner or issuer
-				Account credentialIssuer = new Account();
-				credentialIssuer = AccountsRepo.FindAccountByPK("8236904", AccountType.Web);
-
-				Account credentialOwner = new Account();
-				credentialOwner = AccountsRepo.FindAccountByPK("1304693", AccountType.Mobile);
-
 			using (var dbconn = new WebSystemData())
 			{
+
+				// get Users to be credential owner or issuer
+				Account credentialIssuer = new Account();
+				credentialIssuer = dbconn.Accounts.Find(3);
+
+				Account credentialOwner = new Account();
+				credentialOwner = dbconn.Accounts.Find(5);
+
 				Credential cred = new Credential
 				{
-					Name = "Naomi's School Email",
+					Name = "Naomi's Gmail",
 					CredentialType = CredentialType.Email,
-					Issuer = null,
-					Owner = null,
-					IssueDate = DateTime.UtcNow,
+					Issuer = credentialIssuer,
+					Owner = credentialOwner,
+					IssueDate = Convert.ToDateTime("01/15/2016"),
 					ExpirationDate = Convert.ToDateTime("12/21/2019"),
-					Value = "WigginsN7499@uhcl.edu",
+					Value = "naomiwiggins08@gmail.com",
 					IsValid = true
 				};
+
 				dbconn.Credentials.Add(cred);
 				dbconn.SaveChanges();
 			}
-				//CredentialRepo.AddCredential(cred);
 		}
+
+
 	}
 }

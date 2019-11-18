@@ -1,6 +1,5 @@
 ﻿
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace QRCodeAuth_Web.Models
 {
@@ -27,7 +26,7 @@ namespace QRCodeAuth_Web.Models
 		public AccountType Owner_Type { get; set; }
 
 		// Navigation Properties
-		public virtual User AccountOwner { get; set; }
+		public virtual User Owner { get; set; }
 		public virtual List<Credential> CredentialsOwned { get; set; }
 		public virtual List<Event> EventsOwned { get; set; }
 	}

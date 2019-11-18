@@ -9,6 +9,7 @@
 		Address = 4,
 		Phone_Number = 5,
 		Major = 6,
-		Classification = 7
+		Classification = 7,
+		WorkTitle = 8
 	}
 }

@@ -1,6 +1,5 @@
 ﻿
 using System;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace QRCodeAuth_Web.Models
 {
