@@ -6,7 +6,6 @@ namespace QRCodeAuth_Web.Models
 	{
 		public WebAccount()
 		{
-
 		}
 		public string WebId { get; set; }
 		public string Department { get; set; }
