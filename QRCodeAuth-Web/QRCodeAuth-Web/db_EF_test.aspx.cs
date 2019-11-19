@@ -18,6 +18,7 @@ namespace QRCodeAuth_Web
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
+			CredentialsRepo.GetOwnerCredentials("1304693");
 			//UsersCRUD();
 			//MobileAccountsCRUD();
 			//WebAccountsCRUD();
