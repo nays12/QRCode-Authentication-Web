@@ -23,6 +23,8 @@ namespace QRCodeAuth_Web.Models
 
 		// Foreign Keys
 		public virtual MobileAccount Owner { get; set; }
+		public int Owner_FK { get; set; }
 		public virtual WebAccount Issuer { get; set; }
+		public int Issuer_FK { get; set; }
 	}
 }

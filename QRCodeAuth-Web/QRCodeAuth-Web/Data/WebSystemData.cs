@@ -28,7 +28,7 @@ namespace QRCodeAuth_Web.Data
 
 			// MobileAccounts Table
 			modelBuilder.Entity<MobileAccount>().HasKey(m => m.MobileId);
-			modelBuilder.Entity<MobileAccount>().HasMany(m => m.CredentialsOwned).WithRequired(c => c.Owner);;
+			modelBuilder.Entity<MobileAccount>().HasMany(m => m.CredentialsOwned).WithRequired(c => c.Owner);
 
 			// WebAccounts Table
 			modelBuilder.Entity<WebAccount>().HasKey(w => w.WebId);
@@ -40,8 +40,8 @@ namespace QRCodeAuth_Web.Data
 
 			// Credentials Table
 			modelBuilder.Entity<Credential>().HasKey(c => c.CredentialId).Property(c => c.CredentialId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-			modelBuilder.Entity<Credential>().HasRequired(c => c.Issuer).WithMany(w => w.CredentialsIssued);
-			modelBuilder.Entity<Credential>().HasRequired(c => c.Owner).WithMany(m => m.CredentialsOwned);
+			modelBuilder.Entity<Credential>().HasRequired(c => c.Issuer).WithMany(w => w.CredentialsIssued).HasForeignKey(c => c.Issuer_FK);
+			modelBuilder.Entity<Credential>().HasRequired(c => c.Owner).WithMany(m => m.CredentialsOwned).HasForeignKey(c => c.Owner_FK);
 
 		}
 	}
