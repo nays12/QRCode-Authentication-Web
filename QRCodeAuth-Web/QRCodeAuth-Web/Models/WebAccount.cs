@@ -11,15 +11,16 @@ namespace QRCodeAuth_Web.Models
 		{
 			this.EventsOwned = new List<Event>();
 		}
-		public string AccountId { get; set; }
+		public int WebId { get; set; }
 		public string Department { get; set; }
 		public bool IsActive { get; set; }
 		public bool IsCredentialAuthority { get; set; }
 		public bool IsAttendanceManager { get; set; }
 		public bool IsInformationCollector { get; set; }
 
-		// Navigation Properties
+		// Foreign Keys
 		public virtual User Owner { get; set; }
+		public virtual List<Credential> CredentialsIssued { get; set; }
 		public virtual List<Event> EventsOwned { get; set; }
 	}
 }

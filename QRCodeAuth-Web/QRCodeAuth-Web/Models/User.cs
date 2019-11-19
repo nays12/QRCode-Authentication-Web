@@ -9,14 +9,14 @@ namespace QRCodeAuth_Web.Models
 		}
 
 		// Primary Key
-		public string UserId { get; set; }
-
+		
+		public int UserId { get; set; }
 		public string LastName { get; set; }
 		public string FirstName { get; set; }
 		public UserType UserType { get; set; }
 
-		// Navigation properties
-		public virtual MobileAccount MobileTokenAccount { get; set; }
-		public virtual MobileAccount WebAccount { get; set; }
+		// Foreign Keys
+		public virtual MobileAccount MobileAccount { get; set; }
+		public virtual WebAccount WebAccount { get; set; }
 	}
 }

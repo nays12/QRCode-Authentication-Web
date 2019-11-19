@@ -10,13 +10,13 @@ namespace QRCodeAuth_Web.Models
 		public MobileAccount()
 		{
 		}
-
-		public string AccountId { get; set; }
+		public int MobileId { get; set; }
 		public string Department { get; set; }
 		public bool IsActive { get; set; }
 
-		// Navigation Properties
+		// Foreign Keys
 		public virtual User Owner { get; set; }
 		public virtual List<Credential> CredentialsOwned { get; set; }
+		public virtual List<Event> EventsAttended { get; set; }
 	}
 }

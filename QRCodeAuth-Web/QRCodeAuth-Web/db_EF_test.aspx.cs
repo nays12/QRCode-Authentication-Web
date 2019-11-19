@@ -19,7 +19,8 @@ namespace QRCodeAuth_Web
 		protected void Page_Load(object sender, EventArgs e)
 		{
 			//UsersCRUD();
-			//AccountCRUD();
+			//MobileAccountsCRUD();
+			//WebAccountsCRUD()
 			//EventsCRUD();
 			//CredentialsCRUD();
 		}
@@ -55,7 +56,7 @@ namespace QRCodeAuth_Web
 
 		//}
 
-		//protected void AccountCRUD()
+		//protected void MobileAccountsCRUD()
 		//{
 		//	// create list of events
 		//	List<Event> eventsOwned = new List<Event>();

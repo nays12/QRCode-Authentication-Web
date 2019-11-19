@@ -13,36 +13,36 @@ namespace QRCodeAuth_Web.Data
 		{
 		}
 
-		public virtual DbSet<User> Users { get; set; }
-		public virtual DbSet<MobileAccount> MobileAccounts { get; set; }
-
-		public virtual DbSet<WebAccount> WebAccounts { get; set; }
-		public virtual DbSet<Event> Events { get; set; }
-		public virtual DbSet<Credential> Credentials { get; set; }
+		public DbSet<User> Users { get; set; }
+		public DbSet<MobileAccount> MobileAccounts { get; set; }
+		public DbSet<WebAccount> WebAccounts { get; set; }
+		public DbSet<Event> Events { get; set; }
+		public DbSet<Credential> Credentials { get; set; }
 
 		protected override void OnModelCreating(DbModelBuilder modelBuilder)
 		{
 			// Users Table
 			modelBuilder.Entity<User>().HasKey(u => u.UserId);
-			modelBuilder.Entity<User>().HasOptional(u => u.MobileTokenAccount);
-			modelBuilder.Entity<User>().HasOptional(u => u.WebAccount);
+			modelBuilder.Entity<User>().HasOptional(u => u.MobileAccount).WithRequired(m => m.Owner);
+			modelBuilder.Entity<User>().HasOptional(u => u.WebAccount).WithRequired(w => w.Owner);
 
 			// MobileAccounts Table
-			modelBuilder.Entity<MobileAccount>().HasKey(m => m.AccountId);
-			modelBuilder.Entity<MobileAccount>().HasRequired(m => m.Owner);
+			modelBuilder.Entity<MobileAccount>().HasKey(m => m.MobileId);
+			modelBuilder.Entity<MobileAccount>().HasMany(m => m.CredentialsOwned).WithRequired(c => c.Owner);;
 
 			// WebAccounts Table
-			modelBuilder.Entity<WebAccount>().HasKey(w => w.AccountId);
-			modelBuilder.Entity<WebAccount>().HasRequired(w => w.Owner);
+			modelBuilder.Entity<WebAccount>().HasKey(w => w.WebId);
+			modelBuilder.Entity<WebAccount>().HasMany(w => w.EventsOwned).WithRequired(ev => ev.Owner);
 
 			// Events Table
-			modelBuilder.Entity<Event>().HasKey(ev => ev.Id).Property(ev => ev.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-			modelBuilder.Entity<Event>().HasRequired(ev => ev.Owner);
-			modelBuilder.Entity<Event>().HasMany(ev => ev.Attendees);
+			modelBuilder.Entity<Event>().HasKey(ev => ev.EventId).Property(ev => ev.EventId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+			modelBuilder.Entity<Event>().HasMany(ev => ev.Attendees).WithMany(m => m.EventsAttended);
 
 			// Credentials Table
-			modelBuilder.Entity<Credential>().HasKey(t => t.Id).Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-			modelBuilder.Entity<Credential>().HasRequired(c => c.Owner);
+			modelBuilder.Entity<Credential>().HasKey(c => c.CredentialId).Property(c => c.CredentialId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+			modelBuilder.Entity<Credential>().HasRequired(c => c.Issuer).WithMany(w => w.CredentialsIssued);
+			modelBuilder.Entity<Credential>().HasRequired(c => c.Owner).WithMany(m => m.CredentialsOwned);
+
 		}
 	}
 }

@@ -126,7 +126,9 @@
     </Compile>
     <Compile Include="Data\CredentialsRepo.cs" />
     <Compile Include="Data\EventsRepo.cs" />
+    <Compile Include="Data\MobileAccountsRepo.cs" />
     <Compile Include="Data\UsersRepo.cs" />
+    <Compile Include="Data\WebAccountsRepo.cs" />
     <Compile Include="Data\WebSystemData.cs" />
     <Compile Include="db_EF_test.aspx.cs">
       <DependentUpon>db_EF_test.aspx</DependentUpon>

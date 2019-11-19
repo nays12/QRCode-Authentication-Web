@@ -19,102 +19,102 @@ namespace QRCodeAuth_Web.Controllers
         private WebSystemData db = new WebSystemData();
 
         // GET: api/Credentials
-        public IQueryable<Credential> GetCredentials()
-        {
-            return db.Credentials;
-        }
+        //public IQueryable<Credential> GetCredentials()
+        //{
+        //    return db.Credentials;
+        //}
 
-        // GET: api/Credentials/5
-        [ResponseType(typeof(Credential))]
-        public async Task<IHttpActionResult> GetCredential(int id)
-        {
-            Credential credential = await db.Credentials.FindAsync(id);
-            if (credential == null)
-            {
-                return NotFound();
-            }
+        //// GET: api/Credentials/5
+        //[ResponseType(typeof(Credential))]
+        //public async Task<IHttpActionResult> GetCredential(int id)
+        //{
+        //    Credential credential = await db.Credentials.FindAsync(id);
+        //    if (credential == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            return Ok(credential);
-        }
+        //    return Ok(credential);
+        //}
 
-        // PUT: api/Credentials/5
-        [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PutCredential(int id, Credential credential)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+        //// PUT: api/Credentials/5
+        //[ResponseType(typeof(void))]
+        //public async Task<IHttpActionResult> PutCredential(int id, Credential credential)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
 
-            if (id != credential.Id)
-            {
-                return BadRequest();
-            }
+        //    if (id != credential.Id)
+        //    {
+        //        return BadRequest();
+        //    }
 
-            db.Entry(credential).State = EntityState.Modified;
+        //    db.Entry(credential).State = EntityState.Modified;
 
-            try
-            {
-                await db.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!CredentialExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+        //    try
+        //    {
+        //        await db.SaveChangesAsync();
+        //    }
+        //    catch (DbUpdateConcurrencyException)
+        //    {
+        //        if (!CredentialExists(id))
+        //        {
+        //            return NotFound();
+        //        }
+        //        else
+        //        {
+        //            throw;
+        //        }
+        //    }
 
-            return StatusCode(HttpStatusCode.NoContent);
-        }
+        //    return StatusCode(HttpStatusCode.NoContent);
+        //}
 
-        // POST: api/Credentials
-        [ResponseType(typeof(Credential))]
-        public async Task<IHttpActionResult> PostCredential(Credential credential)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+        //// POST: api/Credentials
+        //[ResponseType(typeof(Credential))]
+        //public async Task<IHttpActionResult> PostCredential(Credential credential)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
 
-            db.Credentials.Add(credential);
-            await db.SaveChangesAsync();
+        //    db.Credentials.Add(credential);
+        //    await db.SaveChangesAsync();
 
-            return CreatedAtRoute("DefaultApi", new { id = credential.Id }, credential);
-        }
+        //    return CreatedAtRoute("DefaultApi", new { id = credential.Id }, credential);
+        //}
 
-        // DELETE: api/Credentials/5
-        [ResponseType(typeof(Credential))]
-        public async Task<IHttpActionResult> DeleteCredential(int id)
-        {
-            Credential credential = await db.Credentials.FindAsync(id);
-            if (credential == null)
-            {
-                return NotFound();
-            }
+        //// DELETE: api/Credentials/5
+        //[ResponseType(typeof(Credential))]
+        //public async Task<IHttpActionResult> DeleteCredential(int id)
+        //{
+        //    Credential credential = await db.Credentials.FindAsync(id);
+        //    if (credential == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            db.Credentials.Remove(credential);
-            await db.SaveChangesAsync();
+        //    db.Credentials.Remove(credential);
+        //    await db.SaveChangesAsync();
 
-            return Ok(credential);
-        }
+        //    return Ok(credential);
+        //}
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        //protected override void Dispose(bool disposing)
+        //{
+        //    if (disposing)
+        //    {
+        //        db.Dispose();
+        //    }
+        //    base.Dispose(disposing);
+        //}
 
-        private bool CredentialExists(int id)
-        {
-            return db.Credentials.Count(e => e.Id == id) > 0;
-        }
+        //private bool CredentialExists(int id)
+        //{
+        //    return db.Credentials.Count(e => e.Id == id) > 0;
+        //}
     }
 }
