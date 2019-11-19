@@ -20,11 +20,11 @@ namespace QRCodeAuth_Web.Data
 					dbconn.Users.Add(u);
 					dbconn.SaveChanges();
 				}
-				StatusMessage = string.Format("Success! Added new User {0} {1} with Id {2}.", u.FirstName, u.LastName, u.UserId);
+				StatusMessage = string.Format("Success! Added new User '{0} {1}' with Id {2}.", u.FirstName, u.LastName, u.UserId);
 			}
 			catch (Exception ex)
 			{
-				StatusMessage = string.Format("Failed. Could add User {0} {1} with Id {2}. Error: {3}", u.FirstName, u.LastName, u.UserId, ex.Message);			
+				StatusMessage = string.Format("Failed. Could add User '{0} {1}' with Id {2}. Error: {3}", u.FirstName, u.LastName, u.UserId, ex.Message);			
 			}
 		}
 

@@ -12,20 +12,20 @@ namespace QRCodeAuth_Web.Data
 
 		public static void AddEvent(Event ev)
 		{
-			try
-			{
+			//try
+			//{
 				using (var dbconn = new WebSystemData())
 				{
 					dbconn.Events.Add(ev);
 					dbconn.SaveChanges();
 				}
-				StatusMessage = string.Format("Success! Added new Event {0}.", ev.Name);
-			}
-			catch (Exception ex)
-			{
-				StatusMessage = string.Format("Failure. Could not add Event {0}. Error: {1}", ev.Name, ex.Message);
-				StatusMessage = ex.Message;
-			}
+				StatusMessage = string.Format("Success! Added new Event '{0}'.", ev.Name);
+			//}
+			//catch (Exception ex)
+			//{
+			//	StatusMessage = string.Format("Failure. Could not add Event {0}. Error: {1}", ev.Name, ex.Message);
+			//	StatusMessage = ex.Message;
+			//}
 		}
 	}
 }

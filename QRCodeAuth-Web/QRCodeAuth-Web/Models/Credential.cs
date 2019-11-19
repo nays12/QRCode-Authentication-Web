@@ -1,6 +1,5 @@
 ﻿
 using System;
-using System.Collections.Generic;
 
 namespace QRCodeAuth_Web.Models
 {
@@ -13,7 +12,6 @@ namespace QRCodeAuth_Web.Models
 
 		// Primary Key
 		public int CredentialId { get; set; }
-
 		public string Name { get; set; }
 		public CredentialType CredentialType { get; set; }
 		public DateTime IssueDate { get; set; }
@@ -22,9 +20,7 @@ namespace QRCodeAuth_Web.Models
 		public bool IsValid { get; set; }
 
 		// Foreign Keys
-		public virtual MobileAccount Owner { get; set; }
-		public int Owner_FK { get; set; }
-		public virtual WebAccount Issuer { get; set; }
-		public int Issuer_FK { get; set; }
+		public string CredentialOwner { get; set; }
+		public string CredentialIssuer { get; set; }
 	}
 }
