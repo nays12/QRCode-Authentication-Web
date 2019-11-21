@@ -94,6 +94,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AESHelper.aspx" />
+    <Content Include="AES_test.aspx" />
     <Content Include="CreateEvent.aspx" />
     <Content Include="db_EF_test.aspx" />
     <Content Include="Default.aspx" />
@@ -106,6 +108,20 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AESHelper.aspx.cs">
+      <DependentUpon>AESHelper.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AESHelper.aspx.designer.cs">
+      <DependentUpon>AESHelper.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AES_test.aspx.cs">
+      <DependentUpon>AES_test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AES_test.aspx.designer.cs">
+      <DependentUpon>AES_test.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\OtpController.cs" />
