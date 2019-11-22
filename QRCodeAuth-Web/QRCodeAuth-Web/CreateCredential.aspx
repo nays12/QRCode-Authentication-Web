@@ -38,15 +38,21 @@
 
 				<asp:Label ID="lblName" runat="server" Class="lbl" Text="Name"></asp:Label>
 				<asp:TextBox ID="txtCredentialName" runat="server" Class="txb"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="rfvName" runat="server" Class="lblError" ErrorMessage="* Field Required - Please enter a value." ControlToValidate="txtCredentialName"></asp:RequiredFieldValidator>
 
 				<asp:Label ID="lblValue" runat="server" Class="lbl" Text="Value"></asp:Label>
 				<asp:TextBox ID="txtValue" runat="server" Class="txb"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="rfvValue" runat="server" Class="lblError" ErrorMessage="* Field Required - Please enter a value." ControlToValidate="txtValue"></asp:RequiredFieldValidator>
 
 				<asp:Label ID="lblExpDate" runat="server" Class="lbl" Text="Expiration Date"></asp:Label>
 				<asp:TextBox ID="txtExpDate" runat="server" Class="txb"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="rfvExpDate" runat="server" Class="lblError" ErrorMessage="* Field Required - Please enter a value." ControlToValidate="txtExpDate"></asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtExpDate" Class="lblError" ErrorMessage="*Invalid Date. Please try again. " ValidationExpression="^(?:^(?:(?:(?:(?:(?:0[13578]|1[02])/31)|(?:(?:0[13-9]|1[0-2])/(?:29|30)))/(?:1[6-9]|[2-9]\d)\d{2})|(?:02/29/(?:(?:(?:1[6-9]|[2-9]\d)(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))|(?:(?:0[1-9])|(?:1[0-2]))/(?:0[1-9]|1\d|2[0-8])/(?:(?:1[6-9]|[2-9]\d)\d{2}))$)$"></asp:RegularExpressionValidator>
+                
 
 				<asp:Label ID="lblIssueTo" runat="server" Class="lbl" Text="Issue To"></asp:Label>
 				<asp:TextBox ID="txtIssueTo" runat="server" Class="txb"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="rfvIssueTo" runat="server" Class="lblError" ErrorMessage="* Field Required - Please enter a value." ControlToValidate="txtIssueTo"></asp:RequiredFieldValidator>
 
 			</div>
 			<asp:Button ID="btnCreate" runat="server" Class="button btn btn-success" Text="Create Credential" OnClick="btnCreate_Click" />

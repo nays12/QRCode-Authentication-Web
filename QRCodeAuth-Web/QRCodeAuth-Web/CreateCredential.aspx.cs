@@ -14,8 +14,9 @@ namespace QRCodeAuth_Web
 		public static List<Credential> issuedCreds = new List<Credential>(); // stores the issued credentials that will be fetched by API
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			ResetPage();
-		}
+            ValidationSettings.UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
+            //ResetPage();
+        }
 
 		public static List<Credential> getIssuedCredentials()
 		{
@@ -28,9 +29,10 @@ namespace QRCodeAuth_Web
 		protected void btnCreate_Click(object sender, EventArgs e)
 		{
 			CreateNewCredential();
-		}
+            ResetPage();
+        }
 
-		protected void CreateNewCredential()
+        protected void CreateNewCredential()
 		{
 			var selection = ddlCredentialType.SelectedIndex;
 			CredentialType type = (CredentialType)selection;
@@ -40,8 +42,8 @@ namespace QRCodeAuth_Web
 				Name = txtCredentialName.Text,
 				CredentialType = type,
 				IssueDate = DateTime.UtcNow,
-				ExpirationDate = Convert.ToDateTime(txtExpDate.Text),
-				Value = txtValue.Text,
+                ExpirationDate = Convert.ToDateTime(txtExpDate.Text),
+                Value = txtValue.Text,
 				IsValid = true,
 				Owner = txtIssueTo.Text,
 				Issuer = "8220423"
