@@ -11,6 +11,7 @@ namespace QRCodeAuth_Web
 {
 	public partial class CreateCredential : System.Web.UI.Page
 	{
+		protected static List<Credential> issuedCreds; // stores the issued credentials that will be fetched by API
 		protected void Page_Load(object sender, EventArgs e)
 		{
 
@@ -34,9 +35,10 @@ namespace QRCodeAuth_Web
 				ExpirationDate = Convert.ToDateTime(txtExpDate.Text),
 				Value = txtValue.Text,
 				IsValid = true,
-				CredentialOwner = txtIssueTo.Text,
-				CredentialIssuer = "8220423"
+				Owner = txtIssueTo.Text,
+				Issuer = "8220423"
 			};
+			issuedCreds.Add(cred);
 			CredentialsRepo.AddCredential(cred);
 		}
 

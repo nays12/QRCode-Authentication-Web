@@ -7,7 +7,7 @@
 		IdNumber = 2,
 		Birthdate = 3,
 		Address = 4,
-		Phone_Number = 5,
+		PhoneNumber = 5,
 		Major = 6,
 		Classification = 7,
 		WorkTitle = 8

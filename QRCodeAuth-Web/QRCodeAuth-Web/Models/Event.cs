@@ -19,6 +19,6 @@ namespace QRCodeAuth_Web.Models
 		public string Description { get; set; }
 
 		// Foreign Keys
-		public string EventOwner { get; set; }
+		public string Owner { get; set; }
 	}
 }

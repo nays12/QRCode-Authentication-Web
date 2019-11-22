@@ -21,6 +21,7 @@ namespace QRCodeAuth_Web.Controllers
 
 		[Route("api/Credentials/GetOwnerCredentials")]
 		[HttpGet]
+		[ResponseType(typeof(Credential))]
 		public List<Credential> GetOwnerCredentials(string id)
 		{
 			//return 123456;

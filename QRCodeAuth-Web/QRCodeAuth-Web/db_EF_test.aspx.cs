@@ -101,7 +101,7 @@ namespace QRCodeAuth_Web
 				Description = "Free Waffles at the Delta building!",
 				StartTime = Convert.ToDateTime("10/30/2019 02:30pm"),
 				EndTime = Convert.ToDateTime("10/30/2019 06:30pm"),
-				EventOwner = "8764710"
+				Owner = "8764710"
 			};
 			EventsRepo.AddEvent(e1);
 			System.Diagnostics.Debug.WriteLine(EventsRepo.StatusMessage);
@@ -117,8 +117,8 @@ namespace QRCodeAuth_Web
 				ExpirationDate = Convert.ToDateTime("12/21/2019"),
 				Value = "Naomi S. Wiggins",
 				IsValid = true,
-				CredentialOwner = "1304693",
-				CredentialIssuer = "8220423"
+				Owner = "1304693",
+				Issuer = "8220423"
 			};
 			CredentialsRepo.AddCredential(cred);
 		}

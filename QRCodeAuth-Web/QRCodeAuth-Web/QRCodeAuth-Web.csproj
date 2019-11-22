@@ -109,6 +109,7 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\CredentialsController.cs" />
+    <Compile Include="Controllers\DataController.cs" />
     <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="CreateCredential.aspx.cs">
       <DependentUpon>CreateCredential.aspx</DependentUpon>

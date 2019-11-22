@@ -18,12 +18,12 @@ namespace QRCodeAuth_Web.Data
 				db.Credentials.Add(cred);
 				db.SaveChanges();
 				
-				StatusMessage = string.Format("Success! Added Credential '{0}' to Mobile Account belonging to {1}.", cred.Name, cred.CredentialOwner);
+				StatusMessage = string.Format("Success! Added Credential '{0}' to Mobile Account belonging to {1}.", cred.Name, cred.Owner);
 				System.Diagnostics.Debug.WriteLine(StatusMessage);
 			}
 			catch (Exception ex)
 			{
-				StatusMessage = string.Format("Failure. Could not add Credential '{0}' to Mobile Account belonging to  {1}. Error: {2}", cred.Name, cred.CredentialOwner, ex.Message);
+				StatusMessage = string.Format("Failure. Could not add Credential '{0}' to Mobile Account belonging to  {1}. Error: {2}", cred.Name, cred.Owner, ex.Message);
 				StatusMessage = ex.Message;
 			}
 		}
@@ -33,7 +33,7 @@ namespace QRCodeAuth_Web.Data
 			List<Credential> credentials = new List<Credential>();
 
 				var query = db.Credentials
-				.Where(c => c.CredentialOwner == ownerId)
+				.Where(c => c.Owner == ownerId)
 				.Select(c => new
 				{ 
 					Name = c.Name,
@@ -42,8 +42,8 @@ namespace QRCodeAuth_Web.Data
 					ExpirationDate = c.ExpirationDate,
 					Value = c.Value,
 					IsValid = c.IsValid,
-					CredentialOwner = c.CredentialOwner,
-					CredentialIssuer = c.CredentialIssuer
+					Owner = c.Owner,
+					Issuer = c.Issuer
 
 				});
 
@@ -57,8 +57,8 @@ namespace QRCodeAuth_Web.Data
 						ExpirationDate = c.ExpirationDate,
 						Value = c.Value,
 						IsValid = c.IsValid,
-						CredentialOwner = c.CredentialOwner,
-						CredentialIssuer = c.CredentialIssuer
+						Owner = c.Owner,
+						Issuer = c.Issuer
 					};
 
 					credentials.Add(cred);
