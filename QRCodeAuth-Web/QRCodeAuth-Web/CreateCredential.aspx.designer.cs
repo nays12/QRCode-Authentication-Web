@@ -33,13 +33,13 @@ namespace QRCodeAuth_Web
 		protected global::System.Web.UI.WebControls.Label Label1;
 
 		/// <summary>
-		/// Label2 control.
+		/// lblType control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Label Label2;
+		protected global::System.Web.UI.WebControls.Label lblType;
 
 		/// <summary>
 		/// ddlCredentialType control.
@@ -51,13 +51,13 @@ namespace QRCodeAuth_Web
 		protected global::System.Web.UI.WebControls.DropDownList ddlCredentialType;
 
 		/// <summary>
-		/// txtName control.
+		/// lblName control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Label txtName;
+		protected global::System.Web.UI.WebControls.Label lblName;
 
 		/// <summary>
 		/// txtCredentialName control.
@@ -69,13 +69,13 @@ namespace QRCodeAuth_Web
 		protected global::System.Web.UI.WebControls.TextBox txtCredentialName;
 
 		/// <summary>
-		/// Label6 control.
+		/// lblValue control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Label Label6;
+		protected global::System.Web.UI.WebControls.Label lblValue;
 
 		/// <summary>
 		/// txtValue control.
@@ -87,13 +87,13 @@ namespace QRCodeAuth_Web
 		protected global::System.Web.UI.WebControls.TextBox txtValue;
 
 		/// <summary>
-		/// Label7 control.
+		/// lblExpDate control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Label Label7;
+		protected global::System.Web.UI.WebControls.Label lblExpDate;
 
 		/// <summary>
 		/// txtExpDate control.
@@ -105,13 +105,13 @@ namespace QRCodeAuth_Web
 		protected global::System.Web.UI.WebControls.TextBox txtExpDate;
 
 		/// <summary>
-		/// Label8 control.
+		/// lblIssueTo control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Label Label8;
+		protected global::System.Web.UI.WebControls.Label lblIssueTo;
 
 		/// <summary>
 		/// txtIssueTo control.

@@ -14,7 +14,7 @@ namespace QRCodeAuth_Web
 		public static List<Credential> issuedCreds = new List<Credential>(); // stores the issued credentials that will be fetched by API
 		protected void Page_Load(object sender, EventArgs e)
 		{
-
+			ResetPage();
 		}
 
 		public static List<Credential> getIssuedCredentials()
@@ -49,6 +49,15 @@ namespace QRCodeAuth_Web
 
 			issuedCreds.Add(cred);
 			CredentialsRepo.AddCredential(cred);
+		}
+
+		protected void ResetPage()
+		{
+			txtCredentialName.Text = "";
+			txtExpDate.Text = "";
+			txtValue.Text = "";
+			txtIssueTo.Text = "";
+			issuedCreds = null;
 		}
 
 	}

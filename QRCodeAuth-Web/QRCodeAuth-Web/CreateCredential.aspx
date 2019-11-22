@@ -22,7 +22,7 @@
 			<asp:Label ID="Label1" runat="server" class="lblSubTitles" Text="Create New Credential"></asp:Label>
 
 					<div class="divSection">
-				<asp:Label ID="Label2" runat="server" Class="lbl" Text="Credential Type"></asp:Label>
+				<asp:Label ID="lblType" runat="server" Class="lbl" Text="Credential Type"></asp:Label>
 
 				<asp:DropDownList ID="ddlCredentialType" runat="server" Class="txb">
 					<asp:ListItem>Name</asp:ListItem>
@@ -33,18 +33,19 @@
 					<asp:ListItem Value="Phone_Number">Phone Number</asp:ListItem>
 					<asp:ListItem>Major</asp:ListItem>
 					<asp:ListItem>Classification</asp:ListItem>
+					<asp:ListItem Value="WorkTitle">Work Title</asp:ListItem>
 				</asp:DropDownList>
 
-				<asp:Label ID="txtName" runat="server" Class="lbl" Text="Name"></asp:Label>
+				<asp:Label ID="lblName" runat="server" Class="lbl" Text="Name"></asp:Label>
 				<asp:TextBox ID="txtCredentialName" runat="server" Class="txb"></asp:TextBox>
 
-				<asp:Label ID="Label6" runat="server" Class="lbl" Text="Value"></asp:Label>
+				<asp:Label ID="lblValue" runat="server" Class="lbl" Text="Value"></asp:Label>
 				<asp:TextBox ID="txtValue" runat="server" Class="txb"></asp:TextBox>
 
-				<asp:Label ID="Label7" runat="server" Class="lbl" Text="Expiration Date"></asp:Label>
+				<asp:Label ID="lblExpDate" runat="server" Class="lbl" Text="Expiration Date"></asp:Label>
 				<asp:TextBox ID="txtExpDate" runat="server" Class="txb"></asp:TextBox>
 
-				<asp:Label ID="Label8" runat="server" Class="lbl" Text="Issue To"></asp:Label>
+				<asp:Label ID="lblIssueTo" runat="server" Class="lbl" Text="Issue To"></asp:Label>
 				<asp:TextBox ID="txtIssueTo" runat="server" Class="txb"></asp:TextBox>
 
 			</div>
