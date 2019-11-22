@@ -14,7 +14,7 @@ namespace QRCodeAuth_Web.Controllers
 		[HttpGet]
 		public int GetLoginCode()
 		{
-			return Default.getGenCode();
+			return Default.GetGenCode();
 		}
 	}
 }

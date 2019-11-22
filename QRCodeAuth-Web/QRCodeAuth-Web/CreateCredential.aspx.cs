@@ -11,10 +11,18 @@ namespace QRCodeAuth_Web
 {
 	public partial class CreateCredential : System.Web.UI.Page
 	{
-		protected static List<Credential> issuedCreds; // stores the issued credentials that will be fetched by API
+		public static List<Credential> issuedCreds = new List<Credential>(); // stores the issued credentials that will be fetched by API
 		protected void Page_Load(object sender, EventArgs e)
 		{
 
+		}
+
+		public static List<Credential> getIssuedCredentials()
+		{
+			List<Credential> credentials = new List<Credential>();
+			credentials = issuedCreds;
+			System.Diagnostics.Debug.WriteLine(credentials);
+			return credentials;
 		}
 
 		protected void btnCreate_Click(object sender, EventArgs e)
@@ -38,6 +46,7 @@ namespace QRCodeAuth_Web
 				Owner = txtIssueTo.Text,
 				Issuer = "8220423"
 			};
+
 			issuedCreds.Add(cred);
 			CredentialsRepo.AddCredential(cred);
 		}

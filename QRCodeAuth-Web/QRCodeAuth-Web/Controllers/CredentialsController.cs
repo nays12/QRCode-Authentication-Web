@@ -19,13 +19,20 @@ namespace QRCodeAuth_Web.Controllers
         private WebSystemData db = new WebSystemData();
 
 
-		[Route("api/Credentials/GetOwnerCredentials")]
+		[Route("api/Credentials/GetAllCredentials")]
 		[HttpGet]
 		[ResponseType(typeof(Credential))]
-		public List<Credential> GetOwnerCredentials(string id)
+		public List<Credential> GetAllCredentials(string id)
 		{
-			//return 123456;
 			return CredentialsRepo.GetOwnerCredentials(id);
+		}
+
+		[Route("api/Credentials/GetIssuedCredentials")]
+		[HttpGet]
+		[ResponseType(typeof(Credential))]
+		public List<Credential> GetIssuedCredentials()
+		{
+			return CreateCredential.getIssuedCredentials();
 		}
 
 		// GET: api/Credentials/5

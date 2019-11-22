@@ -22,7 +22,7 @@ namespace QRCodeAuth_Web
         {
             ValidationSettings.UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
         }
-		public static int getGenCode()
+		public static int GetGenCode()
 		{
 			int code = generateCode();
 			generatedCode = code;
