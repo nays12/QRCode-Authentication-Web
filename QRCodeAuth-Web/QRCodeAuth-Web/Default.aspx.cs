@@ -22,7 +22,7 @@ namespace QRCodeAuth_Web
         {
             ValidationSettings.UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
         }
-		public static int getGenCode()
+		public static int GetGenCode()
 		{
 			int code = generateCode();
 			generatedCode = code;
@@ -74,20 +74,5 @@ namespace QRCodeAuth_Web
             }
 		}
 
-		public string generateOTP()
-		{
-			string chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-
-			Random randrom = new Random((int)DateTime.Now.Ticks);
-
-			string str = "";
-			for (int i = 0; i < 10; i++)
-			{
-				str += chars[randrom.Next(chars.Length)];
-			}
-
-			return str;
-		}
 	}
-
 }

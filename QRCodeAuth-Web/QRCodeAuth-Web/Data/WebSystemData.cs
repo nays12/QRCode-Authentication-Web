@@ -1,37 +1,40 @@
-/*
- * Purpose: Declare a dbcontext for the application
- * 
- * Algorithm: 
- * Construct database context
- * Define DbSets for the tables in the database: Users, Accounts, Events
- * Override OnModelCreating method
- */
-
 namespace QRCodeAuth_Web.Data
 {
-	using QRCodeAuth_Web.Models;
+	using System;
 	using System.Data.Entity;
+	using System.ComponentModel.DataAnnotations.Schema;
+	using System.Linq;
+	using QRCodeAuth_Web.Models;
 
-	public class WebSystemData : DbContext
+	public partial class WebSystemData : DbContext
 	{
-		public WebSystemData(): base("name=WebSystemData")
+		public WebSystemData()
+			: base("name=WebSystemData")
 		{
-			
 		}
-
-		// DbSets
 		public DbSet<User> Users { get; set; }
-		public DbSet<Account> Accounts { get; set; }
+		public DbSet<MobileAccount> MobileAccounts { get; set; }
+		public DbSet<WebAccount> WebAccounts { get; set; }
 		public DbSet<Event> Events { get; set; }
+		public DbSet<Credential> Credentials { get; set; }
 
 		protected override void OnModelCreating(DbModelBuilder modelBuilder)
 		{
-			// Manually mapping Primary Keys for Entity Framework
-			modelBuilder.Entity<User>().HasKey(t => t.UserId);
+			// Users Table
+			modelBuilder.Entity<User>().HasKey(u => u.UserId);
 
-			modelBuilder.Entity<Event>().HasKey(t => new { t.Name, t.StartTime });
+			// MobileAccounts Table
+			modelBuilder.Entity<MobileAccount>().HasKey(m => m.MobileId);
 
-			modelBuilder.Entity<Account>().HasKey(t => new { t.AccountId, t.Type });
+			// WebAccounts Table
+			modelBuilder.Entity<WebAccount>().HasKey(w => w.WebId);
+
+			// Events Table
+			modelBuilder.Entity<Event>().HasKey(ev => ev.EventId).Property(ev => ev.EventId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+
+			// Credentials Table
+			modelBuilder.Entity<Credential>().HasKey(c => c.CredentialId).Property(c => c.CredentialId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+
 		}
 	}
 }
