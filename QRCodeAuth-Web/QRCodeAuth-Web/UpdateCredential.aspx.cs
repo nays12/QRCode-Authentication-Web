@@ -15,6 +15,7 @@ namespace QRCodeAuth_Web
 	public partial class UpdateCredential : System.Web.UI.Page
 	{
 		protected static List<Credential> credentials = new List<Credential>(); // stores the issued credentials that will be fetched by API
+		protected static List<Credential> mobileCredentials = new List<Credential>(); // stores the updated credentials that will be fetched by the mobile app
 		protected static string userId;
 		protected void Page_Load(object sender, EventArgs e)
 		{
@@ -22,6 +23,10 @@ namespace QRCodeAuth_Web
 			if (!IsPostBack) { BindGrid(); }
 		}
 
+		public static List<Credential> getUpdatedCredentials()
+		{
+			return mobileCredentials;
+		}
 		protected void btnGetCredentials_Click(object sender, EventArgs e)
 		{
 			userId = txtMobileId.Text;
@@ -76,6 +81,7 @@ namespace QRCodeAuth_Web
 				Issuer = issuer
 			};
 
+			mobileCredentials.Add(cred);
 			CredentialsRepo.UpdateCredential(id, cred);
 			credentials = CredentialsRepo.GetOwnerCredentials(userId);
 			lblStatus.Text = CredentialsRepo.StatusMessage;

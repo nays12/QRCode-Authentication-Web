@@ -35,6 +35,14 @@ namespace QRCodeAuth_Web.Controllers
 			return CreateCredential.getIssuedCredentials();
 		}
 
+		[Route("api/Credentials/GetUpdatedCredentials")]
+		[HttpGet]
+		[ResponseType(typeof(Credential))]
+		public List<Credential> GetUpdatedCredentials()
+		{
+			return UpdateCredential.getUpdatedCredentials();
+		}
+
 		// GET: api/Credentials/5
 		[ResponseType(typeof(Credential))]
 		public async Task<IHttpActionResult> GetCredential(int id)
