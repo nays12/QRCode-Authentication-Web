@@ -13,5 +13,25 @@ namespace QRCodeAuth_Web
 		{
 
 		}
+
+		protected void btnCreateEvent_Click(object sender, EventArgs e)
+		{
+			Response.Redirect("CreateEvent.aspx");
+		}
+
+		protected void btnRequest_Click(object sender, EventArgs e)
+		{
+			Response.Redirect("RequestCredentials.aspx");
+		}
+
+		protected void btnCreateCredential_Click(object sender, EventArgs e)
+		{
+			Response.Redirect("CreateCredential.aspx");
+		}
+
+		protected void btnUpdateCredential_Click(object sender, EventArgs e)
+		{
+			Response.Redirect("UpdateCredential.aspx");
+		}
 	}
 }

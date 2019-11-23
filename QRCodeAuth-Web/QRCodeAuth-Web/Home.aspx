@@ -19,8 +19,10 @@
             <img class="image" src="Images/title.JPG" />
        </div>
         <div class="divPageBody divSection">
-            <asp:Button ID="Button1" runat="server" Class="button btn btn-success" Text="Create an Event" />
-            <asp:Button ID="Button2" runat="server" Class="button btn btn-success" Text="Request Credentials" />
+            <asp:Button ID="btnCreateEvent" runat="server" Class="button btn btn-success" Text="Create an Event" OnClick="btnCreateEvent_Click" />
+            <asp:Button ID="btnRequest" runat="server" Class="button btn btn-success" Text="Request Credentials" OnClick="btnRequest_Click" />
+			<asp:Button ID="btnCreateCredential" runat="server" Class="button btn btn-success" Text="Create a Credential" OnClick="btnCreateCredential_Click" />
+			<asp:Button ID="btnUpdateCredential" runat="server" Class="button btn btn-success" Text="Update a Credential" OnClick="btnUpdateCredential_Click" />
          </div>
     </form>
 </body>
