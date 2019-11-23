@@ -15,21 +15,17 @@ namespace QRCodeAuth_Web
 		protected void Page_Load(object sender, EventArgs e)
 		{
             ValidationSettings.UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
-            //ResetPage();
+            
         }
 
 		public static List<Credential> getIssuedCredentials()
 		{
-			List<Credential> credentials = new List<Credential>();
-			credentials = issuedCreds;
-			System.Diagnostics.Debug.WriteLine(credentials);
-			return credentials;
+			return issuedCreds;
 		}
 
 		protected void btnCreate_Click(object sender, EventArgs e)
 		{
 			CreateNewCredential();
-            ResetPage();
         }
 
         protected void CreateNewCredential()
@@ -59,9 +55,13 @@ namespace QRCodeAuth_Web
 			txtExpDate.Text = "";
 			txtValue.Text = "";
 			txtIssueTo.Text = "";
-			issuedCreds = null;
 		}
 
+		protected void btnDone_Click(object sender, EventArgs e)
+		{
+			issuedCreds.Clear();
+			Response.Redirect("Home.aspx");
+		}
 	}
 
 }
