@@ -14,7 +14,7 @@ namespace QRCodeAuth_Web
 {
 	public partial class UpdateCredential : System.Web.UI.Page
 	{
-		protected static List<Credential> credentials = new List<Credential>(); // stores the issued credentials that will be fetched by API
+		protected static List<Credential> credentials = new List<Credential>(); // stores the credentials from database that are being shown in the GridView
 		protected static List<Credential> mobileCredentials = new List<Credential>(); // stores the updated credentials that will be fetched by the mobile app
 		protected static string userId;
 		protected void Page_Load(object sender, EventArgs e)
@@ -106,6 +106,10 @@ namespace QRCodeAuth_Web
 			txtMobileId.Text ="";
 		}
 
-
+		protected void btnDone_Click(object sender, EventArgs e)
+		{
+			mobileCredentials.Clear();
+			Response.Redirect("Home.aspx");
+		}
 	}
 }
