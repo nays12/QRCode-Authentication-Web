@@ -27,14 +27,16 @@
 
 			<asp:Label ID="lblMobileId" runat="server" Class="lbl" Text="Please enter the Id of Mobile Account for which you would like to update Credentials."></asp:Label>
 			<asp:TextBox ID="txtMobileId" runat="server" Class="txb"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="rfvMobileId" runat="server" Class="lblError" ErrorMessage="* Field Required - Please enter a value." ControlToValidate="txtMobileId"></asp:RequiredFieldValidator>
-
 			<asp:Button ID="btnGetCredentials" runat="server" Class="button btn btn-success" Text="Get Credentials" OnClick="btnGetCredentials_Click" />
 
 			<br />
+			<asp:Label ID="lblStatus" runat="server"></asp:Label>
+			<br />
+			<br />
 
-			<asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" OnRowEditing="GridView1_RowEditing" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowUpdating="GridView1_RowUpdating" OnRowDeleting="GridView1_RowDeleting">
+			<asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="CredentialId" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowDeleting="GridView1_RowDeleting" >
 				<Columns>
+					<asp:BoundField DataField="CredentialId" HeaderText="Id No." />
 					<asp:BoundField DataField="CredentialType" HeaderText="Type" />
 					<asp:BoundField DataField="Name" HeaderText="Name" />
 					<asp:BoundField DataField="Value" HeaderText="Value" />
@@ -42,7 +44,8 @@
 					<asp:BoundField DataField="ExpirationDate" HeaderText="Expiring On" />
 					<asp:CheckBoxField DataField="IsValid" HeaderText="Valid" />
 					<asp:BoundField DataField="Issuer" HeaderText="Issuer" />
-					<asp:CommandField HeaderText="Edit" ShowEditButton="True" />
+					<asp:CommandField ShowEditButton="True" />
+					<asp:CommandField ShowDeleteButton="true" />
 				</Columns>
 			</asp:GridView>
 

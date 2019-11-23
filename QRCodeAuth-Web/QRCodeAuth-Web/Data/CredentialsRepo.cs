@@ -24,7 +24,24 @@ namespace QRCodeAuth_Web.Data
 			catch (Exception ex)
 			{
 				StatusMessage = string.Format("Failure. Could not add Credential '{0}' to Mobile Account belonging to  {1}. Error: {2}", cred.Name, cred.Owner, ex.Message);
-				StatusMessage = ex.Message;
+			}
+		}
+
+		public static void DeleteCredentialById(int id)
+		{
+			Credential cred = new Credential();
+			try
+			{			
+				cred = db.Credentials.Find(id);
+				db.Credentials.Remove(cred);
+				db.SaveChanges();
+
+				StatusMessage = string.Format("Success! Deleted Credential '{0}' in Mobile Account belonging to {1}.", cred.Name, cred.Owner);
+				System.Diagnostics.Debug.WriteLine(StatusMessage);
+			}
+			catch (Exception ex)
+			{
+				StatusMessage = string.Format("Failure. Could not find Credential '{0}' to Mobile Account belonging to  {1} for deletion. Error: {2}", cred.Name, cred.Owner, ex.Message);
 			}
 		}
 
@@ -36,6 +53,7 @@ namespace QRCodeAuth_Web.Data
 				.Where(c => c.Owner == ownerId)
 				.Select(c => new
 				{ 
+					CredentialId = c.CredentialId,
 					Name = c.Name,
 					CredentialType = c.CredentialType,
 					IssueDate = c.IssueDate,
@@ -51,6 +69,7 @@ namespace QRCodeAuth_Web.Data
 				{
 					Credential cred = new Credential
 					{
+						CredentialId = c.CredentialId,
 						Name = c.Name,
 						CredentialType = c.CredentialType,
 						IssueDate = c.IssueDate,

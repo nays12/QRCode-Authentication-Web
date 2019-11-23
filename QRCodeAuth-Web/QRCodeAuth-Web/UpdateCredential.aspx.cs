@@ -25,39 +25,52 @@ namespace QRCodeAuth_Web
 		protected void btnGetCredentials_Click(object sender, EventArgs e)
 		{
 			userId = txtMobileId.Text;
+			credentials = CredentialsRepo.GetOwnerCredentials(userId);
 			BindGrid();
 		}
 
 		private void BindGrid()
-		{
-			credentials = CredentialsRepo.GetOwnerCredentials(userId);
+		{		
 			GridView1.DataSource = credentials;
 			GridView1.DataBind();
 		}
+
 		protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
 		{
 			GridView1.EditIndex = e.NewEditIndex;
-			BindGrid();
+			ResetPage();
 		}
 
-		protected void GridView1_RowCancelingEdit(object sender, GridViewEditEventArgs e)
+		protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
 		{
-			GridView1.EditIndex = e.NewEditIndex;
-			BindGrid();
+			GridView1.EditIndex = -1;
+			ResetPage();
 		}
 
-		protected void GridView1_RowUpdating(object sender, GridViewEditEventArgs e)
+		protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
 		{
 
 			GridView1.EditIndex = -1;
-			BindGrid();
+			ResetPage();
 		}
 
-		protected void GridView1_RowDeleting(object sender, GridViewEditEventArgs e)
+		protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
 		{
 
-			GridView1.EditIndex = -1;
+			string CredentialId = GridView1.DataKeys[e.RowIndex].Values["CredentialId"].ToString();
+			int id = Convert.ToInt32(CredentialId);
+
+			CredentialsRepo.DeleteCredentialById(id);
+			credentials = CredentialsRepo.GetOwnerCredentials(userId);
+			lblStatus.Text = CredentialsRepo.StatusMessage;
+
+			ResetPage();
+		}
+
+		protected void ResetPage()
+		{
 			BindGrid();
+			txtMobileId.Text ="";
 		}
 
 
