@@ -43,6 +43,14 @@ namespace QRCodeAuth_Web.Controllers
 			return UpdateCredential.getUpdatedCredentials();
 		}
 
+		[Route("api/Credentials/GetCredentialIdToDelete")]
+		[HttpGet]
+		[ResponseType(typeof(int))]
+		public int GetCredentialIdToDelete()
+		{
+			return UpdateCredential.GetCredentialIdToDelete();
+		}
+
 		// GET: api/Credentials/5
 		[ResponseType(typeof(Credential))]
 		public async Task<IHttpActionResult> GetCredential(int id)

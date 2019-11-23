@@ -17,6 +17,7 @@ namespace QRCodeAuth_Web
 		protected static List<Credential> credentials = new List<Credential>(); // stores the credentials from database that are being shown in the GridView
 		protected static List<Credential> mobileCredentials = new List<Credential>(); // stores the updated credentials that will be fetched by the mobile app
 		protected static string userId;
+		protected static int deleteCredentialId;
 		protected void Page_Load(object sender, EventArgs e)
 		{
 			ValidationSettings.UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
@@ -26,6 +27,10 @@ namespace QRCodeAuth_Web
 		public static List<Credential> getUpdatedCredentials()
 		{
 			return mobileCredentials;
+		}
+		public static int GetCredentialIdToDelete()
+		{
+			return deleteCredentialId;
 		}
 		protected void btnGetCredentials_Click(object sender, EventArgs e)
 		{
@@ -43,7 +48,7 @@ namespace QRCodeAuth_Web
 		protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
 		{
 			GridView1.EditIndex = e.NewEditIndex;
-			BindGrid(); GridView1.DataBind();
+			BindGrid();
 		}
 
 		protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
@@ -93,7 +98,8 @@ namespace QRCodeAuth_Web
 		{
 			int id = Convert.ToInt32(GridView1.DataKeys[e.RowIndex].Values["CredentialId"]);
 
-			CredentialsRepo.DeleteCredentialById(id);
+			deleteCredentialId = id;
+			CredentialsRepo.DeleteCredentialById(id);		
 			credentials = CredentialsRepo.GetOwnerCredentials(userId);
 			lblStatus.Text = CredentialsRepo.StatusMessage;
 
@@ -109,6 +115,7 @@ namespace QRCodeAuth_Web
 		protected void btnDone_Click(object sender, EventArgs e)
 		{
 			mobileCredentials.Clear();
+			credentials.Clear();
 			Response.Redirect("Home.aspx");
 		}
 	}

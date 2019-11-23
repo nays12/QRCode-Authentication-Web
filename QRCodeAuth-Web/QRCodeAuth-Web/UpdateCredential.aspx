@@ -29,7 +29,7 @@
 			<asp:TextBox ID="txtMobileId" runat="server" Class="txb"></asp:TextBox>
 			<asp:Button ID="btnGetCredentials" runat="server" Class="button btn btn-success" Text="Get Credentials" OnClick="btnGetCredentials_Click" />
 
-			<asp:Button ID="btnDone" runat="server" Text="Done Editing" Class="button btn btn-success" OnClick="btnDone_Click"/>
+			<asp:Button ID="btnDone" runat="server" Text="Done Updating" Class="button btn btn-success" OnClick="btnDone_Click"/>
 
 			<br />
 			<asp:Label ID="lblStatus" runat="server"></asp:Label>
