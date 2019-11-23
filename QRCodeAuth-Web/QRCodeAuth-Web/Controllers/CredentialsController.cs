@@ -35,6 +35,22 @@ namespace QRCodeAuth_Web.Controllers
 			return CreateCredential.getIssuedCredentials();
 		}
 
+		[Route("api/Credentials/GetUpdatedCredentials")]
+		[HttpGet]
+		[ResponseType(typeof(Credential))]
+		public List<Credential> GetUpdatedCredentials()
+		{
+			return UpdateCredential.getUpdatedCredentials();
+		}
+
+		[Route("api/Credentials/GetCredentialIdToDelete")]
+		[HttpGet]
+		[ResponseType(typeof(int))]
+		public int GetCredentialIdToDelete()
+		{
+			return UpdateCredential.GetCredentialIdToDelete();
+		}
+
 		// GET: api/Credentials/5
 		[ResponseType(typeof(Credential))]
 		public async Task<IHttpActionResult> GetCredential(int id)
@@ -48,40 +64,40 @@ namespace QRCodeAuth_Web.Controllers
 			return Ok(credential);
 		}
 
-		// PUT: api/Credentials/5
-		[ResponseType(typeof(void))]
-		public async Task<IHttpActionResult> PutCredential(int id, Credential credential)
-		{
-			if (!ModelState.IsValid)
-			{
-				return BadRequest(ModelState);
-			}
+		//// PUT: api/Credentials/5
+		//[ResponseType(typeof(void))]
+		//public async Task<IHttpActionResult> PutCredential(int id, Credential credential)
+		//{
+		//	if (!ModelState.IsValid)
+		//	{
+		//		return BadRequest(ModelState);
+		//	}
 
-			if (id != credential.CredentialId)
-			{
-				return BadRequest();
-			}
+		//	if (id != credential.CredentialId)
+		//	{
+		//		return BadRequest();
+		//	}
 
-			db.Entry(credential).State = EntityState.Modified;
+		//	db.Entry(credential).State = EntityState.Modified;
 
-			try
-			{
-				await db.SaveChangesAsync();
-			}
-			catch (DbUpdateConcurrencyException)
-			{
-				if (!CredentialExists(id))
-				{
-					return NotFound();
-				}
-				else
-				{
-					throw;
-				}
-			}
+		//	try
+		//	{
+		//		await db.SaveChangesAsync();
+		//	}
+		//	catch (DbUpdateConcurrencyException)
+		//	{
+		//		if (!CredentialExists(id))
+		//		{
+		//			return NotFound();
+		//		}
+		//		else
+		//		{
+		//			throw;
+		//		}
+		//	}
 
-			return StatusCode(HttpStatusCode.NoContent);
-		}
+		//	return StatusCode(HttpStatusCode.NoContent);
+		//}
 
 		// POST: api/Credentials
 		[ResponseType(typeof(Credential))]

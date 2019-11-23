@@ -14,22 +14,17 @@ namespace QRCodeAuth_Web
 		public static List<Credential> issuedCreds = new List<Credential>(); // stores the issued credentials that will be fetched by API
 		protected void Page_Load(object sender, EventArgs e)
 		{
-            ValidationSettings.UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
-            //ResetPage();
+            ValidationSettings.UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;         
         }
 
 		public static List<Credential> getIssuedCredentials()
 		{
-			List<Credential> credentials = new List<Credential>();
-			credentials = issuedCreds;
-			System.Diagnostics.Debug.WriteLine(credentials);
-			return credentials;
+			return issuedCreds;
 		}
 
 		protected void btnCreate_Click(object sender, EventArgs e)
 		{
 			CreateNewCredential();
-            ResetPage();
         }
 
         protected void CreateNewCredential()
@@ -49,8 +44,8 @@ namespace QRCodeAuth_Web
 				Issuer = "8220423"
 			};
 
-			issuedCreds.Add(cred);
-			CredentialsRepo.AddCredential(cred);
+			var databaseCred = CredentialsRepo.AddCredential(cred);
+			issuedCreds.Add(databaseCred);
 		}
 
 		protected void ResetPage()
@@ -59,9 +54,13 @@ namespace QRCodeAuth_Web
 			txtExpDate.Text = "";
 			txtValue.Text = "";
 			txtIssueTo.Text = "";
-			issuedCreds = null;
 		}
 
+		protected void btnDone_Click(object sender, EventArgs e)
+		{
+			issuedCreds.Clear();
+			Response.Redirect("Home.aspx");
+		}
 	}
 
 }
