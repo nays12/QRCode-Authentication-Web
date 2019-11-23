@@ -42,7 +42,7 @@
 					<asp:BoundField DataField="Value" HeaderText="Value" />
 					<asp:BoundField DataField="IssueDate" HeaderText="Date Issued" />
 					<asp:BoundField DataField="ExpirationDate" HeaderText="Expiring On" />
-					<asp:CheckBoxField DataField="IsValid" HeaderText="Valid" />
+					<asp:BoundField DataField="IsValid" HeaderText="Valid" />
 					<asp:BoundField DataField="Issuer" HeaderText="Issuer" />
 					<asp:CommandField ShowEditButton="True" />
 					<asp:CommandField ShowDeleteButton="true" />

@@ -41,7 +41,36 @@ namespace QRCodeAuth_Web.Data
 			}
 			catch (Exception ex)
 			{
-				StatusMessage = string.Format("Failure. Could not find Credential '{0}' to Mobile Account belonging to  {1} for deletion. Error: {2}", cred.Name, cred.Owner, ex.Message);
+				StatusMessage = string.Format("Failure. Could not find Credential '{0}' to Mobile Account belonging to {1} for deletion. Error: {2}", cred.Name, cred.Owner, ex.Message);
+			}
+		}
+
+		public static void UpdateCredential(int id, Credential newCredential)
+		{
+			Credential oldCredential = new Credential();
+			try
+			{
+				oldCredential = db.Credentials.Find(id); // find the credential
+
+				// Update old credential with new credential values
+				oldCredential.CredentialId = newCredential.CredentialId;
+				oldCredential.Name = newCredential.Name;
+				oldCredential.CredentialType = newCredential.CredentialType;
+				oldCredential.IssueDate = newCredential.IssueDate;
+				oldCredential.ExpirationDate = newCredential.ExpirationDate;
+				oldCredential.Value = newCredential.Value;
+				oldCredential.IsValid = newCredential.IsValid;
+				oldCredential.Owner = newCredential.Owner;
+				oldCredential.Issuer = newCredential.Issuer;
+
+				db.SaveChanges(); // save the changes
+
+				StatusMessage = string.Format("Success! Credential '{0}' in Mobile Account belonging to {1} was updated.", oldCredential.Name, oldCredential.Owner);
+				System.Diagnostics.Debug.WriteLine(StatusMessage);
+			}
+			catch (Exception ex)
+			{
+				StatusMessage = string.Format("Failure. Could not update Credential '{0}' to Mobile Account belonging to {1}. Error: {2}", oldCredential.Name, oldCredential.Owner, ex.Message);
 			}
 		}
 
