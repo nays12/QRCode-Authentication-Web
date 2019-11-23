@@ -14,8 +14,7 @@ namespace QRCodeAuth_Web
 		public static List<Credential> issuedCreds = new List<Credential>(); // stores the issued credentials that will be fetched by API
 		protected void Page_Load(object sender, EventArgs e)
 		{
-            ValidationSettings.UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
-            
+            ValidationSettings.UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;         
         }
 
 		public static List<Credential> getIssuedCredentials()
@@ -45,8 +44,8 @@ namespace QRCodeAuth_Web
 				Issuer = "8220423"
 			};
 
-			issuedCreds.Add(cred);
-			CredentialsRepo.AddCredential(cred);
+			var databaseCred = CredentialsRepo.AddCredential(cred);
+			issuedCreds.Add(databaseCred);
 		}
 
 		protected void ResetPage()

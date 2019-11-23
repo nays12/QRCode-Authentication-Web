@@ -11,7 +11,7 @@ namespace QRCodeAuth_Web.Data
 		public static string StatusMessage { get; set; }
 		private static WebSystemData db = new WebSystemData();
 
-		public static void AddCredential(Credential cred)
+		public static Credential AddCredential(Credential cred)
 		{
 			try
 			{
@@ -20,10 +20,12 @@ namespace QRCodeAuth_Web.Data
 				
 				StatusMessage = string.Format("Success! Added Credential '{0}' to Mobile Account belonging to {1}.", cred.Name, cred.Owner);
 				System.Diagnostics.Debug.WriteLine(StatusMessage);
+				return cred;
 			}
 			catch (Exception ex)
 			{
 				StatusMessage = string.Format("Failure. Could not add Credential '{0}' to Mobile Account belonging to  {1}. Error: {2}", cred.Name, cred.Owner, ex.Message);
+				return null;
 			}
 		}
 

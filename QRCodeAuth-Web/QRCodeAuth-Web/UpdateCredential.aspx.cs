@@ -116,6 +116,8 @@ namespace QRCodeAuth_Web
 		{
 			mobileCredentials.Clear();
 			credentials.Clear();
+			deleteCredentialId = 0;
+			userId = "";
 			Response.Redirect("Home.aspx");
 		}
 	}
