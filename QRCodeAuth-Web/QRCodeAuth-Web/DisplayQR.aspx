@@ -23,6 +23,7 @@
 			</div>
 			<div>
 				<asp:Button ID="generateQR" runat="server" Text="Generate QR" OnClick="generateQR_Click" />
+				<asp:Button ID="btnReadQR" runat="server" OnClick="btnReadQR_Click" Text="Read QR" />
 			</div>
          </div>
     </form>
