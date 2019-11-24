@@ -9,23 +9,26 @@ namespace QRCodeAuth_Web.Data
 	public class EventsRepo
 	{
 		public static string StatusMessage { get; set; }
+		private static WebSystemData db = new WebSystemData();
 
 		public static void AddEvent(Event ev)
 		{
-			//try
-			//{
-				using (var dbconn = new WebSystemData())
-				{
-					dbconn.Events.Add(ev);
-					dbconn.SaveChanges();
-				}
+			try
+			{
+				db.Events.Add(ev);
+				db.SaveChanges();
+
 				StatusMessage = string.Format("Success! Added new Event '{0}'.", ev.Name);
-			//}
-			//catch (Exception ex)
-			//{
-			//	StatusMessage = string.Format("Failure. Could not add Event {0}. Error: {1}", ev.Name, ex.Message);
-			//	StatusMessage = ex.Message;
-			//}
+				System.Diagnostics.Debug.WriteLine(StatusMessage);
+			}	
+			catch (Exception ex)
+			{
+				StatusMessage = string.Format("Failure. Could not add Event {0}. Error: {1}", ev.Name, ex.Message);
+				System.Diagnostics.Debug.WriteLine(StatusMessage);
+			} 
 		}
+
+
+
 	}
 }
