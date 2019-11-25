@@ -7,18 +7,18 @@
  */
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Web.UI;
+using QRCodeAuth_Web.Data;
+using QRCodeAuth_Web.Models;
 
 namespace QRCodeAuth_Web
 {
     public partial class Default : System.Web.UI.Page
     {
 		protected static int generatedCode; // stores the generated code from the API call
-        protected void Page_Load(object sender, EventArgs e)
+		public static string userId; // stores recieved userId from API call
+
+		protected void Page_Load(object sender, EventArgs e)
         {
             ValidationSettings.UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
         }
@@ -58,20 +58,56 @@ namespace QRCodeAuth_Web
 
 		protected void btnLogin_Click(object sender, EventArgs e)
 		{
-            if(Page.IsValid)
+			lblValidCode.Text = "";
+
+			if (Page.IsValid)
             {
+				System.Diagnostics.Debug.WriteLine(userId); // get userId from API call
                 int userCode = Convert.ToInt32(txtCode.Text); // get user's code form text input
                 bool isCodeValid = validateCode(generatedCode, userCode); // check equality
+				bool isUserFound = GetAccountInfo();
 
                 if (isCodeValid)
                 {
-                    Response.Redirect("Home.aspx");
+					if (isUserFound)
+					{
+						Response.Redirect("Home.aspx");
+					}
+					else
+					{
+						lblStatus.Text = "You do not have an active Web Account. Please go to your Credential Authority to set one up.";
+					}					
                 }
                 else
                 {
-                    lblValidCode.Text = "* The code you entered is incorrect. Please Try Again";
-                }
+					lblStatus.Text = "Your Web Account was found. Please use your Mobile Account to get the correct login code.";
+					lblValidCode.Text = "The code entered is incorrect.";
+                }				
             }
+		}
+
+		protected bool GetAccountInfo() // Gets user infor and puts it in session state
+		{
+			// Get user info
+			User user = new User();
+			user = UsersRepo.FindUserById(userId);
+
+			// Get user's Web Account info
+			WebAccount wa = new WebAccount();
+			wa = WebAccountsRepo.FindAccountById(userId);
+
+			// Check to see if the information could be found
+			if (user != null && wa != null)
+			{
+				Session["ActiveUser"] = user;
+				Session["ActiveWebAccount"] = wa;
+				return true;
+			}
+			else
+			{
+				lblStatus.Text = "You do not have an active Web Account. Please go to your Credential Authority to set one up.";
+				return false;
+			}
 		}
 
 	}

@@ -16,5 +16,13 @@ namespace QRCodeAuth_Web.Controllers
 		{
 			return Default.GetGenCode();
 		}
+
+		[Route("api/Data/RecieveAccountId")]
+		[HttpPost]
+		public IHttpActionResult RecieveAccountId(string id)
+		{
+			Default.userId = id;
+			return Ok("Your data has been recieved.");
+		}
 	}
 }

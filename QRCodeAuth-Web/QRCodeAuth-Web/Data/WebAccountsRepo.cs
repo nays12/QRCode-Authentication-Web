@@ -18,12 +18,13 @@ namespace QRCodeAuth_Web.Data
 					dbconn.WebAccounts.Add(w);
 					dbconn.SaveChanges();
 				}
-				StatusMessage = string.Format("Success! Added new Mobile Account for User {0}.", w.WebId);
+				StatusMessage = string.Format("Success! Added new Web Account for User {0}.", w.WebId);
+				System.Diagnostics.Debug.WriteLine(StatusMessage);
 			}
 			catch (Exception ex)
 			{
-				StatusMessage = string.Format("Failure. Could not add Mobile Account for User {0}. Error: {1}", w.WebId, ex.Message);
-				StatusMessage = ex.Message;
+				StatusMessage = string.Format("Failure. Could not add Web Account for User {0}. Error: {1}", w.WebId, ex.Message);
+				System.Diagnostics.Debug.WriteLine(StatusMessage);
 			}
 		}
 		public static WebAccount FindAccountById(string id)
@@ -36,13 +37,14 @@ namespace QRCodeAuth_Web.Data
 				{
 					w = dbconn.WebAccounts.Find(id);
 				}
-				StatusMessage = string.Format("Success! Found Mobile Account belonging to User {0}.", w.WebId);
+				StatusMessage = string.Format("Success! Found Web Account belonging to User {0}.", w.WebId);
 				System.Diagnostics.Debug.WriteLine(StatusMessage);
 				return w;
 			}
 			catch (Exception ex)
 			{
-				StatusMessage = string.Format("Failure. Could not find Mobile Account for User {0}. Error: {1}", w.WebId, ex.Message);
+				StatusMessage = string.Format("Failure. Could not find Web Account for User {0}. Error: {1}", id, ex.Message);
+				System.Diagnostics.Debug.WriteLine(StatusMessage);
 				return null;
 			}
 		}
