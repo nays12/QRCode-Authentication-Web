@@ -55,6 +55,8 @@
                 <asp:RequiredFieldValidator ID="rfvIssueTo" runat="server" Class="lblError" ErrorMessage="* Field Required - Please enter a value." ControlToValidate="txtIssueTo"></asp:RequiredFieldValidator>
 
 			</div>
+			<asp:Label ID="lblStatus" runat="server" Text="Label"></asp:Label>
+
 			<asp:Button ID="btnCreate" runat="server" Class="button btn btn-success" Text="Create Credential" OnClick="btnCreate_Click" />
 			<asp:Button ID="btnDone" runat="server" Text="Done" Class="button btn btn-success" OnClick="btnDone_Click"/>
 		</div>

@@ -46,6 +46,7 @@ namespace QRCodeAuth_Web
 
 			var databaseCred = CredentialsRepo.AddCredential(cred);
 			issuedCreds.Add(databaseCred);
+			lblStatus.Text = String.Format("Succes! You have issued the Digital Credential {0} to the Mobile Token Account belonging to UserId {1}.", cred.Name, cred.Owner);
 		}
 
 		protected void ResetPage()
