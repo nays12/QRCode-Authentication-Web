@@ -1,9 +1,11 @@
-﻿using System;
+﻿using QRCodeAuth_Web.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Description;
 
 namespace QRCodeAuth_Web.Controllers
 {
@@ -15,6 +17,15 @@ namespace QRCodeAuth_Web.Controllers
 		public int GetLoginCode()
 		{
 			return Default.GetGenCode();
+		}
+
+		[Route("api/Data/RecieveAccountId")]
+		[HttpPost]
+		[ResponseType(typeof(User))]
+		public IHttpActionResult RecieveAccountId(User u)
+		{
+			Default.GetUserFromMobile(u);
+			return Ok("Your data has been recieved!");
 		}
 	}
 }
