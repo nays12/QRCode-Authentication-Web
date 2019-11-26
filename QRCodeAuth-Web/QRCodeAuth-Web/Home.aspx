@@ -30,6 +30,8 @@
             <asp:Button ID="btnRequest" runat="server" Class="button btn btn-success" Text="Request Credentials" OnClick="btnRequest_Click" Visible="False" />
 			<asp:Button ID="btnCreateCredential" runat="server" Class="button btn btn-success" Text="Create a Credential" OnClick="btnCreateCredential_Click" Visible="False" />
 			<asp:Button ID="btnUpdateCredential" runat="server" Class="button btn btn-success" Text="Update a Credential" OnClick="btnUpdateCredential_Click" Visible="False" />
+
+			<asp:Button ID="btnLogout" runat="server" Class="button btn btn-secondary" Text="Logout" OnClick="btnLogout_Click" Visible="True" />
          </div>
     </form>
 </body>

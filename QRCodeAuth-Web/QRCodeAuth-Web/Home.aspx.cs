@@ -78,5 +78,14 @@ namespace QRCodeAuth_Web
 		{
 			Response.Redirect("UpdateCredential.aspx");
 		}
+
+		protected void btnLogout_Click(object sender, EventArgs e)
+		{
+			Session["ActiveUser"] = null;
+			Session["ActiveWebAccount"] = null;
+			Default.userId = "";
+
+			Response.Redirect("Default.aspx");
+		}
 	}
 }
