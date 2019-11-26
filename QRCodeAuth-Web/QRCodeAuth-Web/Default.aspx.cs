@@ -21,6 +21,7 @@ namespace QRCodeAuth_Web
 		protected void Page_Load(object sender, EventArgs e)
         {
             ValidationSettings.UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
+			ResetPage();
 		}
 		public static int GetGenCode()
 		{		
@@ -32,8 +33,8 @@ namespace QRCodeAuth_Web
 
 		public static void GetUserIdFromMobile(string id)
 		{
-			System.Diagnostics.Debug.WriteLine(id);
 			userId = id;
+			System.Diagnostics.Debug.WriteLine(userId);
 		}
 
 		// Generate random 6 digit number;
@@ -65,31 +66,33 @@ namespace QRCodeAuth_Web
 		protected void btnLogin_Click(object sender, EventArgs e)
 		{
 			lblValidCode.Text = "";
+			if (IsPostBack)
+			{
+				if (Page.IsValid)
+				{
+					System.Diagnostics.Debug.WriteLine(userId); // get userId from API call
+					int userCode = Convert.ToInt32(txtCode.Text); // get user's code form text input
+					bool isCodeValid = validateCode(generatedCode, userCode); // check equality
+					bool isUserFound = GetAccountInfo();
 
-			if (Page.IsValid)
-            {
-				System.Diagnostics.Debug.WriteLine(userId); // get userId from API call
-                int userCode = Convert.ToInt32(txtCode.Text); // get user's code form text input
-                bool isCodeValid = validateCode(generatedCode, userCode); // check equality
-				bool isUserFound = GetAccountInfo();
-
-                if (isCodeValid)
-                {
-					if (isUserFound)
+					if (isCodeValid)
 					{
-						Response.Redirect("Home.aspx");
+						if (isUserFound)
+						{
+							Response.Redirect("Home.aspx");
+						}
+						else
+						{
+							lblStatus.Text = "You do not have an active Web Account. Please go to your Credential Authority to set one up.";
+						}
 					}
 					else
 					{
-						lblStatus.Text = "You do not have an active Web Account. Please go to your Credential Authority to set one up.";
-					}					
-                }
-                else
-                {
-					lblStatus.Text = "Your Web Account was found. Please use your Mobile Account to get the correct login code.";
-					lblValidCode.Text = "The code entered is incorrect.";
-                }				
-            }
+						lblStatus.Text = "Your Web Account was found. Please use your Mobile Account to get the correct login code.";
+						lblValidCode.Text = "The code entered is incorrect.";
+					}
+				}
+			}
 		}
 
 		protected bool GetAccountInfo() // Gets user infor and puts it in session state
@@ -114,6 +117,12 @@ namespace QRCodeAuth_Web
 				lblStatus.Text = "You do not have an active Web Account. Please go to your Credential Authority to set one up.";
 				return false;
 			}
+		}
+
+		protected void ResetPage()
+		{
+			lblStatus.Text = "";
+			lblValidCode.Text = "";
 		}
 
 	}
