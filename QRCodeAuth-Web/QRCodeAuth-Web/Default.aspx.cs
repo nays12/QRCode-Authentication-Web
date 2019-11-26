@@ -21,13 +21,20 @@ namespace QRCodeAuth_Web
 		protected void Page_Load(object sender, EventArgs e)
         {
             ValidationSettings.UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
-        }
+		}
 		public static int GetGenCode()
-		{
+		{		
 			int code = generateCode();
 			generatedCode = code;
 			System.Diagnostics.Debug.WriteLine(code);
 			return code;
+		}
+
+		public static void GetUserIdFromMobile(string id)
+		{
+			userId = "";
+			System.Diagnostics.Debug.WriteLine(id);
+			userId = id;
 		}
 
 		// Generate random 6 digit number;

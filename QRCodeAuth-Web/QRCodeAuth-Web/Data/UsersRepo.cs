@@ -21,10 +21,12 @@ namespace QRCodeAuth_Web.Data
 					dbconn.SaveChanges();
 				}
 				StatusMessage = string.Format("Success! Added new User '{0} {1}' with Id {2}.", u.FirstName, u.LastName, u.UserId);
+				System.Diagnostics.Debug.WriteLine(StatusMessage);
 			}
 			catch (Exception ex)
 			{
-				StatusMessage = string.Format("Failed. Could add User '{0} {1}' with Id {2}. Error: {3}", u.FirstName, u.LastName, u.UserId, ex.Message);			
+				StatusMessage = string.Format("Failed. Could add User '{0} {1}' with Id {2}. Error: {3}", u.FirstName, u.LastName, u.UserId, ex.Message);
+				System.Diagnostics.Debug.WriteLine(StatusMessage);
 			}
 		}
 
@@ -39,11 +41,13 @@ namespace QRCodeAuth_Web.Data
 					u = dbconn.Users.Find(id);
 				}
 				StatusMessage = string.Format("Success! Found User {0} {1} with Id Number: {2}.", u.FirstName, u.LastName, u.UserId);
+				System.Diagnostics.Debug.WriteLine(StatusMessage);
 				return u;
 			}
 			catch (Exception ex)
 			{
 				StatusMessage = string.Format("Failed. Could not find User {0} {1} with Id Number: {2}. Error: {3}", u.FirstName, u.LastName, u.UserId, ex.Message);
+				System.Diagnostics.Debug.WriteLine(StatusMessage);
 				return null;
 			}
 		}
