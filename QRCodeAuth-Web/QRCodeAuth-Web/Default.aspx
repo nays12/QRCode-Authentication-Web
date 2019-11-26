@@ -21,6 +21,7 @@
 
         <div class="divPageBody divSection">
             <div class="divSection">
+				
                 <asp:Label ID="Label2" Class="lblSubTitles" runat="server" Text="6-digit code"></asp:Label>
                 
                 <asp:TextBox ID="txtCode" Class="txb" runat="server"></asp:TextBox>

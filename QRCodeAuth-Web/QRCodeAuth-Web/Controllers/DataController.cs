@@ -21,10 +21,10 @@ namespace QRCodeAuth_Web.Controllers
 
 		[Route("api/Data/RecieveAccountId")]
 		[HttpPost]
-		[ResponseType(typeof(string))]
-		public IHttpActionResult RecieveAccountId(string id)
+		[ResponseType(typeof(User))]
+		public IHttpActionResult RecieveAccountId(User u)
 		{
-			Default.GetUserIdFromMobile(id);
+			Default.GetUserFromMobile(u);
 			return Ok("Your data has been recieved!");
 		}
 	}

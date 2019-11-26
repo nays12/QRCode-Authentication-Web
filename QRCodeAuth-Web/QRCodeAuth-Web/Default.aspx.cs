@@ -8,6 +8,7 @@
 
 using System;
 using System.Web.UI;
+using System.Web.UI.WebControls;
 using QRCodeAuth_Web.Data;
 using QRCodeAuth_Web.Models;
 
@@ -16,7 +17,7 @@ namespace QRCodeAuth_Web
     public partial class Default : System.Web.UI.Page
     {
 		protected static int generatedCode; // stores the generated code from the API call
-		public static string userId; // stores recieved userId from API call
+		protected static User activeUser = new User(); // stores recieved user from API call
 
 		protected void Page_Load(object sender, EventArgs e)
         {
@@ -31,10 +32,11 @@ namespace QRCodeAuth_Web
 			return code;
 		}
 
-		public static void GetUserIdFromMobile(string id)
+		public static void GetUserFromMobile(User u)
 		{
-			userId = id;
-			System.Diagnostics.Debug.WriteLine(userId);
+			activeUser = null;
+			activeUser = u;
+			System.Diagnostics.Debug.WriteLine(activeUser.UserId);
 		}
 
 		// Generate random 6 digit number;
@@ -70,7 +72,6 @@ namespace QRCodeAuth_Web
 			{
 				if (Page.IsValid)
 				{
-					System.Diagnostics.Debug.WriteLine(userId); // get userId from API call
 					int userCode = Convert.ToInt32(txtCode.Text); // get user's code form text input
 					bool isCodeValid = validateCode(generatedCode, userCode); // check equality
 					bool isUserFound = GetAccountInfo();
@@ -95,20 +96,17 @@ namespace QRCodeAuth_Web
 			}
 		}
 
-		protected bool GetAccountInfo() // Gets user infor and puts it in session state
+		protected bool GetAccountInfo() // Gets user info and puts it in session state
 		{
-			// Get user info
-			User user = new User();
-			user = UsersRepo.FindUserById(userId);
-
+		
 			// Get user's Web Account info
 			WebAccount wa = new WebAccount();
-			wa = WebAccountsRepo.FindAccountById(userId);
+			wa = WebAccountsRepo.FindAccountById(activeUser.UserId);
 
 			// Check to see if the information could be found
-			if (user != null && wa != null)
+			if (wa != null)
 			{
-				Session["ActiveUser"] = user;
+				Session["ActiveUser"] = activeUser;
 				Session["ActiveWebAccount"] = wa;
 				return true;
 			}
