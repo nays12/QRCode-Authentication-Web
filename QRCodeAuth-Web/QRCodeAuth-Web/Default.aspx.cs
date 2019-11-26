@@ -32,7 +32,6 @@ namespace QRCodeAuth_Web
 
 		public static void GetUserIdFromMobile(string id)
 		{
-			userId = "";
 			System.Diagnostics.Debug.WriteLine(id);
 			userId = id;
 		}
