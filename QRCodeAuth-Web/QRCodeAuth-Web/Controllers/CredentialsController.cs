@@ -21,9 +21,9 @@ namespace QRCodeAuth_Web.Controllers
 
 		[Route("api/Credentials/RecieveEventCredentials")]
 		[HttpPost]
-		public IHttpActionResult RecieveAccountId(List<Credential> evCredentials)
+		public IHttpActionResult RecieveAccountId(List<Credential> credentials)
 		{
-			//Default.GetUserFromMobile(u);
+			Default.GetCredentials(credentials);
 			return Ok("Your credentials have been recieved!");
 		}
 

@@ -17,6 +17,7 @@ namespace QRCodeAuth_Web.Models
 		public DateTime StartTime { get; set; }
 		public DateTime EndTime { get; set; }
 		public string Description { get; set; }
+		public List<CredentialType> CredentialsNeeded { get; set; }
 
 		// Foreign Keys
 		public string Owner { get; set; }

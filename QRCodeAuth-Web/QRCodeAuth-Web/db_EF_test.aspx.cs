@@ -40,21 +40,6 @@ namespace QRCodeAuth_Web
 			UsersRepo.AddNewUser(u1);
 			System.Diagnostics.Debug.WriteLine(UsersRepo.StatusMessage);
 
-			//// Finds a user by their ID
-			//info = dbconn.Users.Find("1195191");
-			//Response.Write("the selected is: " + info.UserId + " ; " + info.FirstName + " " + info.LastName);
-
-			//// Finds a user by thier ID and then updates their first name
-			//info = dbconn.Users.Find("1195191");
-			//info.FirstName = "zhimin";
-			//dbconn.SaveChanges();
-
-			//// Finds a user by thier ID and then deletes them from the database
-			//info = dbconn.Users.Find("1453678");
-			//dbconn.Users.Remove(info);
-
-			//dbconn.SaveChanges(); // updates the changes in the database
-
 		}
 
 		protected void MobileAccountsCRUD()
@@ -92,6 +77,9 @@ namespace QRCodeAuth_Web
 
 		protected void EventsCRUD()
 		{
+			List<CredentialType> credentialsNeeded = new List<CredentialType>();
+			credentialsNeeded.Add(CredentialType.Name);
+			credentialsNeeded.Add(CredentialType.Major);
 			// Create event object
 			Event e1 = new Event
 			{
@@ -101,6 +89,7 @@ namespace QRCodeAuth_Web
 				Description = "Free Waffles at the Delta building!",
 				StartTime = Convert.ToDateTime("10/30/2019 02:30pm"),
 				EndTime = Convert.ToDateTime("10/30/2019 06:30pm"),
+				CredentialsNeeded = credentialsNeeded,
 				Owner = "8764710"
 			};
 			EventsRepo.AddEvent(e1);

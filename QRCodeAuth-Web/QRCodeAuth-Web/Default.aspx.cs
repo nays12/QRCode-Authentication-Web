@@ -7,6 +7,7 @@
  */
 
 using System;
+using System.Collections.Generic;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using QRCodeAuth_Web.Data;
@@ -30,6 +31,22 @@ namespace QRCodeAuth_Web
 			generatedCode = code;
 			System.Diagnostics.Debug.WriteLine(code);
 			return code;
+		}
+
+		public static void GetCredentials(List<Credential> credentials)
+		{
+			foreach (Credential cred in credentials)
+			{
+				System.Diagnostics.Debug.WriteLine("Credential ID Number: " + cred.CredentialId);
+				System.Diagnostics.Debug.WriteLine("Name: " + cred.Name);
+				System.Diagnostics.Debug.WriteLine("Issue Date: " + cred.IssueDate);
+				System.Diagnostics.Debug.WriteLine("Expiration Date: " + cred.ExpirationDate);
+				System.Diagnostics.Debug.WriteLine("Value: " + cred.Value);
+				System.Diagnostics.Debug.WriteLine("Is Value: " + cred.IsValid);
+				System.Diagnostics.Debug.WriteLine("Owner: " + cred.Owner);
+				System.Diagnostics.Debug.WriteLine("Issuer: " + cred.Issuer);
+				System.Diagnostics.Debug.WriteLine("-----------------------");
+			};		
 		}
 
 		public static void GetUserFromMobile(User u)
