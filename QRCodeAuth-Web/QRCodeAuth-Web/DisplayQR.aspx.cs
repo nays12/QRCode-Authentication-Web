@@ -10,6 +10,7 @@ using Newtonsoft.Json;
 using QRCodeAuth_Web.Data;
 using QRCodeAuth_Web.Models;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using ZXing;
@@ -32,11 +33,14 @@ namespace QRCodeAuth_Web
 			BarcodeWriter writer = new BarcodeWriter();
 			writer.Format = BarcodeFormat.QR_CODE;
 
+			// Get event to encode
+			string ev = makeEventQR();
+
 			// encode this text into the qr code and save it to the specified path 
-			writer.Write("This is a test").Save(path + @"Images\QRCodes\generatedQR.jpg");
+			writer.Write(ev).Save(path + @"Images\QRCodes\generatedQR2.jpg");
 
 			// load genered qr image into QR image control
-			Image1.ImageUrl = path + @"Images\QRCodes\generatedQR.jpg";
+			Image1.ImageUrl = path + @"Images\QRCodes\generatedQR2.jpg";
 		}
 
 		protected void btnReadQR_Click(object sender, EventArgs e)
@@ -71,13 +75,23 @@ namespace QRCodeAuth_Web
 			return bitmap;
 		}
 
-		string makeEventQR()
+		protected string makeEventQR()
 		{
-			Event e1 = new Event();
-			using (var dbconn = new WebSystemData())
+			List<CredentialType> credentialsNeeded = new List<CredentialType>();
+			credentialsNeeded.Add(CredentialType.Name);
+			credentialsNeeded.Add(CredentialType.Major); 
+
+			Event e1 = new Event
 			{
-				e1 = dbconn.Events.Find(4);
-			}
+				Name = "Delta Waffle Day",
+				Location = "Delta Building Lobby",
+				EventType = EventType.Campus,
+				Description = "Free Waffles at the Delta building!",
+				StartTime = Convert.ToDateTime("10/30/2019 02:30pm"),
+				EndTime = Convert.ToDateTime("10/30/2019 06:30pm"),
+				CredentialsNeeded = credentialsNeeded,
+				Owner = "8764710"
+			};
 
 			string dbEvent = JsonConvert.SerializeObject(e1);
 			//System.Diagnostics.Debug.WriteLine(dbEvent); // See retrieved event

@@ -80,6 +80,7 @@ namespace QRCodeAuth_Web
 			List<CredentialType> credentialsNeeded = new List<CredentialType>();
 			credentialsNeeded.Add(CredentialType.Name);
 			credentialsNeeded.Add(CredentialType.Major);
+
 			// Create event object
 			Event e1 = new Event
 			{
