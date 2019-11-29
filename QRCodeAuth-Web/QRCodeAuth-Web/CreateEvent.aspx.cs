@@ -77,5 +77,10 @@ namespace QRCodeAuth_Web
 		{
 			activeWebAccount = (WebAccount)Session["ActiveWebAccount"];
 		}
+
+		protected void btnManage_Click(object sender, EventArgs e)
+		{
+
+		}
 	}
 }

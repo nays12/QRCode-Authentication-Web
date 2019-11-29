@@ -193,5 +193,14 @@ namespace QRCodeAuth_Web
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.Button btnCreate;
+
+		/// <summary>
+		/// btnManage control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Button btnManage;
 	}
 }

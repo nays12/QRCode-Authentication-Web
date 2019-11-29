@@ -138,6 +138,7 @@
     <Content Include="Global.asax" />
     <Content Include="Home.aspx" />
     <Content Include="Images\title.JPG" />
+    <Content Include="ManageEvent.aspx" />
     <Content Include="RequestCredentials.aspx" />
     <Content Include="StyleSheet.css" />
     <Content Include="UpdateCredential.aspx" />
@@ -395,6 +396,13 @@
     </Compile>
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManageEvent.aspx.cs">
+      <DependentUpon>ManageEvent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageEvent.aspx.designer.cs">
+      <DependentUpon>ManageEvent.aspx</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Credential.cs" />

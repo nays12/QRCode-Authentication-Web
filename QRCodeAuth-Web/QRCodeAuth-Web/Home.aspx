@@ -27,6 +27,7 @@
 			<asp:Label ID="lblWelcome2" runat="server"></asp:Label>
 
             <asp:Button ID="btnCreateEvent" runat="server" Class="button btn btn-success" Text="Create an Event" OnClick="btnCreateEvent_Click" Visible="False" />
+			<asp:Button ID="btnManageEvent" runat="server" Class="button btn btn-success" Text="Manage an Event" OnClick="btnManageEvent_Click" Visible="False" />
             <asp:Button ID="btnRequest" runat="server" Class="button btn btn-success" Text="Request Credentials" OnClick="btnRequest_Click" Visible="False" />
 			<asp:Button ID="btnCreateCredential" runat="server" Class="button btn btn-success" Text="Create a Credential" OnClick="btnCreateCredential_Click" Visible="False" />
 			<asp:Button ID="btnUpdateCredential" runat="server" Class="button btn btn-success" Text="Update a Credential" OnClick="btnUpdateCredential_Click" Visible="False" />
