@@ -22,7 +22,6 @@
 			<asp:Label ID="Label1" runat="server" class="lblSubTitles" Text="Create New Event"></asp:Label>
 
 			<div class="divSection">
-
 				<asp:Label ID="Label2" runat="server" Class="lbl" Text="Event Type"></asp:Label>
 
 				<asp:DropDownList ID="ddlEventType" runat="server" Class="txb">
@@ -46,20 +45,26 @@
 				<asp:Label ID="Label10" runat="server" Class="lbl" Text="End Time"></asp:Label>
 				<asp:TextBox ID="txtEndTime" runat="server" Class="txb" TextMode="DateTime"></asp:TextBox>
 
+				<asp:Label ID="Label11" runat="server" Class="lbl" Text="Description"></asp:Label>
+				<asp:TextBox ID="txtDescription" runat="server" TextMode="MultiLine" Class="txb" Height="60px"></asp:TextBox>
+
 				<asp:Label ID="Label3" runat="server" Class="lbl" Text="Credentials Required"></asp:Label>
 
 				<asp:CheckBoxList ID="cblCredentialsNeeded" runat="server">
+					<asp:ListItem>Name</asp:ListItem>
 					<asp:ListItem>Email</asp:ListItem>
-					<asp:ListItem>IdNumber</asp:ListItem>
+					<asp:ListItem Value="IdNumber">School ID</asp:ListItem>
 					<asp:ListItem>Birthdate</asp:ListItem>
 					<asp:ListItem>Address</asp:ListItem>
-					<asp:ListItem Value="Phone_Number">Phone Number</asp:ListItem>
+					<asp:ListItem Value="PhoneNumber">Phone Number</asp:ListItem>
 					<asp:ListItem>Major</asp:ListItem>
 					<asp:ListItem>Classification</asp:ListItem>
+					<asp:ListItem Value="WorkTitle">Work Title</asp:ListItem>
 				</asp:CheckBoxList>
 
 			</div>
-			<asp:Button ID="btnCreate" runat="server" Class="button btn btn-success" Text="Create Event" />
+			<asp:Label ID="lblStatus" runat="server"></asp:Label>
+			<asp:Button ID="btnCreate" runat="server" Class="button btn btn-success" Text="Create Event" OnClick="btnCreate_Click" />
 		</div>
     </form>
 </body>

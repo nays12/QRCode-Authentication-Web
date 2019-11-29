@@ -25,6 +25,7 @@ namespace QRCodeAuth_Web.Data
 			catch (Exception ex)
 			{
 				StatusMessage = string.Format("Failure. Could not add Credential '{0}' to Mobile Account belonging to  {1}. Error: {2}", cred.Name, cred.Owner, ex.Message);
+				System.Diagnostics.Debug.WriteLine(StatusMessage);
 				return null;
 			}
 		}
@@ -44,6 +45,7 @@ namespace QRCodeAuth_Web.Data
 			catch (Exception ex)
 			{
 				StatusMessage = string.Format("Failure. Could not find Credential '{0}' to Mobile Account belonging to {1} for deletion. Error: {2}", cred.Name, cred.Owner, ex.Message);
+				System.Diagnostics.Debug.WriteLine(StatusMessage);
 			}
 		}
 
@@ -73,6 +75,7 @@ namespace QRCodeAuth_Web.Data
 			catch (Exception ex)
 			{
 				StatusMessage = string.Format("Failure. Could not update Credential '{0}' to Mobile Account belonging to {1}. Error: {2}", oldCredential.Name, oldCredential.Owner, ex.Message);
+				System.Diagnostics.Debug.WriteLine(StatusMessage);
 			}
 		}
 

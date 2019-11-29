@@ -141,6 +141,24 @@ namespace QRCodeAuth_Web
 		protected global::System.Web.UI.WebControls.TextBox txtEndTime;
 
 		/// <summary>
+		/// Label11 control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Label Label11;
+
+		/// <summary>
+		/// txtDescription control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.TextBox txtDescription;
+
+		/// <summary>
 		/// Label3 control.
 		/// </summary>
 		/// <remarks>
@@ -157,6 +175,15 @@ namespace QRCodeAuth_Web
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.CheckBoxList cblCredentialsNeeded;
+
+		/// <summary>
+		/// lblStatus control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Label lblStatus;
 
 		/// <summary>
 		/// btnCreate control.

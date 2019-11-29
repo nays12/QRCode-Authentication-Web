@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace QRCodeAuth_Web.Models
 {
@@ -17,6 +18,7 @@ namespace QRCodeAuth_Web.Models
 		public DateTime StartTime { get; set; }
 		public DateTime EndTime { get; set; }
 		public string Description { get; set; }
+		[NotMapped]
 		public List<CredentialType> CredentialsNeeded { get; set; }
 
 		// Foreign Keys

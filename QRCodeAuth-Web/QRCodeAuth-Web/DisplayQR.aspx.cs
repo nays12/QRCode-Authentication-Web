@@ -37,10 +37,10 @@ namespace QRCodeAuth_Web
 			string ev = makeEventQR();
 
 			// encode this text into the qr code and save it to the specified path 
-			writer.Write(ev).Save(path + @"Images\QRCodes\generatedQR2.jpg");
+			writer.Write(ev).Save(path + @"Images\QRCodes\generatedQR.jpg");
 
 			// load genered qr image into QR image control
-			Image1.ImageUrl = path + @"Images\QRCodes\generatedQR2.jpg";
+			Image1.ImageUrl = path + @"Images\QRCodes\generatedQR.jpg";
 		}
 
 		protected void btnReadQR_Click(object sender, EventArgs e)

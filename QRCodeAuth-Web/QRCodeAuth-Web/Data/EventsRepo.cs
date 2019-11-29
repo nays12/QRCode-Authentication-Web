@@ -11,7 +11,7 @@ namespace QRCodeAuth_Web.Data
 		public static string StatusMessage { get; set; }
 		private static WebSystemData db = new WebSystemData();
 
-		public static void AddEvent(Event ev)
+		public static Event AddEvent(Event ev)
 		{
 			try
 			{
@@ -20,11 +20,13 @@ namespace QRCodeAuth_Web.Data
 
 				StatusMessage = string.Format("Success! Added new Event '{0}'.", ev.Name);
 				System.Diagnostics.Debug.WriteLine(StatusMessage);
+				return ev;
 			}	
 			catch (Exception ex)
 			{
 				StatusMessage = string.Format("Failure. Could not add Event {0}. Error: {1}", ev.Name, ex.Message);
 				System.Diagnostics.Debug.WriteLine(StatusMessage);
+				return null;
 			} 
 		}
 
