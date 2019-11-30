@@ -34,8 +34,8 @@
                     <asp:ListItem>Work Title</asp:ListItem>
                 </asp:CheckBoxList>
             </div>
-            <asp:Button ID="Button1" runat="server" Class="button btn btn-success" Text="Comfirm" />
-            <asp:Button ID="Button2" runat="server" Class="button btn btn-success" Text="Cancel" />
+            <asp:Button ID="btnConfirm" runat="server" Class="button btn btn-success" Text="Comfirm" OnClick="btnConfirm_Click" />
+            <asp:Button ID="btnCancel" runat="server" Class="button btn btn-success" Text="Cancel" OnClick="btnCancel_Click" />
         </div>
     </form>
 </body>
