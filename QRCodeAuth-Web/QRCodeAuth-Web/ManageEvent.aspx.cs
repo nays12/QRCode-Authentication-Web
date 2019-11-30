@@ -88,5 +88,10 @@ namespace QRCodeAuth_Web
 			activeWebAccount = (WebAccount)Session["ActiveWebAccount"];
 		}
 
+		protected void btnDone_Click(object sender, EventArgs e)
+		{
+			fetchedCreds.Clear();
+			Response.Redirect("Home.aspx");
+		}
 	}
 }

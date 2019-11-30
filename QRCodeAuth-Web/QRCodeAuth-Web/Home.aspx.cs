@@ -88,7 +88,8 @@ namespace QRCodeAuth_Web
 		{
 			Session["ActiveUser"] = null;
 			Session["ActiveWebAccount"] = null;
-
+			activeUser = null;
+			activeUser = null;
 			Response.Redirect("Default.aspx");
 		}
 
