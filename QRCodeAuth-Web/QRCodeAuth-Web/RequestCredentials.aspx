@@ -22,12 +22,16 @@
         <div class="divPageBody divSection">
             <asp:Label ID="Label2" runat="server" Class="lblSubTitles" Text="Select the credentials to collect"></asp:Label>
             <div class="divSection">
-                <asp:CheckBoxList ID="CheckBoxList1" runat="server" >
-                    <asp:ListItem>ID Number</asp:ListItem>
-                    <asp:ListItem>Last Name</asp:ListItem>
-                    <asp:ListItem>First Name</asp:ListItem>
+                <asp:CheckBoxList ID="cblRequestedCredentials" runat="server" >
+                    <asp:ListItem>Name</asp:ListItem>
                     <asp:ListItem>Email</asp:ListItem>
+                    <asp:ListItem>ID Number</asp:ListItem>
                     <asp:ListItem>Date of Birth</asp:ListItem>
+                    <asp:ListItem>Address</asp:ListItem>
+                    <asp:ListItem>PhoneNumber</asp:ListItem>
+                    <asp:ListItem>Major</asp:ListItem>
+                    <asp:ListItem>Classification</asp:ListItem>
+                    <asp:ListItem>Work Title</asp:ListItem>
                 </asp:CheckBoxList>
             </div>
             <asp:Button ID="Button1" runat="server" Class="button btn btn-success" Text="Comfirm" />
