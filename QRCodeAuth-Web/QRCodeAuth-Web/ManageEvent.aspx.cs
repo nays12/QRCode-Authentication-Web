@@ -19,6 +19,7 @@ namespace QRCodeAuth_Web
 		protected void Page_Load(object sender, EventArgs e)
 		{
 			getActiveEvents();
+			gvCreds.DataBind();
 		}
 
 		public static void GetNewCredentials(List<Credential> creds)
@@ -54,7 +55,6 @@ namespace QRCodeAuth_Web
 			GetEventInfo(ev);
 		}
 
-
 		protected void GetEventInfo(Event ev)
 		{
 			ddlActiveEvents.Visible = false;
@@ -67,13 +67,26 @@ namespace QRCodeAuth_Web
 			lblStartTime.Text = string.Format("Start Time: {0}", ev.StartTime.ToShortTimeString());
 			lblEndTime.Text = string.Format("End Time: {0}", ev.EndTime.ToShortTimeString());
 			lblDescription.Text = string.Format("Description: {0}", ev.Description);
+
+			// load genered qr image into QR image control		
+			string path = AppDomain.CurrentDomain.BaseDirectory; // get current path
+			imgEventQr.ImageUrl = path + @"Images\QRCodes\" + ev.Name + ".jpg";
+			imgEventQr.Visible = true;
+
+			CreateCredentialsView();
+		}
+
+		protected void CreateCredentialsView()
+		{
+			lblInstr.Text = "Here are the credentials of your Event attendees. Please refresh the page to update the table.";
+			gvCreds.DataSource = fetchedCreds;
+			gvCreds.DataBind();
 		}
 
 		protected void GetLoggedInUserInfo()
 		{
 			activeWebAccount = (WebAccount)Session["ActiveWebAccount"];
 		}
-
 
 	}
 }

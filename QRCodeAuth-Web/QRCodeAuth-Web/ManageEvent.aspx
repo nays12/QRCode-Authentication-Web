@@ -25,12 +25,10 @@
 				<asp:Button ID="btnSelect" runat="server" OnClick="btnSelect_Click" Text="Select Event" />
 				<br />
 
-
 				<asp:Label ID="lblName" runat="server"></asp:Label>
 				<br />
 				<asp:Label ID="lblLocation" runat="server"></asp:Label>
 				<br />
-
 
 				<asp:Label ID="lblDate" runat="server"></asp:Label>
 				<br />
@@ -40,7 +38,21 @@
 				<br />
 				<asp:Label ID="lblDescription" runat="server"></asp:Label>
 				<br />
-				
+				<br />
+				<asp:Image ID="imgEventQr" runat="server" Height="300px" Width="300px" Visible="False" />
+				<br />
+				<br />
+				<asp:Label ID="lblInstr" runat="server"></asp:Label>
+				<br />
+				<br />
+				<asp:GridView ID="gvCreds" runat="server" AutoGenerateColumns="False">
+					<Columns>
+						<asp:BoundField DataField="Owner" HeaderText="Owner Id" />
+						<asp:BoundField DataField="CredentialType" HeaderText="Type" />
+						<asp:BoundField DataField="Name" HeaderText="Name" />
+						<asp:BoundField DataField="Value" HeaderText="Value" />
+					</Columns>
+				</asp:GridView>
 				<br />
 				
 			</div>
