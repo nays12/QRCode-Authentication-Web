@@ -35,8 +35,7 @@ namespace QRCodeAuth_Web
 			lblOptions.Text = "Please select the event you would like to manage.";
 
 			// Get Web Account's events that have not passed
-			//List<Event> events = EventsRepo.GetActiveEvents(activeWebAccount.WebId);
-			activeEvents = EventsRepo.GetActiveEvents("4582055");
+			activeEvents = EventsRepo.GetActiveEvents(activeWebAccount.WebId);
 
 			ddlActiveEvents.DataSource = activeEvents;
 			ddlActiveEvents.AppendDataBoundItems = true;
