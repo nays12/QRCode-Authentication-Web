@@ -147,6 +147,7 @@
     <Compile Include="Controllers\CredentialsController.cs" />
     <Compile Include="Controllers\DataController.cs" />
     <Compile Include="Controllers\EventsController.cs" />
+    <Compile Include="Controllers\SharedCredentialsController.cs" />
     <Compile Include="CreateCredential.aspx.cs">
       <DependentUpon>CreateCredential.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
