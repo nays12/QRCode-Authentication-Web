@@ -19,12 +19,8 @@ namespace QRCodeAuth_Web
             generateQRCode(str);
         }
 
-
-
         protected void generateQRCode(string qrCodeString)
         {
-            //string obj = JsonConvert.SerializeObject(qrCodeString);
-
             //get currentPath
             string path = AppDomain.CurrentDomain.BaseDirectory;
 
@@ -32,18 +28,20 @@ namespace QRCodeAuth_Web
             BarcodeWriter writer = new BarcodeWriter();
             writer.Format = BarcodeFormat.QR_CODE;
 
-            //writer.Write(obj).Save(path + @"Images\QRCodes\generatedQR.jpg");
+            //Save the QRCode 
             writer.Write(qrCodeString).Save(path + @"Images\QRCodes\generatedQR.jpg");
 
-            //encode string 
+            //Dispaly QRCode
             imageQRCode.ImageUrl = path + @"Images\QRCodes\generatedQR.jpg";
             imageQRCode.Visible = true;
         }
 
 
+        //If button done is clicked remove the session state for the QRstring. 
         protected void btnDone_Click(object sender, EventArgs e)
         {
             Session.Remove("QRString");
+            Response.Redirect("Home.aspx");
         }
     }
 

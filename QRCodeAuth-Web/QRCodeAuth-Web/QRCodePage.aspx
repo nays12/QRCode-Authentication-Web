@@ -16,12 +16,12 @@
         <div class="divTitle" style="background-color:transparent">
             <img class="image" src="Images/title.JPG" />
         </div>
-        <div class="divPageBody divSection" style="height:400px;">
+
+        <div class="divPageBody divSection">
             <div class="divSection">
-				<asp:Image ID="imageQRCode" runat="server" Height="300px" Width="300px" src="Images/QRCodes/generatedQR.jpg"/>
+				<asp:Image ID="imageQRCode" class="image" runat="server" Height="300px" Width="300px" src="Images/QRCodes/generatedQR.jpg"/>
                 <asp:Button ID="btnDone" Class="button btn btn-success" runat="server" Text="Done" OnClick="btnDone_Click" />
 			</div>  
-
          </div>
     </form>
 </body>

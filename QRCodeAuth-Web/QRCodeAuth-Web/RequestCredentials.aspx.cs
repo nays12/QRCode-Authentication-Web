@@ -51,9 +51,6 @@ namespace QRCodeAuth_Web
         }
 
 
-
-
-
         //Wil return the object that will be encoded into QRCode. 
         public string getShareCredentialObject()
         {
