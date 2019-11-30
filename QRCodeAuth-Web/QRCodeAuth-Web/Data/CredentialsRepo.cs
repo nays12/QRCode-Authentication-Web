@@ -24,7 +24,7 @@ namespace QRCodeAuth_Web.Data
 			}
 			catch (Exception ex)
 			{
-				StatusMessage = string.Format("Failure. Could not add Credential '{0}' to Mobile Account belonging to  {1}. Error: {2}", cred.Name, cred.Owner, ex.Message);
+				StatusMessage = string.Format("Failure. Could not add Credential. Error: {0}", ex.Message);
 				System.Diagnostics.Debug.WriteLine(StatusMessage);
 				return null;
 			}
@@ -32,10 +32,9 @@ namespace QRCodeAuth_Web.Data
 
 		public static void DeleteCredentialById(int id)
 		{
-			Credential cred = new Credential();
 			try
 			{			
-				cred = db.Credentials.Find(id);
+				Credential cred = db.Credentials.Find(id);
 				db.Credentials.Remove(cred);
 				db.SaveChanges();
 
@@ -44,17 +43,16 @@ namespace QRCodeAuth_Web.Data
 			}
 			catch (Exception ex)
 			{
-				StatusMessage = string.Format("Failure. Could not find Credential '{0}' to Mobile Account belonging to {1} for deletion. Error: {2}", cred.Name, cred.Owner, ex.Message);
+				StatusMessage = string.Format("Failure. Could not find Credential.Error: {0}", ex.Message);
 				System.Diagnostics.Debug.WriteLine(StatusMessage);
 			}
 		}
 
 		public static void UpdateCredential(int id, Credential newCredential)
 		{
-			Credential oldCredential = new Credential();
 			try
 			{
-				oldCredential = db.Credentials.Find(id); // find the credential
+				Credential oldCredential = db.Credentials.Find(id); // find the credential
 
 				// Update old credential with new credential values
 				oldCredential.CredentialId = newCredential.CredentialId;
@@ -74,7 +72,7 @@ namespace QRCodeAuth_Web.Data
 			}
 			catch (Exception ex)
 			{
-				StatusMessage = string.Format("Failure. Could not update Credential '{0}' to Mobile Account belonging to {1}. Error: {2}", oldCredential.Name, oldCredential.Owner, ex.Message);
+				StatusMessage = string.Format("Failure. Could not update Credential. Error: {0}", ex.Message);
 				System.Diagnostics.Debug.WriteLine(StatusMessage);
 			}
 		}
@@ -84,20 +82,19 @@ namespace QRCodeAuth_Web.Data
 			List<Credential> credentials = new List<Credential>();
 
 				var query = db.Credentials
-				.Where(c => c.Owner == ownerId)
-				.Select(c => new
-				{ 
-					CredentialId = c.CredentialId,
-					Name = c.Name,
-					CredentialType = c.CredentialType,
-					IssueDate = c.IssueDate,
-					ExpirationDate = c.ExpirationDate,
-					Value = c.Value,
-					IsValid = c.IsValid,
-					Owner = c.Owner,
-					Issuer = c.Issuer
-
-				});
+					.Where(c => c.Owner == ownerId)
+					.Select(c => new
+					{ 
+						CredentialId = c.CredentialId,
+						Name = c.Name,
+						CredentialType = c.CredentialType,
+						IssueDate = c.IssueDate,
+						ExpirationDate = c.ExpirationDate,
+						Value = c.Value,
+						IsValid = c.IsValid,
+						Owner = c.Owner,
+						Issuer = c.Issuer
+					});
 
 				foreach (var c in query)
 				{
@@ -116,7 +113,6 @@ namespace QRCodeAuth_Web.Data
 
 					credentials.Add(cred);
 				}
-
 			return credentials;
 		}
 

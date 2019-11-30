@@ -80,7 +80,7 @@ namespace QRCodeAuth_Web
 
 		protected void btnManage_Click(object sender, EventArgs e)
 		{
-
+			Response.Redirect("ManageEvent.aspx");
 		}
 	}
 }

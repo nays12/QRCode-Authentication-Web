@@ -70,7 +70,7 @@ namespace QRCodeAuth_Web
 		}
 
 		// Check to see if generated number matched entered number
-		public bool validateCode(int code1, int code2)
+		protected bool validateCode(int code1, int code2)
 		{
 			if (code1 == code2)
 			{

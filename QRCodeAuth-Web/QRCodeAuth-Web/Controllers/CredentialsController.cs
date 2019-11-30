@@ -18,12 +18,11 @@ namespace QRCodeAuth_Web.Controllers
     {
         private WebSystemData db = new WebSystemData();
 
-
 		[Route("api/Credentials/RecieveEventCredentials")]
 		[HttpPost]
 		public IHttpActionResult RecieveAccountId(List<Credential> credentials)
 		{
-			Default.GetCredentials(credentials);
+			ManageEvent.GetNewCredentials(credentials);
 			return Ok("Your credentials have been recieved!");
 		}
 

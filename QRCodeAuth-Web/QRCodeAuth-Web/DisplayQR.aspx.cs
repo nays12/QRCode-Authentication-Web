@@ -83,6 +83,7 @@ namespace QRCodeAuth_Web
 
 			Event e1 = new Event
 			{
+				EventId = 4,
 				Name = "Delta Waffle Day",
 				Location = "Delta Building Lobby",
 				EventType = EventType.Campus,
@@ -94,7 +95,7 @@ namespace QRCodeAuth_Web
 			};
 
 			string dbEvent = JsonConvert.SerializeObject(e1);
-			//System.Diagnostics.Debug.WriteLine(dbEvent); // See retrieved event
+			System.Diagnostics.Debug.WriteLine(dbEvent); // See retrieved event
 			return dbEvent;
 		}
 
