@@ -20,11 +20,11 @@ namespace QRCodeAuth_Web.Controllers
 
 		[Route("api/Credentials/RecieveEventCredentials")]
 		[HttpPost]
-		public IHttpActionResult RecieveAccountId(List<Credential> credentials)
-		{
-			ManageEvent.GetNewCredentials(credentials);
-			return Ok("Your credentials have been recieved!");
-		}
+		//public IHttpActionResult RecieveAccountId(List<Credential> credentials)
+		//{
+		//	ManageEvent.GetNewCredentials(credentials);
+		//	return Ok("Your credentials have been recieved!");
+		//}
 
 		[Route("api/Credentials/GetAllCredentials")]
 		[HttpGet]

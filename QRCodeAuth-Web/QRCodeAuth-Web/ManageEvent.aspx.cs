@@ -19,8 +19,6 @@ namespace QRCodeAuth_Web
 		protected void Page_Load(object sender, EventArgs e)
 		{
 			getActiveEvents();
-			eventQR.Visible = false;
-			gvCredentials.DataBind();
 		}
 
 		public static void GetNewCredentials(List<Credential> creds)
@@ -39,34 +37,43 @@ namespace QRCodeAuth_Web
 			//List<Event> events = EventsRepo.GetActiveEvents(activeWebAccount.WebId);
 			activeEvents = EventsRepo.GetActiveEvents("4582055");
 
-			gvEvents.DataSource = activeEvents;
+			ddlActiveEvents.DataSource = activeEvents;
+			ddlActiveEvents.AppendDataBoundItems = true;
+			ddlActiveEvents.DataTextField = "Name";
+			ddlActiveEvents.DataBind();
 		}
 
-		protected void gvEvents_SelectedRow(object sender, EventArgs e)
+		protected void btnSelect_Click(object sender, EventArgs e)
 		{
-			int eventIndex = gvEvents.SelectedIndex;	
+			int eventIndex = ddlActiveEvents.SelectedIndex;
 			Event ev = activeEvents[eventIndex];
-			gvCredentials.DataSource = fetchedCreds;
-			gvCredentials.DataBind();
+
+			System.Diagnostics.Debug.WriteLine(eventIndex);
+			System.Diagnostics.Debug.WriteLine(ev.Name);
 
 			GetEventInfo(ev);
 		}
 
+
 		protected void GetEventInfo(Event ev)
 		{
-			gvEvents.Visible = false;
+			ddlActiveEvents.Visible = false;
+			btnSelect.Visible = false;
 			lblOptions.Text = "Here are the details of your Event:";
 
 			lblName.Text = string.Format("Name:	{0}", ev.Name);
 			lblLocation.Text = string.Format("Location: {0}", ev.Location);
-			lblStartTime.Text = string.Format("Start Time: {0}", ev.StartTime);
-			lblEndTime.Text = string.Format("End Time: {0}", ev.EndTime);
+			lblDate.Text = string.Format("Date: {0}", ev.Date.ToShortDateString());
+			lblStartTime.Text = string.Format("Start Time: {0}", ev.StartTime.ToShortTimeString());
+			lblEndTime.Text = string.Format("End Time: {0}", ev.EndTime.ToShortTimeString());
 			lblDescription.Text = string.Format("Description: {0}", ev.Description);
-		}	
+		}
 
 		protected void GetLoggedInUserInfo()
 		{
 			activeWebAccount = (WebAccount)Session["ActiveWebAccount"];
 		}
+
+
 	}
 }

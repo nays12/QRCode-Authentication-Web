@@ -33,22 +33,22 @@ namespace QRCodeAuth_Web
 		protected global::System.Web.UI.WebControls.Label lblOptions;
 
 		/// <summary>
-		/// eventQR control.
+		/// ddlActiveEvents control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Image eventQR;
+		protected global::System.Web.UI.WebControls.DropDownList ddlActiveEvents;
 
 		/// <summary>
-		/// gvEvents control.
+		/// btnSelect control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.GridView gvEvents;
+		protected global::System.Web.UI.WebControls.Button btnSelect;
 
 		/// <summary>
 		/// lblName control.
@@ -67,6 +67,15 @@ namespace QRCodeAuth_Web
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.Label lblLocation;
+
+		/// <summary>
+		/// lblDate control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Label lblDate;
 
 		/// <summary>
 		/// lblStartTime control.
@@ -94,14 +103,5 @@ namespace QRCodeAuth_Web
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.Label lblDescription;
-
-		/// <summary>
-		/// gvCredentials control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.GridView gvCredentials;
 	}
 }
