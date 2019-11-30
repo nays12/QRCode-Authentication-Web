@@ -19,7 +19,7 @@ namespace QRCodeAuth_Web
 
         protected void Page_Load(object sender, EventArgs e)
 		{
-            //TESTING
+            //TESTING - DELETE LATER
             giveValueToAccounts();
 
             //GetLoggedInUserInfo();
@@ -34,14 +34,17 @@ namespace QRCodeAuth_Web
 
 
 
+        //If confirm butoon is clicked direct user to the QRCode page to display their QRCode. 
         protected void btnConfirm_Click(object sender, EventArgs e)
         {
-            string shareCredentialObject = getShareCredentialObject();
-           
-            Response.Redirect("DisplayQR.aspx ? object=" + shareCredentialObject);
+            //string shareCredentialObject = getShareCredentialObject();
+            Session["QRString"] = getShareCredentialObject(); 
+
+           Response.Redirect("QRCodePage.aspx");
         }
 
 
+        //If cancel button is clicked redirect user back to home page. 
         protected void btnCancel_Click(object sender, EventArgs e)
         {
             Response.Redirect("Home.aspx");
@@ -74,43 +77,49 @@ namespace QRCodeAuth_Web
 
             foreach (ListItem item in cblRequestedCredentials.Items)
             {
-                string selection = item.Value;
-                switch (selection)
+                if(item.Selected)
                 {
-                    case "Name":
-                        types.Add(CredentialType.Name);
-                        break;
-                    case "Email":
-                        types.Add(CredentialType.Email);
-                        break;
-                    case "ID Number":
-                        types.Add(CredentialType.IdNumber);
-                        break;
-                    case "Date of Birth":
-                        types.Add(CredentialType.Birthdate);
-                        break;
-                    case "Address":
-                        types.Add(CredentialType.Address);
-                        break;
-                    case "PhoneNumber":
-                        types.Add(CredentialType.PhoneNumber);
-                        break;
-                    case "Major":
-                        types.Add(CredentialType.Major);
-                        break;
-                    case "Classification":
-                        types.Add(CredentialType.Classification);
-                        break;
-                    case "Work Title":
-                        types.Add(CredentialType.WorkTitle);
-                        break;
+                    string selection = item.Value;
+                    System.Diagnostics.Debug.WriteLine(selection + "\n");
+
+                    switch (selection)
+                    {
+                        case "Name":
+                            types.Add(CredentialType.Name);
+                            break;
+                        case "Email":
+                            types.Add(CredentialType.Email);
+                            break;
+                        case "ID Number":
+                            types.Add(CredentialType.IdNumber);
+                            break;
+                        case "Date of Birth":
+                            types.Add(CredentialType.Birthdate);
+                            break;
+                        case "Address":
+                            types.Add(CredentialType.Address);
+                            break;
+                        case "PhoneNumber":
+                            types.Add(CredentialType.PhoneNumber);
+                            break;
+                        case "Major":
+                            types.Add(CredentialType.Major);
+                            break;
+                        case "Classification":
+                            types.Add(CredentialType.Classification);
+                            break;
+                        case "Work Title":
+                            types.Add(CredentialType.WorkTitle);
+                            break;
+                    }
                 }
+
             }
             return types;
         }
 
 
-        //TESTING
+        //TESTING - DELETE LATER AND USE SESSION USER AND WEB LOG IN INFO.
         public void giveValueToAccounts()
         {
             activeUser.FirstName = "Barbara";
