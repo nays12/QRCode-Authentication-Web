@@ -19,11 +19,9 @@
         </div>
         <div class="divPageBody divSection" style="height:1000px;">
             <div class="divSection">
-
 				<asp:Label ID="lblOptions" runat="server"></asp:Label>
 				<br />
 				<asp:Image ID="eventQR" runat="server" Height="300px" Width="300px" src="Images/QRCodes/generatedQR.jpg" ImageAlign="AbsMiddle" />
-
 				<br />
 				<asp:GridView ID="gvEvents" runat="server" AutoGenerateColumns="False" AutoGenerateSelectButton="True" OnSelectedIndexChanged="gvEvents_SelectedRow">
 					<Columns>
@@ -44,8 +42,7 @@
 				<br />
 				<asp:Label ID="lblDescription" runat="server"></asp:Label>
 				<br />
-				<asp:GridView ID="gvCredentials" runat="server">
-				</asp:GridView>
+				<asp:GridView ID="gvCredentials" runat="server"></asp:GridView>
 				
 			</div>
 			<div>

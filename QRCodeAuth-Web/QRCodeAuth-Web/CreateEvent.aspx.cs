@@ -10,6 +10,10 @@ using System.Collections.Generic;
 using System.Web.UI.WebControls;
 using QRCodeAuth_Web.Data;
 using QRCodeAuth_Web.Models;
+using Newtonsoft.Json;
+using System.Drawing;
+using System.IO;
+using ZXing;
 
 namespace QRCodeAuth_Web
 {
@@ -39,26 +43,32 @@ namespace QRCodeAuth_Web
 			EventType type = (EventType)selection;
 
 			//Get Required Credentials
-			List<CredentialType> creds = GetRequiredCredentials();
+			List<CredentialType> creds = GetCheckedRequiredCredentials();
+
+			var startT = txtDate.Text + " " + txtStartTime.Text;
+			var endT = txtDate.Text + " " + txtEndTime.Text;
 
 			Event ev = new Event
 			{
 				Name = txtName.Text,
 				Location = txtLocation.Text,
 				EventType = type,
-				StartTime = Convert.ToDateTime(txtStartTime.Text),
-				EndTime = Convert.ToDateTime(txtEndTime.Text),
+				Date = DateTime.Parse(txtDate.Text),
+				StartTime = DateTime.Parse(startT),
+				EndTime = DateTime.Parse(endT),
 				Description = txtDescription.Text,
 				CredentialsNeeded = creds,
 				Owner = activeWebAccount.WebId
 			};
 
+			GenerateQR(ev); // Generate QR from Event
+
 			var databaseEvent = EventsRepo.AddEvent(ev);
 			createdEvent = databaseEvent;
-			lblStatus.Text = string.Format("Success! You have creted the new Event: {0}.\n Now generate a QR Code for your attendees to scan!", ev.Name);
+			lblStatus.Text = string.Format("Success! You have created the new Event: {0}.\n Your QR Code can be found in the 'QR Codes' folder.", ev.Name);
 		}
 
-		protected List<CredentialType> GetRequiredCredentials()
+		protected List<CredentialType> GetCheckedRequiredCredentials()
 		{
 			List<CredentialType> creds = new List<CredentialType>();
 
@@ -71,6 +81,26 @@ namespace QRCodeAuth_Web
 				}
 			}
 			return creds;
+		}
+
+		protected void GenerateQR(Event ev)
+		{
+			// Convert string to event
+			string eventString = JsonConvert.SerializeObject(ev);
+
+			// get current path
+			string path = AppDomain.CurrentDomain.BaseDirectory;
+
+			// create barcode writer that creates QR Code
+			BarcodeWriter writer = new BarcodeWriter();
+			writer.Format = BarcodeFormat.QR_CODE;
+
+			// encode this text into the qr code and save it to the specified path 
+			writer.Write(eventString).Save(path + @"Images\QRCodes\" + ev.Name + ".jpg");
+
+			//// load generated qr image into QR image control
+			//eventQR.ImageUrl = path + @"Images\QRCodes\generatedQR.jpg";
+			//eventQR.Visible = true;
 		}
 
 		protected void GetLoggedInUserInfo()
