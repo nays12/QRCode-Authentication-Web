@@ -11,6 +11,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using QRCodeAuth_Web.Data;
 using QRCodeAuth_Web.Models;
+using QRCodeAuth_Web.Controllers;
 
 namespace QRCodeAuth_Web
 {
@@ -34,7 +35,6 @@ namespace QRCodeAuth_Web
 
 		public static void GetUserFromMobile(User u)
 		{
-			activeUser = null;
 			activeUser = u;
 			System.Diagnostics.Debug.WriteLine(activeUser.UserId);
 		}

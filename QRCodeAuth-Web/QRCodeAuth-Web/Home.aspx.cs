@@ -81,9 +81,7 @@ namespace QRCodeAuth_Web
 
 		protected void btnLogout_Click(object sender, EventArgs e)
 		{
-			Session["ActiveUser"] = null;
-			Session["ActiveWebAccount"] = null;
-
+			Session.RemoveAll();
 			Response.Redirect("Default.aspx");
 		}
 	}

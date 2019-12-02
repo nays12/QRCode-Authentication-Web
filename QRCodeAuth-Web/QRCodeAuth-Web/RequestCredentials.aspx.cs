@@ -25,15 +25,6 @@ namespace QRCodeAuth_Web
             //GetLoggedInUserInfo();
         }
 
-        //// Retrieve User info from session state
-        //protected void GetLoggedInUserInfo()
-        //{
-        //    activeUser = (User)Session["ActiveUser"];
-        //    activeWebAccount = (WebAccount)Session["ActiveWebAccount"];
-        //}
-
-
-
         //If confirm butoon is clicked direct user to the QRCode page to display their QRCode. 
         protected void btnConfirm_Click(object sender, EventArgs e)
         {
@@ -54,6 +45,7 @@ namespace QRCodeAuth_Web
         //Wil return the object that will be encoded into QRCode. 
         public string getShareCredentialObject()
         {
+			// Anonymous object
             var credentialRequest = new
             {
                 informationCollector = activeUser.FirstName + " " + activeUser.LastName,
@@ -77,7 +69,7 @@ namespace QRCodeAuth_Web
                 if(item.Selected)
                 {
                     string selection = item.Value;
-                    System.Diagnostics.Debug.WriteLine(selection + "\n");
+                    System.Diagnostics.Debug.WriteLine(selection);
 
                     switch (selection)
                     {
@@ -112,7 +104,8 @@ namespace QRCodeAuth_Web
                 }
 
             }
-            return types;
+			cblRequestedCredentials.Visible = false;
+			return types;		
         }
 
 
@@ -121,12 +114,16 @@ namespace QRCodeAuth_Web
         {
             activeUser.FirstName = "Barbara";
             activeUser.LastName = "McNeal";
-
             activeWebAccount.Department = "School of Science and Engineering";
         }
 
+		// Retrieve User info from session state
+		protected void GetLoggedInUserInfo()
+		{
+			activeUser = (User)Session["ActiveUser"];
+			activeWebAccount = (WebAccount)Session["ActiveWebAccount"];
+		}
 
 
-
-    }
+	}
 }

@@ -16,7 +16,8 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
-    <IISExpressSSLPort>44312</IISExpressSSLPort>
+    <IISExpressSSLPort>
+    </IISExpressSSLPort>
     <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
     <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
     <IISExpressUseClassicPipelineMode />
@@ -148,7 +149,7 @@
     <Compile Include="Controllers\CredentialsController.cs" />
     <Compile Include="Controllers\DataController.cs" />
     <Compile Include="Controllers\EventsController.cs" />
-    <Compile Include="Controllers\SharedCredentialsController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="CreateCredential.aspx.cs">
       <DependentUpon>CreateCredential.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

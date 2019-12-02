@@ -37,7 +37,7 @@ namespace QRCodeAuth_Web
         }
 
 
-        //If button done is clicked remove the session state for the QRstring. 
+        // If button done is clicked remove the session state for the QRstring. 
         protected void btnDone_Click(object sender, EventArgs e)
         {
             Session.Remove("QRString");
