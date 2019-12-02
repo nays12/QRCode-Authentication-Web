@@ -15,10 +15,10 @@ namespace QRCodeAuth_Web.Controllers
 		private WebSystemData db = new WebSystemData();
 
 
-		[Route("api/Users/GetUserWithId")]
+		[Route("api/Users/GetUserbyId")]
 		[HttpGet]
 		[ResponseType(typeof(User))]
-		public static User GetUserWithId(string id)
+		public User GetUserbyId(string id)
 		{
 			return UsersRepo.FindUserById(id);
 		}
