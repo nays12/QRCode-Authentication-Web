@@ -55,18 +55,13 @@ namespace QRCodeAuth_Web
 		protected void CheckUserPermissions()
 		{
 			if (activeWebAccount.IsCredentialAuthority) { btnCreateCredential.Visible = true; btnUpdateCredential.Visible = true; }
-			if (activeWebAccount.IsAttendanceManager) { btnCreateEvent.Visible = true; btnManageEvent.Visible = true; }
+			if (activeWebAccount.IsAttendanceManager) { btnCreateEvent.Visible = true; }
 			if (activeWebAccount.IsCredentialAuthority) { btnRequest.Visible = true; }
 		}
 
 		protected void btnCreateEvent_Click(object sender, EventArgs e)
 		{
 			Response.Redirect("CreateEvent.aspx");
-		}
-
-		protected void btnManageEvent_Click(object sender, EventArgs e)
-		{
-			Response.Redirect("ManageEvent.aspx");
 		}
 
 		protected void btnRequest_Click(object sender, EventArgs e)
@@ -86,13 +81,8 @@ namespace QRCodeAuth_Web
 
 		protected void btnLogout_Click(object sender, EventArgs e)
 		{
-			Session["ActiveUser"] = null;
-			Session["ActiveWebAccount"] = null;
-			activeUser = null;
-			activeUser = null;
+			Session.RemoveAll();
 			Response.Redirect("Default.aspx");
 		}
-
-
 	}
 }

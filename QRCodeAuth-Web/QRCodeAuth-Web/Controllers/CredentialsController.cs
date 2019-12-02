@@ -58,6 +58,14 @@ namespace QRCodeAuth_Web.Controllers
 			return UpdateCredential.GetCredentialIdToDelete();
 		}
 
+		[Route("api/Credentials/RecieveSharedCredentials")]
+		[HttpPost]
+		public IHttpActionResult RecieveRequestedCredentials(List<Credential> requestedCredentials)
+		{
+			RequestCredentials.GetNewCredentials(requestedCredentials);
+			return Ok("Recieved sent credentials");
+		}
+
 		// GET: api/Credentials/5
 		[ResponseType(typeof(Credential))]
 		public async Task<IHttpActionResult> GetCredential(int id)
