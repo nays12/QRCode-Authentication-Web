@@ -33,7 +33,9 @@
                     <asp:ListItem>Classification</asp:ListItem>
                     <asp:ListItem>Work Title</asp:ListItem>
                 </asp:CheckBoxList>
-            </div>
+				<asp:Image ID="imageQRCode" class="image" runat="server" Height="300px" Width="300px" src="Images/QRCodes/generatedQR.jpg"/>
+                
+			</div>  
             <asp:Button ID="btnConfirm" runat="server" Class="button btn btn-success" Text="Comfirm" OnClick="btnConfirm_Click" />
             <asp:Button ID="btnCancel" runat="server" Class="button btn btn-success" Text="Cancel" OnClick="btnCancel_Click" />
         </div>

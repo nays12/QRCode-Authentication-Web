@@ -106,7 +106,6 @@
     <Content Include="CreateEvent.aspx" />
     <Content Include="db_EF_test.aspx" />
     <Content Include="Default.aspx" />
-    <Content Include="DisplayQR.aspx" />
     <Content Include="DynamicData\EntityTemplates\Default.ascx" />
     <Content Include="DynamicData\EntityTemplates\Default_Edit.ascx" />
     <Content Include="DynamicData\EntityTemplates\Default_Insert.ascx" />
@@ -138,7 +137,6 @@
     <Content Include="Global.asax" />
     <Content Include="Home.aspx" />
     <Content Include="Images\title.JPG" />
-    <Content Include="QRCodePage.aspx" />
     <Content Include="RequestCredentials.aspx" />
     <Content Include="StyleSheet.css" />
     <Content Include="UpdateCredential.aspx" />
@@ -183,13 +181,6 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="DisplayQR.aspx.cs">
-      <DependentUpon>DisplayQR.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="DisplayQR.aspx.designer.cs">
-      <DependentUpon>DisplayQR.aspx</DependentUpon>
     </Compile>
     <Compile Include="DynamicData\EntityTemplates\Default.ascx.cs">
       <DependentUpon>Default.ascx</DependentUpon>
@@ -407,13 +398,6 @@
     <Compile Include="Models\UserType.cs" />
     <Compile Include="Models\WebAccount.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QRCodePage.aspx.cs">
-      <DependentUpon>QRCodePage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="QRCodePage.aspx.designer.cs">
-      <DependentUpon>QRCodePage.aspx</DependentUpon>
-    </Compile>
     <Compile Include="RequestCredentials.aspx.cs">
       <DependentUpon>RequestCredentials.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
