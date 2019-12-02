@@ -65,7 +65,7 @@
 			</asp:GridView>
 			<asp:Button ID="btnGetCreds" runat="server" Class="button btn btn-success" Text="Get Credentials" OnClick="btnGetCreds_Click" />
             <asp:Button ID="btnConfirm" runat="server" Class="button btn btn-success" Text="Comfirm" OnClick="btnConfirm_Click" />
-            <asp:Button ID="btnCancel" runat="server" Class="button btn btn-success" Text="Cancel" OnClick="btnCancel_Click" />
+            <asp:Button ID="btnCancel" runat="server" Class="btn btn-secondary" Text="Cancel" OnClick="btnCancel_Click" />
         </div>
     </form>
 </body>

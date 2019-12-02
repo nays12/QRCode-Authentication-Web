@@ -51,15 +51,24 @@ namespace QRCodeAuth_Web
 
 		protected void btnGetCreds_Click(object sender, EventArgs e)
 		{
-			lblSubtitle.Text = "Here are the user's credentials";
+			if (credentialOwnerId != null)
+			{
+				lblSubtitle.Text = "Here are the user's credentials";
 
-			User u = UsersRepo.FindUserById(credentialOwnerId);
-			lblOwnerId.Text = string.Format("UserId: {0}", u.UserId);
-			lblOwnerName.Text = string.Format("Name: {0} {1}", u.FirstName, u.LastName);
-			lblOwnerType.Text = string.Format("Group: {0}", u.UserType);
+				User u = UsersRepo.FindUserById(credentialOwnerId);
+				lblOwnerId.Text = string.Format("UserId: {0}", u.UserId);
+				lblOwnerName.Text = string.Format("Name: {0} {1}", u.FirstName, u.LastName);
+				lblOwnerType.Text = string.Format("Group: {0}", u.UserType);
 
-			gvCreds.DataSource = fetchedCreds;
-			gvCreds.DataBind();
+				gvCreds.DataSource = fetchedCreds;
+				gvCreds.DataBind();
+			}
+			else
+			{
+				lblSubtitle.Text = "No credentials found";
+				lblOwnerId.Text = "Make sure the User properly scanned the QR code and sent their credentials in their Mobile Token Account";
+
+			}
 		}
 
 		// If cancel button is clicked redirect user back to home page. 

@@ -66,6 +66,7 @@
 			<asp:Label ID="lblStatus" runat="server"></asp:Label>
 			<asp:Button ID="btnCreate" runat="server" Class="button btn btn-success" Text="Create Event" OnClick="btnCreate_Click" />
 			<asp:Button ID="btnManage" runat="server" Class="button btn btn-success" Text="Manage Event" OnClick="btnManage_Click" />
+			<asp:Button ID="btnDone" runat="server" Class="button btn btn-secondary" Text="Done" OnClick="btnDone_Click" />
 		</div>
     </form>
 </body>

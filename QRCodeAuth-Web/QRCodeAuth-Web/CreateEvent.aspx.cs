@@ -112,5 +112,10 @@ namespace QRCodeAuth_Web
 		{
 			Response.Redirect("ManageEvent.aspx");
 		}
+
+		protected void btnDone_Click(object sender, EventArgs e)
+		{
+			Response.Redirect("Home.aspx");
+		}
 	}
 }

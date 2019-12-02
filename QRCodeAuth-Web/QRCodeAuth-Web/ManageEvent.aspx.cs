@@ -18,6 +18,7 @@ namespace QRCodeAuth_Web
 
 		protected void Page_Load(object sender, EventArgs e)
 		{
+			GetLoggedInUserInfo();
 			getActiveEvents();
 			gvCreds.DataBind();
 		}
@@ -32,15 +33,22 @@ namespace QRCodeAuth_Web
 
 		protected void getActiveEvents()
 		{
-			lblOptions.Text = "Please select the event you would like to manage.";
-
 			// Get Web Account's events that have not passed
 			activeEvents = EventsRepo.GetActiveEvents(activeWebAccount.WebId);
-
-			ddlActiveEvents.DataSource = activeEvents;
-			ddlActiveEvents.AppendDataBoundItems = true;
-			ddlActiveEvents.DataTextField = "Name";
-			ddlActiveEvents.DataBind();
+			if (activeEvents != null && activeEvents.Count > 0)
+			{
+				lblOptions.Text = "Please select the event you would like to manage.";
+				ddlActiveEvents.DataSource = activeEvents;
+				ddlActiveEvents.AppendDataBoundItems = true;
+				ddlActiveEvents.DataTextField = "Name";
+				ddlActiveEvents.DataBind();
+			}
+			else
+			{
+				lblOptions.Text = "You do not have any upcoming events to manage. Go to the Create Event page to create one!";
+				btnSelect.Visible = false;
+				ddlActiveEvents.Visible = false;
+			}
 		}
 
 		protected void btnSelect_Click(object sender, EventArgs e)
