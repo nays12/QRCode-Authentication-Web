@@ -24,13 +24,13 @@ namespace QRCodeAuth_Web
 		protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
 		/// <summary>
-		/// Label2 control.
+		/// lblSubtitle control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Label Label2;
+		protected global::System.Web.UI.WebControls.Label lblSubtitle;
 
 		/// <summary>
 		/// cblRequestedCredentials control.
@@ -42,13 +42,58 @@ namespace QRCodeAuth_Web
 		protected global::System.Web.UI.WebControls.CheckBoxList cblRequestedCredentials;
 
 		/// <summary>
-		/// imageQRCode control.
+		/// imgQRCode control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Image imageQRCode;
+		protected global::System.Web.UI.WebControls.Image imgQRCode;
+
+		/// <summary>
+		/// lblOwnerId control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Label lblOwnerId;
+
+		/// <summary>
+		/// lblOwnerName control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Label lblOwnerName;
+
+		/// <summary>
+		/// lblOwnerType control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Label lblOwnerType;
+
+		/// <summary>
+		/// gvCreds control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.GridView gvCreds;
+
+		/// <summary>
+		/// btnGetCreds control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Button btnGetCreds;
 
 		/// <summary>
 		/// btnConfirm control.

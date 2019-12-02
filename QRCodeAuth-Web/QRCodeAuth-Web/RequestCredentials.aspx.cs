@@ -4,6 +4,7 @@
 
 using System;
 using QRCodeAuth_Web.Models;
+using QRCodeAuth_Web.Data;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using System.Web.UI.WebControls;
@@ -17,28 +18,52 @@ namespace QRCodeAuth_Web
         protected User activeUser = new User();
         protected WebAccount activeWebAccount = new WebAccount();
 
-
-        protected void Page_Load(object sender, EventArgs e)
+		protected static string credentialOwnerId;
+		protected static List<Credential> fetchedCreds = new List<Credential>();
+		protected void Page_Load(object sender, EventArgs e)
 		{
             //TESTING - DELETE LATER
             giveValueToAccounts();
-			imageQRCode.Visible = false;
-
+			gvCreds.DataBind();
+			imgQRCode.Visible = false;
+			btnGetCreds.Visible = false;
 			//GetLoggedInUserInfo();
 		}
 
-        //If confirm butoon is clicked direct user to the QRCode page to display their QRCode. 
-        protected void btnConfirm_Click(object sender, EventArgs e)
+		public static void GetNewCredentials(List<Credential> creds)
+		{
+			foreach (Credential c in creds)
+			{
+				fetchedCreds.Add(c);
+				credentialOwnerId = c.Owner;
+			}
+		}
+
+		protected void btnConfirm_Click(object sender, EventArgs e)
         {
-			string shareCredentialObject = getShareCredentialObject();
-			generateQRCode(shareCredentialObject);
+			CreateCredentialsObject();
 
 			btnCancel.Text = "Done";
 			btnConfirm.Visible = false;
-        }
+			btnGetCreds.Visible = true;
+			lblSubtitle.Text = "Instruct the user to scan the QR Code";
+		}
 
-        //If cancel button is clicked redirect user back to home page. 
-        protected void btnCancel_Click(object sender, EventArgs e)
+		protected void btnGetCreds_Click(object sender, EventArgs e)
+		{
+			lblSubtitle.Text = "Here are the user's credentials";
+
+			User u = UsersRepo.FindUserById(credentialOwnerId);
+			lblOwnerId.Text = string.Format("UserId: {0}", u.UserId);
+			lblOwnerName.Text = string.Format("Name: {0} {1}", u.FirstName, u.LastName);
+			lblOwnerType.Text = string.Format("Group: {0}", u.UserType);
+
+			gvCreds.DataSource = fetchedCreds;
+			gvCreds.DataBind();
+		}
+
+		// If cancel button is clicked redirect user back to home page. 
+		protected void btnCancel_Click(object sender, EventArgs e)
         {
             Response.Redirect("Home.aspx");
         }
@@ -92,7 +117,7 @@ namespace QRCodeAuth_Web
 		}
 
 		//Wil return the object that will be encoded into QRCode. 
-		public string getShareCredentialObject()
+		public void CreateCredentialsObject()
         {
 			// Anonymous object
             var credentialRequest = new
@@ -104,7 +129,7 @@ namespace QRCodeAuth_Web
 
             var result = JsonConvert.SerializeObject(credentialRequest);
 
-            return result;
+			generateQRCode(result);
         }
 
 		protected void generateQRCode(string qrCodeString)
@@ -120,8 +145,8 @@ namespace QRCodeAuth_Web
 			writer.Write(qrCodeString).Save(path + @"Images\QRCodes\credentialQR.jpg");
 
 			//Dispaly QRCode
-			imageQRCode.ImageUrl = path + @"Images\QRCodes\credentialQR.jpg";
-			imageQRCode.Visible = true;
+			imgQRCode.Visible = true;
+			imgQRCode.ImageUrl = path + @"Images\QRCodes\credentialQR.jpg";
 		}
 
         //TESTING - DELETE LATER AND USE SESSION USER AND WEB LOG IN INFO.
@@ -138,7 +163,6 @@ namespace QRCodeAuth_Web
 			activeUser = (User)Session["ActiveUser"];
 			activeWebAccount = (WebAccount)Session["ActiveWebAccount"];
 		}
-
 
 	}
 }

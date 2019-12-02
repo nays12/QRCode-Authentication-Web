@@ -53,10 +53,9 @@ namespace QRCodeAuth_Web.Controllers
 
 		[Route("api/Credentials/RecieveSharedCredentials")]
 		[HttpPost]
-		[ResponseType(typeof(Credential))]
 		public IHttpActionResult RecieveRequestedCredentials(List<Credential> requestedCredentials)
 		{
-			//RequestCredentials.getRequestedCredentials(requestedCredentials);    
+			RequestCredentials.GetNewCredentials(requestedCredentials);
 			return Ok("Recieved sent credentials");
 		}
 

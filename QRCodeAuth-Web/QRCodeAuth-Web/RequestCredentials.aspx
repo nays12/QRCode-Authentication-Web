@@ -20,7 +20,7 @@
         </div>
 
         <div class="divPageBody divSection">
-            <asp:Label ID="Label2" runat="server" Class="lblSubTitles" Text="Select the credentials to collect"></asp:Label>
+            <asp:Label ID="lblSubtitle" runat="server" Class="lblSubTitles" Text="Select the credentials to collect"></asp:Label>
             <div class="divSection">
                 <asp:CheckBoxList ID="cblRequestedCredentials" runat="server" >
                     <asp:ListItem>Name</asp:ListItem>
@@ -33,9 +33,37 @@
                     <asp:ListItem>Classification</asp:ListItem>
                     <asp:ListItem>Work Title</asp:ListItem>
                 </asp:CheckBoxList>
-				<asp:Image ID="imageQRCode" class="image" runat="server" Height="300px" Width="300px" src="Images/QRCodes/generatedQR.jpg"/>
+				<asp:Image ID="imgQRCode" runat="server" CssClass="image" Height="300px" Width="300px" Visible="False" />
                 
 			</div>  
+			<asp:Label ID="lblOwnerId" runat="server"></asp:Label>
+
+            
+
+			<br />
+			<asp:Label ID="lblOwnerName" runat="server"></asp:Label>
+
+            
+
+			<br />
+			<asp:Label ID="lblOwnerType" runat="server"></asp:Label>
+
+            
+
+			<br />
+			<br />
+
+			<asp:GridView ID="gvCreds" runat="server" AutoGenerateColumns="False">
+					<Columns>
+						<asp:BoundField DataField="CredentialType" HeaderText="Type" />
+						<asp:BoundField DataField="Name" HeaderText="Name" />
+						<asp:BoundField DataField="Value" HeaderText="Value" />
+						<asp:BoundField DataField="IssueDate" HeaderText="Date Issued" />
+						<asp:BoundField DataField="ExpirationDate" HeaderText="Expiration Date" />
+						<asp:BoundField DataField="IsValid" HeaderText="Valid" />
+					</Columns>
+			</asp:GridView>
+			<asp:Button ID="btnGetCreds" runat="server" Class="button btn btn-success" Text="Get Credentials" OnClick="btnGetCreds_Click" />
             <asp:Button ID="btnConfirm" runat="server" Class="button btn btn-success" Text="Comfirm" OnClick="btnConfirm_Click" />
             <asp:Button ID="btnCancel" runat="server" Class="button btn btn-success" Text="Cancel" OnClick="btnCancel_Click" />
         </div>
