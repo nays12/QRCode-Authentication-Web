@@ -16,7 +16,8 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
-    <IISExpressSSLPort>44312</IISExpressSSLPort>
+    <IISExpressSSLPort>
+    </IISExpressSSLPort>
     <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
     <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
     <IISExpressUseClassicPipelineMode />
@@ -105,7 +106,6 @@
     <Content Include="CreateEvent.aspx" />
     <Content Include="db_EF_test.aspx" />
     <Content Include="Default.aspx" />
-    <Content Include="DisplayQR.aspx" />
     <Content Include="DynamicData\EntityTemplates\Default.ascx" />
     <Content Include="DynamicData\EntityTemplates\Default_Edit.ascx" />
     <Content Include="DynamicData\EntityTemplates\Default_Insert.ascx" />
@@ -147,6 +147,7 @@
     <Compile Include="Controllers\CredentialsController.cs" />
     <Compile Include="Controllers\DataController.cs" />
     <Compile Include="Controllers\EventsController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="CreateCredential.aspx.cs">
       <DependentUpon>CreateCredential.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -180,13 +181,6 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="DisplayQR.aspx.cs">
-      <DependentUpon>DisplayQR.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="DisplayQR.aspx.designer.cs">
-      <DependentUpon>DisplayQR.aspx</DependentUpon>
     </Compile>
     <Compile Include="DynamicData\EntityTemplates\Default.ascx.cs">
       <DependentUpon>Default.ascx</DependentUpon>
