@@ -156,14 +156,30 @@ namespace QRCodeAuth_Web
 		{
 			string hostingPath = HostingEnvironment.MapPath("~/");
 
+			// Get random number for QRName
+			string num = Convert.ToString(generateRandomNum());
+			string qrName = "credentialQR" + num + ".jpg";
+
 			//Create barcode writer 
 			BarcodeWriter writer = new BarcodeWriter();
-			writer.Format = BarcodeFormat.QR_CODE;
-			writer.Write(qrCodeString).Save(hostingPath + @"Images\credentialQR4.jpg");
+			writer.Format = BarcodeFormat.QR_CODE;			
+			writer.Write(qrCodeString).Save(hostingPath + @"Images\" + qrName);
 
 			//Dispaly QRCode
 			imgQRCode.Visible = true;
-			imgQRCode.ImageUrl = "https://qrcodemobileauthenticationweb.azurewebsites.net/Images/credentialQR4.jpg";
+			imgQRCode.ImageUrl = "https://qrcodemobileauthenticationweb.azurewebsites.net/Images/" + qrName;
+		}
+
+		public static int generateRandomNum()
+		{
+			// specifying the range for the generated number
+			int min = 10000;
+			int max = 99999;
+
+			Random ran = new Random();
+			int code = ran.Next(min, max);
+
+			return code;
 		}
 
 
