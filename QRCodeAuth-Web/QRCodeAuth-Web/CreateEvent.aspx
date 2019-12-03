@@ -16,7 +16,8 @@
 <body>
     <form id="form1" runat="server">
         <div class="divTitle" style="background-color:transparent">
-            <img class="image" src="Images/title.JPG" />
+            <%--<img class="image" src="Images/title.JPG" />--%>
+            <h1>The Authenticat<img src="Images/Logo.jpg" class="imgLogo" />r </h1>
         </div>
 		<div class="divPageBody divSection">
 			<asp:Label ID="Label1" runat="server" class="lblSubTitles" Text="Create New Event"></asp:Label>
@@ -63,10 +64,10 @@
 				</asp:CheckBoxList>
 
 			</div>
-			<asp:Label ID="lblStatus" runat="server"></asp:Label>
+			<asp:Label ID="lblStatus" Class="lbl" runat="server"></asp:Label>
 			<asp:Button ID="btnCreate" runat="server" Class="button btn btn-success" Text="Create Event" OnClick="btnCreate_Click" />
 			<asp:Button ID="btnManage" runat="server" Class="button btn btn-success" Text="Manage Event" OnClick="btnManage_Click" />
-			<asp:Button ID="btnDone" runat="server" Class="button btn btn-secondary" Text="Done" OnClick="btnDone_Click" />
+			<asp:Button ID="btnDone" runat="server" Class="BtnCancel btn" Text="Done" OnClick="btnDone_Click" />
 		</div>
     </form>
 </body>

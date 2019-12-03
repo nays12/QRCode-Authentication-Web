@@ -18,7 +18,8 @@
 <body>
      <form id="form1" runat="server">
         <div class="divTitle" style="background-color:transparent">
-            <img class="image" src="Images/title.JPG" />
+            <%--<img class="image" src="Images/title.JPG" />--%>
+            <h1>The Authenticat<img src="Images/Logo.jpg" class="imgLogo" />r </h1>
         </div>
 		<div class="divPageBody divSection">
 			<asp:Label ID="Label1" runat="server" class="lblSubTitles" Text="Update a Credential"></asp:Label>
@@ -32,27 +33,29 @@
 			<asp:Button ID="btnDone" runat="server" Text="Done Updating" Class="button btn btn-success" OnClick="btnDone_Click"/>
 
 			<br />
-			<asp:Label ID="lblStatus" runat="server"></asp:Label>
-			<br />
+			<asp:Label ID="lblStatus" style="color:#005073" runat="server"></asp:Label>
 			<br />
 
-			<asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="CredentialId" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowDeleting="GridView1_RowDeleting" >
-				<Columns>
-					<asp:BoundField DataField="CredentialId" HeaderText="Id No." />
-					<asp:BoundField DataField="CredentialType" HeaderText="Type" />
-					<asp:BoundField DataField="Name" HeaderText="Name" />
-					<asp:BoundField DataField="Value" HeaderText="Value" />
-					<asp:BoundField DataField="IssueDate" HeaderText="Date Issued" />
-					<asp:BoundField DataField="ExpirationDate" HeaderText="Expiring On" />
-					<asp:BoundField DataField="IsValid" HeaderText="Valid" />
+            <div style="overflow-x:auto">
+			<asp:GridView ID="GridView1" class="GridView" runat="server" AutoGenerateColumns="False" DataKeyNames="CredentialId" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowDeleting="GridView1_RowDeleting" >
+				<Columns >
+					<asp:BoundField DataField="CredentialId" HeaderText="Id No."  />
+					<asp:BoundField DataField="CredentialType" HeaderText="Type"  />
+					<asp:BoundField DataField="Name" HeaderText="Name"  />
+					<asp:BoundField DataField="Value" HeaderText="Value"  />
+					<asp:BoundField DataField="IssueDate" HeaderText="Date Issued" DataFormatString="{0:d}" />
+					<asp:BoundField DataField="ExpirationDate" HeaderText="Expiring On" DataFormatString="{0:d}" />
+					<asp:BoundField DataField="IsValid" HeaderText="Valid"  />
 					<asp:BoundField DataField="Issuer" HeaderText="Issuer" />
 					<asp:CommandField ShowEditButton="True" />
 					<asp:CommandField ShowDeleteButton="true" />
 				</Columns>
 			</asp:GridView>
+            </div>
 
 		</div>
         </div>
     </form>
+
 </body>
 </html>

@@ -16,7 +16,8 @@
 <body>
     <form id="form1" runat="server">
         <div class="divTitle" style="background-color:transparent">
-            <img class="image" src="Images/title.JPG" />
+            <%--<img class="image" src="Images/title.JPG" />--%>
+            <h1>The Authenticat<img src="Images/Logo.jpg" class="imgLogo" />r </h1>
         </div>
 		<div class="divPageBody divSection">
 			<asp:Label ID="Label1" runat="server" class="lblSubTitles" Text="Create New Credential"></asp:Label>
@@ -54,11 +55,11 @@
 				<asp:TextBox ID="txtIssueTo" runat="server" Class="txb"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="rfvIssueTo" runat="server" Class="lblError" ErrorMessage="* Field Required - Please enter a value." ControlToValidate="txtIssueTo"></asp:RequiredFieldValidator>
 
-			</div>
-			<asp:Label ID="lblStatus" runat="server"></asp:Label>
+			<asp:Label ID="lblStatus" Class="lbl" runat="server"></asp:Label>
 
 			<asp:Button ID="btnCreate" runat="server" Class="button btn btn-success" Text="Create Credential" OnClick="btnCreate_Click" />
 			<asp:Button ID="btnDone" runat="server" Text="Done" Class="button btn btn-success" OnClick="btnDone_Click"/>
+            <asp:Button ID="btnCancel" runat="server" Text="Cancel" Class="BtnCancel btn"/>
 		</div>
     </form>
 </body>
