@@ -31,13 +31,10 @@ namespace QRCodeAuth_Web
 		protected static List<Credential> fetchedCreds = new List<Credential>();
 		protected void Page_Load(object sender, EventArgs e)
 		{
-            //TESTING - DELETE LATER
-            giveValueToAccounts();
 			gvCreds.DataBind();
 			imgQRCode.Visible = false;
 			btnGetCreds.Visible = false;
-
-			//GetLoggedInUserInfo();
+			GetLoggedInUserInfo();
 
 		}
 
@@ -181,16 +178,6 @@ namespace QRCodeAuth_Web
 
 			return code;
 		}
-
-
-
-		//TESTING - DELETE LATER AND USE SESSION USER AND WEB LOG IN INFO.
-		public void giveValueToAccounts()
-        {
-            activeUser.FirstName = "Barbara";
-            activeUser.LastName = "McNeal";
-            activeWebAccount.Department = "School of Science and Engineering";
-        }
 
 		// Retrieve User info from session state
 		protected void GetLoggedInUserInfo()

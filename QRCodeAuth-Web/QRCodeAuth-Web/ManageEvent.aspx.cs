@@ -7,6 +7,7 @@ using System.Drawing;
 using System.IO;
 using ZXing;
 using System.Web.UI.WebControls;
+using System.Web.Hosting;
 
 namespace QRCodeAuth_Web
 {
@@ -75,13 +76,48 @@ namespace QRCodeAuth_Web
 			lblEndTime.Text = string.Format("End Time: {0}", ev.EndTime.ToShortTimeString());
 			lblDescription.Text = string.Format("Description: {0}", ev.Description);
 
-			// load genered qr image into QR image control		
+			// load genered qr image into QR image control	
+			GenerateQR(ev);
 			string path = AppDomain.CurrentDomain.BaseDirectory; // get current path
 			imgEventQr.ImageUrl = path + @"Images\QRCodes\" + ev.Name + ".jpg";
 			imgEventQr.Visible = true;
 
 			CreateCredentialsView();
 		}
+
+		protected void GenerateQR(Event ev)
+		{
+			// Convert string to event
+			string eventString = JsonConvert.SerializeObject(ev);
+
+			string hostingPath = HostingEnvironment.MapPath("~/");
+
+			// Get random number for QRName
+			string num = Convert.ToString(generateRandomNum());
+			string qrName = ev.Name + num + ".jpg";
+
+			//Create barcode writer 
+			BarcodeWriter writer = new BarcodeWriter();
+			writer.Format = BarcodeFormat.QR_CODE;
+			writer.Write(eventString).Save(hostingPath + @"Images\" + qrName);
+
+			//Dispaly QRCode
+			imgEventQr.Visible = true;
+			imgEventQr.ImageUrl = "https://qrcodemobileauthenticationweb.azurewebsites.net/Images/" + qrName;
+
+		}
+		public static int generateRandomNum()
+		{
+			// specifying the range for the generated number
+			int min = 10000;
+			int max = 99999;
+
+			Random ran = new Random();
+			int code = ran.Next(min, max);
+
+			return code;
+		}
+
 
 		protected void CreateCredentialsView()
 		{

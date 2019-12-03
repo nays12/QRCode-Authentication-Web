@@ -61,8 +61,6 @@ namespace QRCodeAuth_Web
 				Owner = activeWebAccount.WebId
 			};
 
-			GenerateQR(ev); // Generate QR from Event
-
 			var databaseEvent = EventsRepo.AddEvent(ev);
 			createdEvent = databaseEvent;
 			lblStatus.Text = string.Format("Success! You have created the new Event: {0}.\n Your QR Code can be found in the 'QR Codes' folder.", ev.Name);
@@ -81,26 +79,6 @@ namespace QRCodeAuth_Web
 				}
 			}
 			return creds;
-		}
-
-		protected void GenerateQR(Event ev)
-		{
-			// Convert string to event
-			string eventString = JsonConvert.SerializeObject(ev);
-
-			// get current path
-			string path = AppDomain.CurrentDomain.BaseDirectory;
-
-			// create barcode writer that creates QR Code
-			BarcodeWriter writer = new BarcodeWriter();
-			writer.Format = BarcodeFormat.QR_CODE;
-
-			// encode this text into the qr code and save it to the specified path 
-			writer.Write(eventString).Save(path + @"Images\QRCodes\" + ev.Name + ".jpg");
-
-			//// load generated qr image into QR image control
-			//eventQR.ImageUrl = path + @"Images\QRCodes\generatedQR.jpg";
-			//eventQR.Visible = true;
 		}
 
 		protected void GetLoggedInUserInfo()
