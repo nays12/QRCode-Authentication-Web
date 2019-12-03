@@ -9,6 +9,8 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 using System.Web.UI.WebControls;
 using ZXing;
+using System.Net;
+using System.IO;
 
 namespace QRCodeAuth_Web
 {
@@ -143,19 +145,46 @@ namespace QRCodeAuth_Web
 
 		protected void generateQRCode(string qrCodeString)
 		{
+			
+			//string filename = "credentialQR.jpg";
+			//string myWebResource = null;
+
+
+			//myWebResource = remoteURI + filename;
+			//string userDesktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "/credentialQR2.jpg";
+
+			//wc.DownloadFile(myWebResource, userDesktopPath);
+
 			//get currentPath
-			string path = AppDomain.CurrentDomain.BaseDirectory;
+			//string path = "https://qrcodemobileauthenticationweb.azurewebsites.net/";
+			//string path = "http://localhost:60933/Images/QRCodes/credentialQR.jpg";
 
 			//Create barcode writer 
 			BarcodeWriter writer = new BarcodeWriter();
 			writer.Format = BarcodeFormat.QR_CODE;
 
-			//Save the QRCode 
-			writer.Write(qrCodeString).Save(path + @"Images\QRCodes\credentialQR.jpg");
+			//string userDesktopPath = "http://localhost:60933/Images/QRCodes/credentialQR.jpg";
+			//string uriPath = userDesktopPath;
+			//string webAddressPath = new Uri(uriPath).AbsolutePath;
+
+			////writer.Write(qrCodeString).Save(webAddressPath);
+			var Qr = writer.Write(qrCodeString);
+			//WebClient wc = new WebClient();
+			//string remoteURI = "http://localhost:60933/Images/QRCodes/";
+			//wc.UploadFile(remoteURI, Qr + ".png");
+
+			// Save the QRCode 
+			string url = "http://localhost:60933/Images/QRCodes/";
+			//var uri = new Uri(url);
+			//var path = Path.GetFileName(uri.AbsolutePath);
+			//var file = 
+
+
+
 
 			//Dispaly QRCode
 			imgQRCode.Visible = true;
-			imgQRCode.ImageUrl = path + @"Images\QRCodes\credentialQR.jpg";
+			//imgQRCode.ImageUrl = userDesktopPath;
 		}
 
         //TESTING - DELETE LATER AND USE SESSION USER AND WEB LOG IN INFO.
