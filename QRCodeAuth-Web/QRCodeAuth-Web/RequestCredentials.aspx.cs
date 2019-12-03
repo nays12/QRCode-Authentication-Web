@@ -36,8 +36,7 @@ namespace QRCodeAuth_Web
 			gvCreds.DataBind();
 			imgQRCode.Visible = false;
 			btnGetCreds.Visible = false;
-			string path = HostingEnvironment.MapPath("~/");
-			lblTest.Text = path;
+
 			//GetLoggedInUserInfo();
 
 		}
@@ -155,55 +154,16 @@ namespace QRCodeAuth_Web
 
 		protected void generateQRCode(string qrCodeString)
 		{
-			//string serverPath = HttpContext.Current.Server.MapPath("~/");
-			string path = HostingEnvironment.MapPath(".");
-			//string imagePath = "~/Images/QRCodes/credentialQR.jpg";
-			string imagePath = "/Images/QRCodes";
+			string hostingPath = HostingEnvironment.MapPath("~/");
 
 			//Create barcode writer 
 			BarcodeWriter writer = new BarcodeWriter();
 			writer.Format = BarcodeFormat.QR_CODE;
-			writer.Write(qrCodeString).Save(path+ imagePath + "/qr2.jpg",);
-			//var barcodeBitmap = new Bitmap(qrCode);
-			 
-			//FileStream fs = new FileStream(	serverPath,
-			//image = Image.FromFile(openFileDialog1.FileName);
-			//image.Save(ftpStream, System.Drawing.Imaging.ImageFormat.Png);
-			//using (MemoryStream memory = new MemoryStream())
-			//{
-			//	using (FileStream fs = new FileStream(HttpContext.Current.Server.MapPath("~/"), FileMode.Append))
-			//	{
-			//		barcodeBitmap.Save(memory, ImageFormat.Jpeg);
-			//		byte[] bytes = memory.ToArray();
-			//		fs.Write(bytes, 0, bytes.Length);
-			//	}
-			//}
+			writer.Write(qrCodeString).Save(hostingPath + @"Images\credentialQR4.jpg");
 
 			//Dispaly QRCode
 			imgQRCode.Visible = true;
-			//imgQRCode.ImageUrl = userDesktopPath;
-
-
-			// Upload generated QR to azure web app storage
-			string storageConn = "DefaultEndpointsProtocol=https;AccountName=qrcodeauthwebfiles;AccountKey=xVEiGT04ojCHS0YPUMUUxesstHpGTy7+FERwq8Vm7yuGLjoBYHTGsOMxu/SfRGbd5Z/y8NffaA/XlO0tT/ZhtA==;EndpointSuffix=core.windows.net";
-			CloudStorageAccount storageAcc = CloudStorageAccount.Parse(storageConn);
-
-			//reference Azure blob
-			CloudBlobClient bobClient = storageAcc.CreateCloudBlobClient();
-
-			// get container
-			CloudBlobContainer container = bobClient.GetContainerReference("qr-codes");
-			container.CreateIfNotExists();
-
-			// upload file to container
-			CloudBlockBlob blockBlob = container.GetBlockBlobReference("QRBlob2");
-
-			//using (var filestream = File.OpenRead(qrCode.))
-			//{
-			//	qrCode.Save("https://qrcodeauthwebfiles.blob.core.windows.net/qr-codes/QRBlob/credQR.jpg");
-			//	//blockBlob.UploadFromStream(filestream);
-			//}
-
+			imgQRCode.ImageUrl = "https://qrcodemobileauthenticationweb.azurewebsites.net/Images/credentialQR4.jpg";
 		}
 
 
