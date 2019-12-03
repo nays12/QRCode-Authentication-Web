@@ -16,7 +16,8 @@
 <body>
     <form id="form1" runat="server">
         <div class="divTitle" style="background-color:transparent">
-            <img class="image" src="Images/title.JPG" />
+            <%--<img class="image" src="Images/title.JPG" />--%>
+            <h1>The Authenticat<img src="Images/Logo.jpg" class="imgLogo" />r </h1>
         </div>
 
         <div class="divPageBody divSection">

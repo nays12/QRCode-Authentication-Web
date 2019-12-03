@@ -25,14 +25,20 @@ body{
     border:solid 1px #005073;
 }
 
-h1{
-    padding:20px;
-    text-align:center;
-    font-size:60px;
-    color:white;
-    font-family:Impact;
-    letter-spacing:5px;
-    text-shadow:5px 5px 10px black;
+h1 {
+    padding: 20px;
+    text-align: center;
+    color: white;
+    font-family: Impact;
+    letter-spacing: 5px;
+    text-shadow: 5px 5px 10px black;
+    white-space: nowrap;
+    font-size:5vw;
+}
+
+.imgLogo{
+    height:auto;
+    width: 5vw;
 }
 
 .button{
@@ -77,7 +83,7 @@ h1{
 
 .divTitle {
     width: 50%;
-    margin:0px auto 0px auto;
+    margin: 0px auto 0px auto;
     border: none;
 }
 
