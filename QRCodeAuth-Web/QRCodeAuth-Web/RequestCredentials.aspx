@@ -53,6 +53,8 @@
 			<br />
 			<br />
 
+			<asp:Label ID="lblTest" runat="server" Text="Label"></asp:Label>
+
 			<asp:GridView ID="gvCreds" runat="server" AutoGenerateColumns="False">
 					<Columns>
 						<asp:BoundField DataField="CredentialType" HeaderText="Type" />
