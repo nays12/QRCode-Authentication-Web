@@ -10,7 +10,7 @@ body{
 }
 
 .divPageBody{
-    width:50%; 
+    width:65%; 
     margin-left: auto;
     margin-right:auto;
     margin-top:25px;
@@ -93,3 +93,30 @@ h1{
     font-size: xx-small;
     color: darkred;
 }
+
+#GridView1{
+    border-collapse: collapse;
+    border: 1px solid black;
+    font-size:small;
+}
+
+    #GridView1 th {
+        background-color: #005073;
+        border: 1px solid black;
+        color: white;
+        text-align: center;
+        font-family: Arial;
+        padding-top: 1em;
+        padding-bottom: 1em;
+    }
+
+    #GridView1 td {
+        color: black;
+        padding-right: 1em;
+        padding-left: 1em;
+    }
+
+    #GridView1 tr:nth-child(2n+1) {
+        background-color: #e7eff6;
+    }
+

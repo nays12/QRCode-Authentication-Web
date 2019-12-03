@@ -34,25 +34,27 @@
 			<br />
 			<asp:Label ID="lblStatus" runat="server"></asp:Label>
 			<br />
-			<br />
 
+            <div style="overflow-x:auto">
 			<asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="CredentialId" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowDeleting="GridView1_RowDeleting" >
-				<Columns>
-					<asp:BoundField DataField="CredentialId" HeaderText="Id No." />
-					<asp:BoundField DataField="CredentialType" HeaderText="Type" />
-					<asp:BoundField DataField="Name" HeaderText="Name" />
-					<asp:BoundField DataField="Value" HeaderText="Value" />
-					<asp:BoundField DataField="IssueDate" HeaderText="Date Issued" />
-					<asp:BoundField DataField="ExpirationDate" HeaderText="Expiring On" />
-					<asp:BoundField DataField="IsValid" HeaderText="Valid" />
+				<Columns >
+					<asp:BoundField DataField="CredentialId" HeaderText="Id No."  />
+					<asp:BoundField DataField="CredentialType" HeaderText="Type"  />
+					<asp:BoundField DataField="Name" HeaderText="Name"  />
+					<asp:BoundField DataField="Value" HeaderText="Value"  />
+					<asp:BoundField DataField="IssueDate" HeaderText="Date Issued" DataFormatString="{0:d}" />
+					<asp:BoundField DataField="ExpirationDate" HeaderText="Expiring On" DataFormatString="{0:d}" />
+					<asp:BoundField DataField="IsValid" HeaderText="Valid"  />
 					<asp:BoundField DataField="Issuer" HeaderText="Issuer" />
 					<asp:CommandField ShowEditButton="True" />
 					<asp:CommandField ShowDeleteButton="true" />
 				</Columns>
 			</asp:GridView>
+            </div>
 
 		</div>
         </div>
     </form>
+
 </body>
 </html>
