@@ -11,6 +11,10 @@ using System.Web.UI.WebControls;
 using ZXing;
 using System.Net;
 using System.IO;
+using Microsoft.Azure;
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Blob;
+using System.Web;
 
 namespace QRCodeAuth_Web
 {
@@ -30,6 +34,7 @@ namespace QRCodeAuth_Web
 			imgQRCode.Visible = false;
 			btnGetCreds.Visible = false;
 			//GetLoggedInUserInfo();
+
 		}
 
 		public static void GetNewCredentials(List<Credential> creds)
@@ -145,50 +150,59 @@ namespace QRCodeAuth_Web
 
 		protected void generateQRCode(string qrCodeString)
 		{
-			
-			//string filename = "credentialQR.jpg";
-			//string myWebResource = null;
 
+			//string path = HttpContext.Current.Server.MapPath("~/");
+			//lblTest.Text = path + @"Images\QRCodes\credentialQR3.jpg";
+			//string fullpath = path + @"Images\QRCodes\";
 
-			//myWebResource = remoteURI + filename;
-			//string userDesktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "/credentialQR2.jpg";
+			////Create barcode writer 
+			//BarcodeWriter writer = new BarcodeWriter();
+			//writer.Format = BarcodeFormat.QR_CODE;
 
-			//wc.DownloadFile(myWebResource, userDesktopPath);
+			//writer.Write(qrCodeString).Save(fullpath + "credentialQR.jpg");
 
-			//get currentPath
-			//string path = "https://qrcodemobileauthenticationweb.azurewebsites.net/";
-			//string path = "http://localhost:60933/Images/QRCodes/credentialQR.jpg";
+			////Dispaly QRCode
+			//imgQRCode.Visible = true;
+			//imgQRCode.ImageUrl = path + @"Images\QRCodes\credentialQR3.jpg";
 
-			//Create barcode writer 
-			BarcodeWriter writer = new BarcodeWriter();
-			writer.Format = BarcodeFormat.QR_CODE;
-
-			//string userDesktopPath = "http://localhost:60933/Images/QRCodes/credentialQR.jpg";
-			//string uriPath = userDesktopPath;
-			//string webAddressPath = new Uri(uriPath).AbsolutePath;
-
-			////writer.Write(qrCodeString).Save(webAddressPath);
-			var Qr = writer.Write(qrCodeString);
+			// Succesfully download image from server
+			//string remoteURI = "https://qrcodeauthwebfiles.blob.core.windows.net/qr-codes/credentialQR.jpg";
+			////string userDesktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "/credentialQR.jpg";
 			//WebClient wc = new WebClient();
-			//string remoteURI = "http://localhost:60933/Images/QRCodes/";
-			//wc.UploadFile(remoteURI, Qr + ".png");
+			////wc.DownloadFile(remoteURI, userDesktopPath);
 
-			// Save the QRCode 
-			string url = "http://localhost:60933/Images/QRCodes/";
-			//var uri = new Uri(url);
-			//var path = Path.GetFileName(uri.AbsolutePath);
-			//var file = 
+			////string remoteURI2 = "https://qrcodeauthwebfiles.blob.core.windows.net/qr-codes/generatedQR.jpg";
+			////string userDesktopPath2 = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "/generatedQR.jpg";
+			//wc.UploadFile(remoteURI2, userDesktopPath2);
 
 
 
 
-			//Dispaly QRCode
-			imgQRCode.Visible = true;
-			//imgQRCode.ImageUrl = userDesktopPath;
+
+
+
+
+			string storageConn = "DefaultEndpointsProtocol=https;AccountName=qrcodeauthwebfiles;AccountKey=xVEiGT04ojCHS0YPUMUUxesstHpGTy7+FERwq8Vm7yuGLjoBYHTGsOMxu/SfRGbd5Z/y8NffaA/XlO0tT/ZhtA==;EndpointSuffix=core.windows.net";
+			CloudStorageAccount storageAcc = CloudStorageAccount.Parse(storageConn);
+
+			//reference Azure blob
+			CloudBlobClient bobClient = storageAcc.CreateCloudBlobClient();
+
+			// get container
+			CloudBlobContainer container = bobClient.GetContainerReference("qr-codes");
+			container.CreateIfNotExists();
+
+			// upload file to container
+			CloudBlockBlob blockBlob = container.GetBlockBlobReference("QRBlob");
+			using (var filestream = File.OpenRead(@"D:\Users\naomi\Desktop\generatedQR.jpg"))
+			{
+				blockBlob.UploadFromStream(filestream);
+			}
+
 		}
 
-        //TESTING - DELETE LATER AND USE SESSION USER AND WEB LOG IN INFO.
-        public void giveValueToAccounts()
+		//TESTING - DELETE LATER AND USE SESSION USER AND WEB LOG IN INFO.
+		public void giveValueToAccounts()
         {
             activeUser.FirstName = "Barbara";
             activeUser.LastName = "McNeal";
