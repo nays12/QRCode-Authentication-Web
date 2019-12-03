@@ -10,7 +10,7 @@ body{
 }
 
 .divPageBody{
-    width:65%; 
+    width:50%; 
     margin-left: auto;
     margin-right:auto;
     margin-top:25px;
@@ -119,4 +119,13 @@ h1{
     #GridView1 tr:nth-child(2n+1) {
         background-color: #e7eff6;
     }
+
+.BtnCancel {
+    display: block;
+    margin-top: 20px;
+    padding: 5px;
+    width: 100%;
+    background-color: #005073;
+    color: white;
+}
 
