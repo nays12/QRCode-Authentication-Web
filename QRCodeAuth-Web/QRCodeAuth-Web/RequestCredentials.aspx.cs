@@ -9,6 +9,15 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 using System.Web.UI.WebControls;
 using ZXing;
+using System.Net;
+using System.IO;
+using Microsoft.Azure;
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Blob;
+using System.Web;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.Web.Hosting;
 
 namespace QRCodeAuth_Web
 {
@@ -27,7 +36,9 @@ namespace QRCodeAuth_Web
 			gvCreds.DataBind();
 			imgQRCode.Visible = false;
 			btnGetCreds.Visible = false;
+
 			//GetLoggedInUserInfo();
+
 		}
 
 		public static void GetNewCredentials(List<Credential> creds)
@@ -143,23 +154,38 @@ namespace QRCodeAuth_Web
 
 		protected void generateQRCode(string qrCodeString)
 		{
-			//get currentPath
-			string path = AppDomain.CurrentDomain.BaseDirectory;
+			string hostingPath = HostingEnvironment.MapPath("~/");
+
+			// Get random number for QRName
+			string num = Convert.ToString(generateRandomNum());
+			string qrName = "credentialQR" + num + ".jpg";
 
 			//Create barcode writer 
 			BarcodeWriter writer = new BarcodeWriter();
-			writer.Format = BarcodeFormat.QR_CODE;
-
-			//Save the QRCode 
-			writer.Write(qrCodeString).Save(path + @"Images\QRCodes\credentialQR.jpg");
+			writer.Format = BarcodeFormat.QR_CODE;			
+			writer.Write(qrCodeString).Save(hostingPath + @"Images\" + qrName);
 
 			//Dispaly QRCode
 			imgQRCode.Visible = true;
-			imgQRCode.ImageUrl = path + @"Images\QRCodes\credentialQR.jpg";
+			imgQRCode.ImageUrl = "https://qrcodemobileauthenticationweb.azurewebsites.net/Images/" + qrName;
 		}
 
-        //TESTING - DELETE LATER AND USE SESSION USER AND WEB LOG IN INFO.
-        public void giveValueToAccounts()
+		public static int generateRandomNum()
+		{
+			// specifying the range for the generated number
+			int min = 10000;
+			int max = 99999;
+
+			Random ran = new Random();
+			int code = ran.Next(min, max);
+
+			return code;
+		}
+
+
+
+		//TESTING - DELETE LATER AND USE SESSION USER AND WEB LOG IN INFO.
+		public void giveValueToAccounts()
         {
             activeUser.FirstName = "Barbara";
             activeUser.LastName = "McNeal";
