@@ -53,19 +53,19 @@
 			<br />
 			<br />
 
-			<asp:GridView ID="gvCreds" runat="server" AutoGenerateColumns="False">
+			<asp:GridView ID="gvCreds" class="GridView" runat="server" AutoGenerateColumns="False">
 					<Columns>
 						<asp:BoundField DataField="CredentialType" HeaderText="Type" />
 						<asp:BoundField DataField="Name" HeaderText="Name" />
 						<asp:BoundField DataField="Value" HeaderText="Value" />
-						<asp:BoundField DataField="IssueDate" HeaderText="Date Issued" />
-						<asp:BoundField DataField="ExpirationDate" HeaderText="Expiration Date" />
+						<asp:BoundField DataField="IssueDate" HeaderText="Date Issued" DataFormatString="{0:d}"/>
+						<asp:BoundField DataField="ExpirationDate" HeaderText="Expiration Date" DataFormatString="{0:d}" />
 						<asp:BoundField DataField="IsValid" HeaderText="Valid" />
 					</Columns>
 			</asp:GridView>
 			<asp:Button ID="btnGetCreds" runat="server" Class="button btn btn-success" Text="Get Credentials" OnClick="btnGetCreds_Click" />
             <asp:Button ID="btnConfirm" runat="server" Class="button btn btn-success" Text="Comfirm" OnClick="btnConfirm_Click" />
-            <asp:Button ID="btnCancel" runat="server" Class="btn btn-secondary" Text="Cancel" OnClick="btnCancel_Click" />
+            <asp:Button ID="btnCancel" runat="server" Class="BtnCancel btn" Text="Cancel" OnClick="btnCancel_Click" />
         </div>
     </form>
 </body>

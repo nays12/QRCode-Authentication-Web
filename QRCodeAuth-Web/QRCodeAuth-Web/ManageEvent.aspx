@@ -45,7 +45,7 @@
 				<asp:Label ID="lblInstr" runat="server"></asp:Label>
 				<br />
 				<br />
-				<asp:GridView ID="gvCreds" runat="server" AutoGenerateColumns="False">
+				<asp:GridView ID="gvCreds" class="GridView" runat="server" AutoGenerateColumns="False">
 					<Columns>
 						<asp:BoundField DataField="Owner" HeaderText="Owner Id" />
 						<asp:BoundField DataField="CredentialType" HeaderText="Type" />

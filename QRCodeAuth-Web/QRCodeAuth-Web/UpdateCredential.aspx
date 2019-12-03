@@ -36,7 +36,7 @@
 			<br />
 
             <div style="overflow-x:auto">
-			<asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="CredentialId" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowDeleting="GridView1_RowDeleting" >
+			<asp:GridView ID="GridView1" class="GridView" runat="server" AutoGenerateColumns="False" DataKeyNames="CredentialId" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowDeleting="GridView1_RowDeleting" >
 				<Columns >
 					<asp:BoundField DataField="CredentialId" HeaderText="Id No."  />
 					<asp:BoundField DataField="CredentialType" HeaderText="Type"  />
