@@ -16,35 +16,35 @@
         <div class="divTitle" style="background-color:transparent">
             <img class="image" src="Images/title.JPG" />
         </div>
-		        <div class="divPageBody divSection" style="height:1000px;">
+		        <div class="divPageBody divSection">
             <div class="divSection">
-				<asp:Label ID="lblOptions" runat="server"></asp:Label>
+				<asp:Label ID="lblOptions" style="color:#005073" runat="server"></asp:Label>
 				<br />
 				<asp:DropDownList ID="ddlActiveEvents" runat="server">
 				</asp:DropDownList>
 				<asp:Button ID="btnSelect" runat="server" OnClick="btnSelect_Click" Text="Select Event" />
 				<br />
 
-				<asp:Label ID="lblName" runat="server"></asp:Label>
+				<asp:Label ID="lblName" style="color:#005073" runat="server"></asp:Label>
 				<br />
-				<asp:Label ID="lblLocation" runat="server"></asp:Label>
+				<asp:Label ID="lblLocation" style="color:#005073" runat="server"></asp:Label>
 				<br />
 
-				<asp:Label ID="lblDate" runat="server"></asp:Label>
+				<asp:Label ID="lblDate" style="color:#005073" runat="server"></asp:Label>
 				<br />
-				<asp:Label ID="lblStartTime" runat="server"></asp:Label>
+				<asp:Label ID="lblStartTime" style="color:#005073" runat="server"></asp:Label>
 				<br />
-				<asp:Label ID="lblEndTime" runat="server"></asp:Label>
+				<asp:Label ID="lblEndTime" style="color:#005073" runat="server"></asp:Label>
 				<br />
-				<asp:Label ID="lblDescription" runat="server"></asp:Label>
+				<asp:Label ID="lblDescription" style="color:#005073" runat="server"></asp:Label>
 				<br />
 				<br />
 				<asp:Image ID="imgEventQr" runat="server" Height="300px" Width="300px" Visible="False" />
 				<br />
 				<br />
-				<asp:Label ID="lblInstr" runat="server"></asp:Label>
-				<br />
-				<br />
+				<asp:Label ID="lblInstr" style="color:#005073" runat="server"></asp:Label>
+
+                <div style="overflow-x:auto">
 				<asp:GridView ID="gvCreds" class="GridView" runat="server" AutoGenerateColumns="False">
 					<Columns>
 						<asp:BoundField DataField="Owner" HeaderText="Owner Id" />
@@ -53,6 +53,7 @@
 						<asp:BoundField DataField="Value" HeaderText="Value" />
 					</Columns>
 				</asp:GridView>
+                </div>
 				<br />
 				<asp:Button ID="btnDone" runat="server" Text="Done" Class="button btn btn-success" OnClick="btnDone_Click"/>
 				

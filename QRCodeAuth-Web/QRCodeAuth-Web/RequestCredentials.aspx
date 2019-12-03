@@ -36,23 +36,24 @@
 				<asp:Image ID="imgQRCode" runat="server" CssClass="image" Height="300px" Width="300px" Visible="False" />
                 
 			</div>  
-			<asp:Label ID="lblOwnerId" runat="server"></asp:Label>
+			<asp:Label ID="lblOwnerId" style="color:#005073" runat="server"></asp:Label>
 
             
 
 			<br />
-			<asp:Label ID="lblOwnerName" runat="server"></asp:Label>
+			<asp:Label ID="lblOwnerName" style="color:#005073" runat="server"></asp:Label>
 
             
 
 			<br />
-			<asp:Label ID="lblOwnerType" runat="server"></asp:Label>
+			<asp:Label ID="lblOwnerType" style="color:#005073" runat="server"></asp:Label>
 
             
 
 			<br />
 			<br />
 
+            <div style="overflow-x:auto">
 			<asp:GridView ID="gvCreds" class="GridView" runat="server" AutoGenerateColumns="False">
 					<Columns>
 						<asp:BoundField DataField="CredentialType" HeaderText="Type" />
@@ -63,6 +64,7 @@
 						<asp:BoundField DataField="IsValid" HeaderText="Valid" />
 					</Columns>
 			</asp:GridView>
+            </div>
 			<asp:Button ID="btnGetCreds" runat="server" Class="button btn btn-success" Text="Get Credentials" OnClick="btnGetCreds_Click" />
             <asp:Button ID="btnConfirm" runat="server" Class="button btn btn-success" Text="Comfirm" OnClick="btnConfirm_Click" />
             <asp:Button ID="btnCancel" runat="server" Class="BtnCancel btn" Text="Cancel" OnClick="btnCancel_Click" />

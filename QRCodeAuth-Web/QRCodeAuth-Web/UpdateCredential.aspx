@@ -32,7 +32,7 @@
 			<asp:Button ID="btnDone" runat="server" Text="Done Updating" Class="button btn btn-success" OnClick="btnDone_Click"/>
 
 			<br />
-			<asp:Label ID="lblStatus" runat="server"></asp:Label>
+			<asp:Label ID="lblStatus" style="color:#005073" runat="server"></asp:Label>
 			<br />
 
             <div style="overflow-x:auto">
