@@ -76,12 +76,7 @@ namespace QRCodeAuth_Web
 			lblEndTime.Text = string.Format("End Time: {0}", ev.EndTime.ToShortTimeString());
 			lblDescription.Text = string.Format("Description: {0}", ev.Description);
 
-			// load genered qr image into QR image control	
 			GenerateQR(ev);
-			string path = AppDomain.CurrentDomain.BaseDirectory; // get current path
-			imgEventQr.ImageUrl = path + @"Images\QRCodes\" + ev.Name + ".jpg";
-			imgEventQr.Visible = true;
-
 			CreateCredentialsView();
 		}
 
