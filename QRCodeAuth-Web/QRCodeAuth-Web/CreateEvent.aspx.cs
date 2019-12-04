@@ -23,7 +23,7 @@ namespace QRCodeAuth_Web
 		private static Event createdEvent = new Event();
 		protected void Page_Load(object sender, EventArgs e)
 		{
-
+			GetLoggedInUserInfo();
 		}
 
 		public static Event getCreatedEvent()
