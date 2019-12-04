@@ -61,8 +61,7 @@ namespace QRCodeAuth_Web
 				Owner = activeWebAccount.WebId
 			};
 
-			var databaseEvent = EventsRepo.AddEvent(ev);
-			createdEvent = databaseEvent;
+			EventsRepo.AddEvent(ev);
 			lblStatus.Text = string.Format("Success! You have created the new Event: {0}.\n Your QR Code can be found in the 'QR Codes' folder.", ev.Name);
 		}
 
