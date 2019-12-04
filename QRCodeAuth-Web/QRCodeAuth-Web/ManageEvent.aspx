@@ -40,7 +40,7 @@
 				<asp:Label ID="lblDescription" style="color:#005073" runat="server"></asp:Label>
 				<br />
 				<br />
-				<asp:Image ID="imgEventQr" runat="server" Height="300px" Width="300px" Visible="False" />
+				<asp:Image ID="imgEventQr" CssClass="image" runat="server" Height="300px" Width="300px" Visible="False" />
 				<br />
 				<br />
 				<asp:Label ID="lblInstr" style="color:#005073" runat="server"></asp:Label>
