@@ -36,6 +36,7 @@ namespace QRCodeAuth_Web
 		protected void btnGetCreds_Click(object sender, EventArgs e)
 		{
 			lblInstr.Text = "Here are the credentials of your Event attendees.";
+			gvCreds.Visible = true;
 			gvCreds.DataSource = fetchedCreds;
 			gvCreds.DataBind();
 		}
@@ -46,7 +47,7 @@ namespace QRCodeAuth_Web
 			activeEvents = EventsRepo.GetActiveEvents(activeWebAccount.WebId);
 			if (activeEvents != null && activeEvents.Count > 0)
 			{
-				lblOptions.Text = "Please select the event you would like to manage.";
+				lblOptions.Text = "Please select the event you would like to manage and the Credentials you would like to collect during the event.";
 				ddlActiveEvents.DataSource = activeEvents;
 				ddlActiveEvents.AppendDataBoundItems = true;
 				ddlActiveEvents.DataTextField = "Name";
@@ -69,16 +70,24 @@ namespace QRCodeAuth_Web
 			System.Diagnostics.Debug.WriteLine(ev.Name);
 
 			GetEventInfo(ev);
-			CreateEventObject();
+			CreateEventObject(ev);
+			btnGetCreds.Visible = true;
+			btnDone.Text = "Done";
 		}
 
-		public void CreateEventObject()
+		public void CreateEventObject(Event ev)
 		{
 			// Anonymous object
 			var eventAttendance = new
 			{
 				attendaceManager = activeUser.FirstName + " " + activeUser.LastName,
 				department = activeWebAccount.Department,
+				eventName = ev.Name,
+				eventLocation = ev.Location,
+				eventDate = ev.Date,
+				eventStart = ev.StartTime,
+				eventEnd = ev.EndTime,
+				evDescription = ev.Description,
 				requestedCredentials = getRequestedCredentialTypes(),
 			};
 
@@ -91,7 +100,8 @@ namespace QRCodeAuth_Web
 		{
 			ddlActiveEvents.Visible = false;
 			btnSelect.Visible = false;
-			lblOptions.Text = "Here are the details of your Event:";
+			cblRequestedCredentials.Visible = false;
+			lblOptions.Text = "";
 
 			lblName.Text = string.Format("Name:	{0}", ev.Name);
 			lblLocation.Text = string.Format("Location: {0}", ev.Location);

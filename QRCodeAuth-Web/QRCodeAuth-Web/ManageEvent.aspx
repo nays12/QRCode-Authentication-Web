@@ -34,7 +34,6 @@
                     <asp:ListItem>Classification</asp:ListItem>
                     <asp:ListItem>Work Title</asp:ListItem>
                 </asp:CheckBoxList>
-				<asp:Button ID="btnSelect" runat="server" OnClick="btnSelect_Click" Text="Select Event" />
 				<br />
 
 				<asp:Label ID="lblName" style="color:#005073" runat="server"></asp:Label>
@@ -58,7 +57,7 @@
                 <br />
 
                 <div style="overflow-x:auto">
-				<asp:GridView ID="gvCreds" class="GridView" runat="server" AutoGenerateColumns="False">
+				<asp:GridView ID="gvCreds" class="GridView" Visible="false" runat="server" AutoGenerateColumns="False">
 					<Columns>
 						<asp:BoundField DataField="Owner" HeaderText="Owner Id" />
 						<asp:BoundField DataField="CredentialType" HeaderText="Type" />
@@ -68,8 +67,9 @@
 				</asp:GridView>
                 </div>
 				<br />
-			<asp:Button ID="btnGetCreds" runat="server" Class="button btn btn-success" Text="Get Credentials" OnClick="btnGetCreds_Click" />
-				<asp:Button ID="btnDone" runat="server" Text="Done" Class="button btn btn-success" OnClick="btnDone_Click"/>
+				<asp:Button ID="btnSelect" runat="server" Class="button btn btn-success" OnClick="btnSelect_Click" Text="Create QR Code" />
+			<asp:Button ID="btnGetCreds" runat="server" Visible="false" Class="button btn btn-success" Text="Get Credentials" OnClick="btnGetCreds_Click" />
+				<asp:Button ID="btnDone" runat="server" Text="Cancel" Class="button btn btn-success" OnClick="btnDone_Click"/>
 				
 			</div>
          </div>

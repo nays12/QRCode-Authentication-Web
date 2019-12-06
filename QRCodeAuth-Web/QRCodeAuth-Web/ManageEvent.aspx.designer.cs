@@ -60,15 +60,6 @@ namespace QRCodeAuth_Web
 		protected global::System.Web.UI.WebControls.CheckBoxList cblRequestedCredentials;
 
 		/// <summary>
-		/// btnSelect control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.Button btnSelect;
-
-		/// <summary>
 		/// lblName control.
 		/// </summary>
 		/// <remarks>
@@ -148,6 +139,15 @@ namespace QRCodeAuth_Web
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.GridView gvCreds;
+
+		/// <summary>
+		/// btnSelect control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Button btnSelect;
 
 		/// <summary>
 		/// btnGetCreds control.
