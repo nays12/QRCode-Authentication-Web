@@ -32,6 +32,13 @@ namespace QRCodeAuth_Web
 			}
 		}
 
+		protected void btnGetCreds_Click(object sender, EventArgs e)
+		{
+			lblInstr.Text = "Here are the credentials of your Event attendees.";
+			gvCreds.DataSource = fetchedCreds;
+			gvCreds.DataBind();
+		}
+
 		protected void getActiveEvents()
 		{
 			// Get Web Account's events that have not passed
@@ -78,7 +85,6 @@ namespace QRCodeAuth_Web
 			lblDescription.Text = string.Format("Description: {0}", ev.Description);
 
 			GenerateQR(ev);
-			CreateCredentialsView();
 		}
 
 		protected void GenerateQR(Event ev)
@@ -115,13 +121,6 @@ namespace QRCodeAuth_Web
 		}
 
 
-		protected void CreateCredentialsView()
-		{
-			lblInstr.Text = "Here are the credentials of your Event attendees. Please refresh the page to update the table.";
-			gvCreds.DataSource = fetchedCreds;
-			gvCreds.DataBind();
-		}
-
 		protected void GetLoggedInUserInfo()
 		{
 			activeWebAccount = (WebAccount)Session["ActiveWebAccount"];
@@ -132,5 +131,6 @@ namespace QRCodeAuth_Web
 			fetchedCreds.Clear();
 			Response.Redirect("Home.aspx");
 		}
+
 	}
 }

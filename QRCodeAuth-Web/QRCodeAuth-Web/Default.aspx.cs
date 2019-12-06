@@ -1,5 +1,5 @@
 ﻿/*
- * Purpose: Startup page for the web application that requres authentication code from 
+ * Purpose: Startup page for the web application that requires authentication code from 
  * mobile device to login
  * 
  * Algorithm: 
@@ -9,10 +9,8 @@
 using System;
 using System.Collections.Generic;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 using QRCodeAuth_Web.Data;
 using QRCodeAuth_Web.Models;
-using QRCodeAuth_Web.Controllers;
 
 namespace QRCodeAuth_Web
 {

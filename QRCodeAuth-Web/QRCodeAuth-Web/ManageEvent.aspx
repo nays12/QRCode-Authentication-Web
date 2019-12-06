@@ -42,8 +42,9 @@
 				<br />
 				<asp:Image ID="imgEventQr" CssClass="image" runat="server" Height="300px" Width="300px" Visible="False" />
 				<br />
-				<br />
 				<asp:Label ID="lblInstr" style="color:#005073" runat="server"></asp:Label>
+				<br />
+                <br />
 
                 <div style="overflow-x:auto">
 				<asp:GridView ID="gvCreds" class="GridView" runat="server" AutoGenerateColumns="False">
@@ -56,6 +57,7 @@
 				</asp:GridView>
                 </div>
 				<br />
+			<asp:Button ID="btnGetCreds" runat="server" Class="button btn btn-success" Text="Get Credentials" OnClick="btnGetCreds_Click" />
 				<asp:Button ID="btnDone" runat="server" Text="Done" Class="button btn btn-success" OnClick="btnDone_Click"/>
 				
 			</div>

@@ -11,9 +11,6 @@ using System.Web.UI.WebControls;
 using ZXing;
 using System.Net;
 using System.IO;
-using Microsoft.Azure;
-using Microsoft.WindowsAzure.Storage;
-using Microsoft.WindowsAzure.Storage.Blob;
 using System.Web;
 using System.Drawing;
 using System.Drawing.Imaging;
@@ -83,6 +80,7 @@ namespace QRCodeAuth_Web
 		protected void btnCancel_Click(object sender, EventArgs e)
         {
             Response.Redirect("Home.aspx");
+			fetchedCreds.Clear();
         }
 
 		//Will return a list of the requested credential types selected by information collector. 

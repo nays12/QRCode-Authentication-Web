@@ -132,6 +132,15 @@ namespace QRCodeAuth_Web
 		protected global::System.Web.UI.WebControls.GridView gvCreds;
 
 		/// <summary>
+		/// btnGetCreds control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Button btnGetCreds;
+
+		/// <summary>
 		/// btnDone control.
 		/// </summary>
 		/// <remarks>
