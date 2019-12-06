@@ -114,7 +114,7 @@ namespace QRCodeAuth_Web
 
 			lblName.Text = string.Format("Name:	{0}", ev.Name);
 			lblLocation.Text = string.Format("Location: {0}", ev.Location);
-			lblDate.Text = string.Format("Date: {0}", ev.Date);
+			lblDate.Text = string.Format("Date: {0}", ev.Date.ToShortDateString());
 			lblStartTime.Text = string.Format("Start Time: {0}", ev.StartTime.ToShortTimeString());
 			lblEndTime.Text = string.Format("End Time: {0}", ev.EndTime.ToShortTimeString());
 			lblDescription.Text = string.Format("Description: {0}", ev.Description);
