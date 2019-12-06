@@ -82,14 +82,23 @@ namespace QRCodeAuth_Web
 			{
 				attendaceManager = activeUser.FirstName + " " + activeUser.LastName,
 				department = activeWebAccount.Department,
-				eventName = ev.Name,
-				eventLocation = ev.Location,
-				eventDate = ev.Date,
-				eventStart = ev.StartTime,
-				eventEnd = ev.EndTime,
-				evDescription = ev.Description,
+				theEvent = ev,
 				requestedCredentials = getRequestedCredentialTypes(),
 			};
+
+			// Anonymous object
+			//var eventAttendance = new
+			//{
+			//	attendaceManager = activeUser.FirstName + " " + activeUser.LastName,
+			//	department = activeWebAccount.Department,
+			//	eventName = ev.Name,
+			//	eventLocation = ev.Location,
+			//	eventDate = ev.Date,
+			//	eventStart = ev.StartTime,
+			//	eventEnd = ev.EndTime,
+			//	evDescription = ev.Description,
+			//	requestedCredentials = getRequestedCredentialTypes(),
+			//};
 
 			var result = JsonConvert.SerializeObject(eventAttendance);
 
@@ -105,8 +114,7 @@ namespace QRCodeAuth_Web
 
 			lblName.Text = string.Format("Name:	{0}", ev.Name);
 			lblLocation.Text = string.Format("Location: {0}", ev.Location);
-			//lblDate.Text = string.Format("Date: {0}", ev.Date);
-			lblDate.Text = string.Format("Date: {0}", "12/6/2019");
+			lblDate.Text = string.Format("Date: {0}", ev.Date);
 			lblStartTime.Text = string.Format("Start Time: {0}", ev.StartTime.ToShortTimeString());
 			lblEndTime.Text = string.Format("End Time: {0}", ev.EndTime.ToShortTimeString());
 			lblDescription.Text = string.Format("Description: {0}", ev.Description);
