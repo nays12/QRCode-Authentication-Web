@@ -18,11 +18,22 @@
             <h1>The Authenticat<img src="Images/Logo.jpg" class="imgLogo" />r </h1>
         </div>
 		        <div class="divPageBody divSection">
-            <div class="divSection">
+ <asp:Label ID="lblSubtitle" runat="server" Class="lblSubTitles" Text="Select event and needed Credentials"></asp:Label>            <div class="divSection">
 				<asp:Label ID="lblOptions" style="color:#005073" runat="server"></asp:Label>
 				<br />
 				<asp:DropDownList ID="ddlActiveEvents" runat="server">
 				</asp:DropDownList>
+                <asp:CheckBoxList ID="cblRequestedCredentials" runat="server" >
+                    <asp:ListItem>Name</asp:ListItem>
+                    <asp:ListItem>Email</asp:ListItem>
+                    <asp:ListItem>ID Number</asp:ListItem>
+                    <asp:ListItem>Date of Birth</asp:ListItem>
+                    <asp:ListItem>Address</asp:ListItem>
+                    <asp:ListItem>PhoneNumber</asp:ListItem>
+                    <asp:ListItem>Major</asp:ListItem>
+                    <asp:ListItem>Classification</asp:ListItem>
+                    <asp:ListItem>Work Title</asp:ListItem>
+                </asp:CheckBoxList>
 				<asp:Button ID="btnSelect" runat="server" OnClick="btnSelect_Click" Text="Select Event" />
 				<br />
 

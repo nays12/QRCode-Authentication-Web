@@ -21,7 +21,7 @@
         </div>
 
         <div class="divPageBody divSection">
-            <asp:Label ID="lblSubtitle" runat="server" Class="lblSubTitles" Text="Select the credentials to collect"></asp:Label>
+            <asp:Label ID="lblSubtitle" runat="server" Class="lblSubTitles" Text="Select the Credentials to collect"></asp:Label>
             <div class="divSection">
                 <asp:CheckBoxList ID="cblRequestedCredentials" runat="server" >
                     <asp:ListItem>Name</asp:ListItem>

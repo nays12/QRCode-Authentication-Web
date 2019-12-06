@@ -24,6 +24,15 @@ namespace QRCodeAuth_Web
 		protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
 		/// <summary>
+		/// lblSubtitle control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Label lblSubtitle;
+
+		/// <summary>
 		/// lblOptions control.
 		/// </summary>
 		/// <remarks>
@@ -40,6 +49,15 @@ namespace QRCodeAuth_Web
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.DropDownList ddlActiveEvents;
+
+		/// <summary>
+		/// cblRequestedCredentials control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.CheckBoxList cblRequestedCredentials;
 
 		/// <summary>
 		/// btnSelect control.

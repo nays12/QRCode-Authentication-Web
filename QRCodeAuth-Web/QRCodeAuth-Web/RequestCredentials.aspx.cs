@@ -20,7 +20,6 @@ namespace QRCodeAuth_Web
 {
 	public partial class RequestCredentials : System.Web.UI.Page
 	{
-
         protected User activeUser = new User();
         protected WebAccount activeWebAccount = new WebAccount();
 
@@ -83,7 +82,7 @@ namespace QRCodeAuth_Web
 			fetchedCreds.Clear();
         }
 
-		//Will return a list of the requested credential types selected by information collector. 
+		// Will return a list of the requested credential types selected by information collector. 
 		public List<CredentialType> getRequestedCredentialTypes()
 		{
 			List<CredentialType> types = new List<CredentialType>();
