@@ -13,6 +13,7 @@ namespace QRCodeAuth_Web
 {
 	public partial class ManageEvent : System.Web.UI.Page
 	{
+		protected User activeUser = new User();
 		protected WebAccount activeWebAccount = new WebAccount();
 		protected List<Event> activeEvents = new List<Event>();
 		protected static List<Credential> fetchedCreds = new List<Credential>();
@@ -35,6 +36,7 @@ namespace QRCodeAuth_Web
 		protected void btnGetCreds_Click(object sender, EventArgs e)
 		{
 			lblInstr.Text = "Here are the credentials of your Event attendees.";
+			gvCreds.Visible = true;
 			gvCreds.DataSource = fetchedCreds;
 			gvCreds.DataBind();
 		}
@@ -45,7 +47,7 @@ namespace QRCodeAuth_Web
 			activeEvents = EventsRepo.GetActiveEvents(activeWebAccount.WebId);
 			if (activeEvents != null && activeEvents.Count > 0)
 			{
-				lblOptions.Text = "Please select the event you would like to manage.";
+				lblOptions.Text = "Please select the event you would like to manage and the Credentials you would like to collect during the event.";
 				ddlActiveEvents.DataSource = activeEvents;
 				ddlActiveEvents.AppendDataBoundItems = true;
 				ddlActiveEvents.DataTextField = "Name";
@@ -68,13 +70,47 @@ namespace QRCodeAuth_Web
 			System.Diagnostics.Debug.WriteLine(ev.Name);
 
 			GetEventInfo(ev);
+			CreateEventObject(ev);
+			btnGetCreds.Visible = true;
+			btnDone.Text = "Done";
+		}
+
+		public void CreateEventObject(Event ev)
+		{
+			// Anonymous object
+			var eventAttendance = new
+			{
+				attendaceManager = activeUser.FirstName + " " + activeUser.LastName,
+				department = activeWebAccount.Department,
+				theEvent = ev,
+				requestedCredentials = getRequestedCredentialTypes(),
+			};
+
+			// Anonymous object
+			//var eventAttendance = new
+			//{
+			//	attendaceManager = activeUser.FirstName + " " + activeUser.LastName,
+			//	department = activeWebAccount.Department,
+			//	eventName = ev.Name,
+			//	eventLocation = ev.Location,
+			//	eventDate = ev.Date,
+			//	eventStart = ev.StartTime,
+			//	eventEnd = ev.EndTime,
+			//	evDescription = ev.Description,
+			//	requestedCredentials = getRequestedCredentialTypes(),
+			//};
+
+			var result = JsonConvert.SerializeObject(eventAttendance);
+
+			GenerateQRCode(result);
 		}
 
 		protected void GetEventInfo(Event ev)
 		{
 			ddlActiveEvents.Visible = false;
 			btnSelect.Visible = false;
-			lblOptions.Text = "Here are the details of your Event:";
+			cblRequestedCredentials.Visible = false;
+			lblOptions.Text = "";
 
 			lblName.Text = string.Format("Name:	{0}", ev.Name);
 			lblLocation.Text = string.Format("Location: {0}", ev.Location);
@@ -82,15 +118,57 @@ namespace QRCodeAuth_Web
 			lblStartTime.Text = string.Format("Start Time: {0}", ev.StartTime.ToShortTimeString());
 			lblEndTime.Text = string.Format("End Time: {0}", ev.EndTime.ToShortTimeString());
 			lblDescription.Text = string.Format("Description: {0}", ev.Description);
-
-			GenerateQR(ev);
 		}
 
-		protected void GenerateQR(Event ev)
+		public List<CredentialType> getRequestedCredentialTypes()
 		{
-			// Convert string to event
-			string eventString = JsonConvert.SerializeObject(ev);
+			List<CredentialType> types = new List<CredentialType>();
 
+			foreach (ListItem item in cblRequestedCredentials.Items)
+			{
+				if (item.Selected)
+				{
+					string selection = item.Value;
+					System.Diagnostics.Debug.WriteLine(selection);
+
+					switch (selection)
+					{
+						case "Name":
+							types.Add(CredentialType.Name);
+							break;
+						case "Email":
+							types.Add(CredentialType.Email);
+							break;
+						case "ID Number":
+							types.Add(CredentialType.IdNumber);
+							break;
+						case "Date of Birth":
+							types.Add(CredentialType.Birthdate);
+							break;
+						case "Address":
+							types.Add(CredentialType.Address);
+							break;
+						case "PhoneNumber":
+							types.Add(CredentialType.PhoneNumber);
+							break;
+						case "Major":
+							types.Add(CredentialType.Major);
+							break;
+						case "Classification":
+							types.Add(CredentialType.Classification);
+							break;
+						case "Work Title":
+							types.Add(CredentialType.WorkTitle);
+							break;
+					}
+				}
+			}
+			cblRequestedCredentials.Visible = false;
+			return types;
+		}
+
+		protected void GenerateQRCode(string qrCodeString)
+		{
 			string hostingPath = HostingEnvironment.MapPath("~/");
 
 			// Get random number for QRName
@@ -100,7 +178,7 @@ namespace QRCodeAuth_Web
 			//Create barcode writer 
 			BarcodeWriter writer = new BarcodeWriter();
 			writer.Format = BarcodeFormat.QR_CODE;
-			writer.Write(eventString).Save(hostingPath + @"Images\" + qrName);
+			writer.Write(qrCodeString).Save(hostingPath + @"Images\" + qrName);
 
 			//Dispaly QRCode
 			imgEventQr.Visible = true;
@@ -119,9 +197,9 @@ namespace QRCodeAuth_Web
 			return code;
 		}
 
-
 		protected void GetLoggedInUserInfo()
 		{
+			activeUser = (User)Session["ActiveUser"];
 			activeWebAccount = (WebAccount)Session["ActiveWebAccount"];
 		}
 

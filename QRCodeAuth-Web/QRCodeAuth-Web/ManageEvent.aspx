@@ -18,12 +18,22 @@
             <h1>The Authenticat<img src="Images/Logo.jpg" class="imgLogo" />r </h1>
         </div>
 		        <div class="divPageBody divSection">
-            <div class="divSection">
+ <asp:Label ID="lblSubtitle" runat="server" Class="lblSubTitles" Text="Select event and needed Credentials"></asp:Label>            <div class="divSection">
 				<asp:Label ID="lblOptions" style="color:#005073" runat="server"></asp:Label>
 				<br />
 				<asp:DropDownList ID="ddlActiveEvents" runat="server">
 				</asp:DropDownList>
-				<asp:Button ID="btnSelect" runat="server" OnClick="btnSelect_Click" Text="Select Event" />
+                <asp:CheckBoxList ID="cblRequestedCredentials" runat="server" >
+                    <asp:ListItem>Name</asp:ListItem>
+                    <asp:ListItem>Email</asp:ListItem>
+                    <asp:ListItem>ID Number</asp:ListItem>
+                    <asp:ListItem>Date of Birth</asp:ListItem>
+                    <asp:ListItem>Address</asp:ListItem>
+                    <asp:ListItem>PhoneNumber</asp:ListItem>
+                    <asp:ListItem>Major</asp:ListItem>
+                    <asp:ListItem>Classification</asp:ListItem>
+                    <asp:ListItem>Work Title</asp:ListItem>
+                </asp:CheckBoxList>
 				<br />
 
 				<asp:Label ID="lblName" style="color:#005073" runat="server"></asp:Label>
@@ -47,7 +57,7 @@
                 <br />
 
                 <div style="overflow-x:auto">
-				<asp:GridView ID="gvCreds" class="GridView" runat="server" AutoGenerateColumns="False">
+				<asp:GridView ID="gvCreds" class="GridView" Visible="false" runat="server" AutoGenerateColumns="False">
 					<Columns>
 						<asp:BoundField DataField="Owner" HeaderText="Owner Id" />
 						<asp:BoundField DataField="CredentialType" HeaderText="Type" />
@@ -57,8 +67,9 @@
 				</asp:GridView>
                 </div>
 				<br />
-			<asp:Button ID="btnGetCreds" runat="server" Class="button btn btn-success" Text="Get Credentials" OnClick="btnGetCreds_Click" />
-				<asp:Button ID="btnDone" runat="server" Text="Done" Class="button btn btn-success" OnClick="btnDone_Click"/>
+				<asp:Button ID="btnSelect" runat="server" Class="button btn btn-success" OnClick="btnSelect_Click" Text="Create QR Code" />
+			<asp:Button ID="btnGetCreds" runat="server" Visible="false" Class="button btn btn-success" Text="Get Credentials" OnClick="btnGetCreds_Click" />
+				<asp:Button ID="btnDone" runat="server" Text="Cancel" Class="button btn btn-success" OnClick="btnDone_Click"/>
 				
 			</div>
          </div>
