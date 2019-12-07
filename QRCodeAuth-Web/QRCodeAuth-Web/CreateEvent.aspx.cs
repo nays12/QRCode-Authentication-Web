@@ -10,10 +10,6 @@ using System.Collections.Generic;
 using System.Web.UI.WebControls;
 using QRCodeAuth_Web.Data;
 using QRCodeAuth_Web.Models;
-using Newtonsoft.Json;
-using System.Drawing;
-using System.IO;
-using ZXing;
 
 namespace QRCodeAuth_Web
 {
@@ -42,7 +38,7 @@ namespace QRCodeAuth_Web
 			var selection = ddlEventType.SelectedIndex;
 			EventType type = (EventType)selection;
 
-			//Get Required Credentials
+			// Get Required Credentials
 			List<CredentialType> creds = GetCheckedRequiredCredentials();
 
 			var startT = txtDate.Text + " " + txtStartTime.Text;
@@ -62,7 +58,7 @@ namespace QRCodeAuth_Web
 			};
 
 			EventsRepo.AddEvent(ev);
-			lblStatus.Text = string.Format("Success! You have created the new Event: {0}.\n Your QR Code can be found in the 'QR Codes' folder.", ev.Name);
+			lblStatus.Text = string.Format("Success! You have created the new Event: {0}.", ev.Name);
 		}
 
 		protected List<CredentialType> GetCheckedRequiredCredentials()
