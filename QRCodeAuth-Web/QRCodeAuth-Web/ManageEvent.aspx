@@ -23,7 +23,7 @@
 				<br />
 				<asp:DropDownList ID="ddlActiveEvents" runat="server">
 				</asp:DropDownList>
-                <asp:CheckBoxList ID="cblRequestedCredentials" runat="server" >
+                <asp:CheckBoxList ID="cblCredentialsRequested" runat="server" >
                     <asp:ListItem>Name</asp:ListItem>
                     <asp:ListItem>Email</asp:ListItem>
                     <asp:ListItem>ID Number</asp:ListItem>

@@ -3,8 +3,6 @@ using QRCodeAuth_Web.Data;
 using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
-using System.Drawing;
-using System.IO;
 using ZXing;
 using System.Web.UI.WebControls;
 using System.Web.Hosting;
@@ -77,28 +75,20 @@ namespace QRCodeAuth_Web
 
 		public void CreateEventObject(Event ev)
 		{
-			// Anonymous object
-			var eventAttendance = new
-			{
-				attendaceManager = activeUser.FirstName + " " + activeUser.LastName,
-				department = activeWebAccount.Department,
-				theEvent = ev,
-				requestedCredentials = getRequestedCredentialTypes(),
-			};
 
 			// Anonymous object
-			//var eventAttendance = new
-			//{
-			//	attendaceManager = activeUser.FirstName + " " + activeUser.LastName,
-			//	department = activeWebAccount.Department,
-			//	eventName = ev.Name,
-			//	eventLocation = ev.Location,
-			//	eventDate = ev.Date,
-			//	eventStart = ev.StartTime,
-			//	eventEnd = ev.EndTime,
-			//	evDescription = ev.Description,
-			//	requestedCredentials = getRequestedCredentialTypes(),
-			//};
+		   var eventAttendance = new
+		   {
+			   attendaceManager = activeUser.FirstName + " " + activeUser.LastName,
+			   department = activeWebAccount.Department,
+			   eventName = ev.Name,
+			   eventLocation = ev.Location,
+			   eventDate = ev.Date,
+			   eventStart = ev.StartTime,
+			   eventEnd = ev.EndTime,
+			   evDescription = ev.Description,
+			   requestedCredentials = getRequestedCredentialTypes(),
+		   };
 
 			var result = JsonConvert.SerializeObject(eventAttendance);
 
@@ -109,7 +99,7 @@ namespace QRCodeAuth_Web
 		{
 			ddlActiveEvents.Visible = false;
 			btnSelect.Visible = false;
-			cblRequestedCredentials.Visible = false;
+			cblCredentialsRequested.Visible = false;
 			lblOptions.Text = "";
 
 			lblName.Text = string.Format("Name:	{0}", ev.Name);
@@ -124,7 +114,7 @@ namespace QRCodeAuth_Web
 		{
 			List<CredentialType> types = new List<CredentialType>();
 
-			foreach (ListItem item in cblRequestedCredentials.Items)
+			foreach (ListItem item in cblCredentialsRequested.Items)
 			{
 				if (item.Selected)
 				{
@@ -163,7 +153,7 @@ namespace QRCodeAuth_Web
 					}
 				}
 			}
-			cblRequestedCredentials.Visible = false;
+			cblCredentialsRequested.Visible = false;
 			return types;
 		}
 

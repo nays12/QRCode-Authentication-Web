@@ -49,20 +49,6 @@
 				<asp:Label ID="Label11" runat="server" Class="lbl" Text="Description"></asp:Label>
 				<asp:TextBox ID="txtDescription" runat="server" TextMode="MultiLine" Class="txb" Height="60px"></asp:TextBox>
 
-				<asp:Label ID="Label3" runat="server" Class="lbl" Text="Credentials Required"></asp:Label>
-
-				<asp:CheckBoxList ID="cblCredentialsNeeded" runat="server">
-					<asp:ListItem>Name</asp:ListItem>
-					<asp:ListItem>Email</asp:ListItem>
-					<asp:ListItem Value="IdNumber">School ID</asp:ListItem>
-					<asp:ListItem>Birthdate</asp:ListItem>
-					<asp:ListItem>Address</asp:ListItem>
-					<asp:ListItem Value="PhoneNumber">Phone Number</asp:ListItem>
-					<asp:ListItem>Major</asp:ListItem>
-					<asp:ListItem>Classification</asp:ListItem>
-					<asp:ListItem Value="WorkTitle">Work Title</asp:ListItem>
-				</asp:CheckBoxList>
-
 			</div>
 			<asp:Label ID="lblStatus" Class="lbl" runat="server"></asp:Label>
 			<asp:Button ID="btnCreate" runat="server" Class="button btn btn-success" Text="Create Event" OnClick="btnCreate_Click" />

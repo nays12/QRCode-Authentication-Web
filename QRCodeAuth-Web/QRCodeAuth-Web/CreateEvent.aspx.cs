@@ -38,9 +38,6 @@ namespace QRCodeAuth_Web
 			var selection = ddlEventType.SelectedIndex;
 			EventType type = (EventType)selection;
 
-			// Get Required Credentials
-			List<CredentialType> creds = GetCheckedRequiredCredentials();
-
 			var startT = txtDate.Text + " " + txtStartTime.Text;
 			var endT = txtDate.Text + " " + txtEndTime.Text;
 
@@ -53,27 +50,11 @@ namespace QRCodeAuth_Web
 				StartTime = DateTime.Parse(startT),
 				EndTime = DateTime.Parse(endT),
 				Description = txtDescription.Text,
-				CredentialsNeeded = creds,
 				Owner = activeWebAccount.WebId
 			};
 
 			EventsRepo.AddEvent(ev);
 			lblStatus.Text = string.Format("Success! You have created the new Event: {0}.", ev.Name);
-		}
-
-		protected List<CredentialType> GetCheckedRequiredCredentials()
-		{
-			List<CredentialType> creds = new List<CredentialType>();
-
-			foreach (ListItem item in cblCredentialsNeeded.Items)
-			{
-				if (item.Selected) 
-				{
-					var selctedCred = (CredentialType)(Enum.Parse(typeof(CredentialType), item.Value));
-					creds.Add(selctedCred);							
-				}
-			}
-			return creds;
 		}
 
 		protected void GetLoggedInUserInfo()
