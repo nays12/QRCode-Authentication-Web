@@ -16,45 +16,44 @@
 <body>
     <form id="form1" runat="server">
         <div class="divTitle" style="background-color:transparent">
-            <img class="image" src="Images/title.JPG" />
+            <%--<img class="image" src="Images/title.JPG" />--%>
+            <h1>The Authenticat<img src="Images/Logo.jpg" class="imgLogo" />r </h1>
         </div>
 		<div class="divPageBody divSection">
-			<asp:Label ID="Label1" runat="server" class="lblSubTitles" Text="Event Type"></asp:Label>
-			<div class="divSection">
-				<asp:Label ID="Label2" runat="server" Class="lbl" Text="Select Event Type"></asp:Label>
+			<asp:Label ID="Label1" runat="server" class="lblSubTitles" Text="Create New Event"></asp:Label>
 
-				<asp:DropDownList ID="DropDownList1" runat="server" Class="txb">
-					<asp:ListItem>Select Type</asp:ListItem>
+			<div class="divSection">
+				<asp:Label ID="Label2" runat="server" Class="lbl" Text="Event Type"></asp:Label>
+
+				<asp:DropDownList ID="ddlEventType" runat="server" Class="txb">
 					<asp:ListItem>Event</asp:ListItem>
 					<asp:ListItem>Lecture</asp:ListItem>
 					<asp:ListItem>Meeting</asp:ListItem>
 				</asp:DropDownList>
-			</div>
 
-			<asp:Label ID="Label3" runat="server" Class="lblSubTitles" Text="Evant Details"></asp:Label>
+				<asp:Label ID="Label5" runat="server" Class="lbl" Text="Name of Event"></asp:Label>
+				<asp:TextBox ID="txtName" runat="server" Class="txb"></asp:TextBox>
 
-			<div class="divSection">
+				<asp:Label ID="Label7" runat="server" Class="lbl" Text="Event Location"></asp:Label>
+				<asp:TextBox ID="txtLocation" runat="server" Class="txb"></asp:TextBox>
 
-				<asp:Label ID="Label5" runat="server" Class="lbl" Text="Name of Event:"></asp:Label>
-				<asp:TextBox ID="TextBox3" runat="server" Class="txb"></asp:TextBox>
+				<asp:Label ID="Label8" runat="server" Class="lbl" Text="Date"></asp:Label>
+				<asp:TextBox ID="txtDate" runat="server" Class="txb" TextMode="Date"></asp:TextBox>
 
-				<asp:Label ID="Label6" runat="server" Class="lbl" Text="Creator of the Event:"></asp:Label>
-				<asp:TextBox ID="TextBox4" runat="server" Class="txb"></asp:TextBox>
+				<asp:Label ID="Label9" runat="server" Class="lbl" Text="Start Time"></asp:Label>
+				<asp:TextBox ID="txtStartTime" runat="server" Class="txb" TextMode="DateTime"></asp:TextBox>
 
-				<asp:Label ID="Label7" runat="server" Class="lbl" Text="Location of the Event:"></asp:Label>
-				<asp:TextBox ID="TextBox5" runat="server" Class="txb"></asp:TextBox>
+				<asp:Label ID="Label10" runat="server" Class="lbl" Text="End Time"></asp:Label>
+				<asp:TextBox ID="txtEndTime" runat="server" Class="txb" TextMode="DateTime"></asp:TextBox>
 
-				<asp:Label ID="Label8" runat="server" Class="lbl" Text="Date:"></asp:Label>
-				<asp:TextBox ID="TextBox6" runat="server" Class="txb"></asp:TextBox>
-
-				<asp:Label ID="Label9" runat="server" Class="lbl" Text="Start Time:"></asp:Label>
-				<asp:TextBox ID="TextBox7" runat="server" Class="txb"></asp:TextBox>
-
-				<asp:Label ID="Label10" runat="server" Class="lbl" Text="End Time:"></asp:Label>
-				<asp:TextBox ID="TextBox8" runat="server" Class="txb"></asp:TextBox>
+				<asp:Label ID="Label11" runat="server" Class="lbl" Text="Description"></asp:Label>
+				<asp:TextBox ID="txtDescription" runat="server" TextMode="MultiLine" Class="txb" Height="60px"></asp:TextBox>
 
 			</div>
-			<asp:Button ID="Button3" runat="server" Class="button btn btn-success" Text="Continue" />
+			<asp:Label ID="lblStatus" Class="lbl" runat="server"></asp:Label>
+			<asp:Button ID="btnCreate" runat="server" Class="button btn btn-success" Text="Create Event" OnClick="btnCreate_Click" />
+			<asp:Button ID="btnManage" runat="server" Class="button btn btn-success" Text="Manage Event" OnClick="btnManage_Click" />
+			<asp:Button ID="btnDone" runat="server" Class="BtnCancel btn" Text="Done" OnClick="btnDone_Click" />
 		</div>
     </form>
 </body>

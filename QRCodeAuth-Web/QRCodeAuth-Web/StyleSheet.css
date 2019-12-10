@@ -11,10 +11,7 @@ body{
 
 .divPageBody{
     width:50%; 
-    margin-left: auto;
-    margin-right:auto;
-    margin-top:25px;
-    margin-bottom:50px;
+    margin:25px auto 50px auto;
     border:none;
 }
 
@@ -28,14 +25,20 @@ body{
     border:solid 1px #005073;
 }
 
-h1{
-    padding:20px;
-    text-align:center;
-    font-size:60px;
-    color:white;
-    font-family:Impact;
-    letter-spacing:5px;
-    text-shadow:5px 5px 10px black;
+h1 {
+    padding: 20px;
+    text-align: center;
+    color: white;
+    font-family: Impact;
+    letter-spacing: 5px;
+    text-shadow: 5px 5px 10px black;
+    white-space: nowrap;
+    font-size:5vw;
+}
+
+.imgLogo{
+    height:auto;
+    width: 5vw;
 }
 
 .button{
@@ -80,10 +83,7 @@ h1{
 
 .divTitle {
     width: 50%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 0px;
-    margin-bottom: 0px;
+    margin: 0px auto 0px auto;
     border: none;
 }
 
@@ -93,3 +93,40 @@ h1{
     font-size: xx-small;
     color: darkred;
 }
+
+.GridView {
+    border-collapse: collapse;
+    border: 1px solid black;
+    font-size: small;
+}
+
+    .GridView th {
+        background-color: #005073;
+        border: 1px solid black;
+        color: white;
+        text-align: center;
+        font-family: Arial;
+        padding-top: 1em;
+        padding-bottom: 1em;
+    }
+
+    .GridView td {
+        color: black;
+        padding-right: 1em;
+        padding-left: 1em;
+    }
+
+.GridView tr:nth-child(2n+1) {
+    background-color: #e7eff6;
+}
+
+.BtnCancel {
+    display: block;
+    margin-top: 20px;
+    padding: 5px;
+    width: 100%;
+    background-color: #005073;
+    text-decoration:none;
+    color: white;
+}
+

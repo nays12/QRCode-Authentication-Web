@@ -16,17 +16,20 @@
 <body>
     <form id="form1" runat="server">
         <div class="divTitle" style="background-color:transparent">
-            <img class="image" src="Images/title.JPG" />
+            <h1>The Authenticat<img src="Images/Logo.jpg" class="imgLogo" />r </h1>
+            <%--<img class="image" src="Images/title.JPG" />--%>
         </div>
 
         <div class="divPageBody divSection">
-            <asp:Button ID="btnLogin" Class="button btn btn-success" runat="server" Text="Login" OnClick="btnLogin_Click"/>
             <div class="divSection">
+				
                 <asp:Label ID="Label2" Class="lblSubTitles" runat="server" Text="6-digit code"></asp:Label>
                 
                 <asp:TextBox ID="txtCode" Class="txb" runat="server"></asp:TextBox>
+				<asp:Button ID="btnLogin" Class="button btn btn-success" runat="server" Text="Login" OnClick="btnLogin_Click"/>
                 <asp:RegularExpressionValidator Class="lblError" runat="server" id="revCodeValidator" validationexpression="^[0-9]{6}$" ErrorMessage="Invalid Format: Please enter a 6-digit number." ControlToValidate="txtCode" />
             	<asp:Label ID="lblValidCode" Class="lblError" runat="server"></asp:Label>
+				<asp:Label ID="lblStatus" Class="lblError" runat="server"></asp:Label>
             </div>
 
         </div>

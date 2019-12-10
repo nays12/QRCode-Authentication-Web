@@ -16,11 +16,24 @@
 <body>
     <form id="form1" runat="server">
         <div class="divTitle" style="background-color:transparent">
-            <img class="image" src="Images/title.JPG" />
+            <%--<img class="image" src="Images/title.JPG" />--%>
+            <h1>The Authenticat<img src="Images/Logo.jpg" class="imgLogo" />r </h1>
        </div>
         <div class="divPageBody divSection">
-            <asp:Button ID="Button1" runat="server" Class="button btn btn-success" Text="Create an Event" />
-            <asp:Button ID="Button2" runat="server" Class="button btn btn-success" Text="Request Credentials" />
+
+			<asp:Label ID="lblWelcome" style="color:#005073" runat="server"></asp:Label>
+			<br />
+			<asp:Label ID="lbldeptInfo" style="color:#005073" runat="server"></asp:Label>
+            <br />
+			<asp:Label ID="lblWelcome2" style="color:#005073" runat="server"></asp:Label>
+
+            <asp:Button ID="btnCreateEvent" runat="server" Class="button btn btn-success" Text="Create an Event" OnClick="btnCreateEvent_Click" Visible="False" />
+			<asp:Button ID="btnManageEvent" runat="server" Class="button btn btn-success" Text="Manage an Event" OnClick="btnManageEvent_Click" Visible="False" />
+            <asp:Button ID="btnRequest" runat="server" Class="button btn btn-success" Text="Request Credentials" OnClick="btnRequest_Click" Visible="False" />
+			<asp:Button ID="btnCreateCredential" runat="server" Class="button btn btn-success" Text="Create a Credential" OnClick="btnCreateCredential_Click" Visible="False" />
+			<asp:Button ID="btnUpdateCredential" runat="server" Class="button btn btn-success" Text="Update a Credential" OnClick="btnUpdateCredential_Click" Visible="False" />
+
+			<asp:Button ID="btnLogout" runat="server" Class="BtnCancel btn" Text="Logout" OnClick="btnLogout_Click" Visible="True" />
          </div>
     </form>
 </body>

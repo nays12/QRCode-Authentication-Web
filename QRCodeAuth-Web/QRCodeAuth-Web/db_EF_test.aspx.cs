@@ -18,85 +18,100 @@ namespace QRCodeAuth_Web
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
-	
+			CredentialsRepo.GetOwnerCredentials("1304693");
+			//UsersCRUD();
+			//MobileAccountsCRUD();
+			//WebAccountsCRUD();
+			//EventsCRUD();
+			//CredentialsCRUD();
 		}
 
-		protected void EntityCRUDTest()
+		protected void UsersCRUD()
 		{
-			using (var dbconn = new WebSystemData())
+			//Creates a User object and inserts it into the database
+			User u1 = new User
 			{
-				// Creates a User object and inserts it into the database
-				User info = new User
-				{
-					UserId = "7865293",
-					FirstName = "MARRY",
-					LastName = "KIM",
-					Group = UserType.Student
-				};
-				dbconn.Users.Add(info);
-				dbconn.SaveChanges();
+				UserId = "1646825",
+				LastName = "Perez-Davila",
+				FirstName = "Alfredo",
+				UserType = UserType.Faculty
+			};
 
-				// Finds a user by their ID
-				info = dbconn.Users.Find(info.UserId == "1195191");
-				Response.Write("the selected is: " + info.UserId + " ; " + info.FirstName + " " + info.LastName);
+			UsersRepo.AddNewUser(u1);
+			System.Diagnostics.Debug.WriteLine(UsersRepo.StatusMessage);
 
-				// Finds a user by thier ID and then updates their first name
-				info = dbconn.Users.Find(info.UserId == "1195191");
-				info.FirstName = "zhimin";
-				dbconn.SaveChanges();
-
-				// Finds a user by thier ID and then deletes them from the database
-				info = dbconn.Users.Find(info.UserId == "1453678");
-				dbconn.Users.Remove(info);
-
-				dbconn.SaveChanges(); // updates the changes in the database
-			}
 		}
 
-		protected void EventsControllerTest()
+		protected void MobileAccountsCRUD()
 		{
-			// Create events to test EventsController
-			using (var dbconn = new WebSystemData())
+			//get Users to be account owner
+			User accountOwner1 = UsersRepo.FindUserById("1304693");
+
+			MobileAccount acc1 = new MobileAccount
 			{
-				// create list of credentials
-				List<CredentialType> credentials = new List<CredentialType>();
-				credentials.Add(CredentialType.Email);
-				credentials.Add(CredentialType.Major);
-
-				// create list of attendees
-				List<Account> eventAttendees = new List<Account>();
-
-				// Create event object
-				Event e1 = new Event
-				{
-					Name = "Delta Waffle Day",
-					Location = "Delta Building Lobby",
-					Type = EventType.Campus,
-					Description = "Free Waffles at the Delta building!",
-					StartTime = Convert.ToDateTime("10/30/2019 02:30pm"),
-					EndTime = Convert.ToDateTime("10/30/2019 06:30pm"),
-					Owner = null,
-					CredentialsRequired = credentials,
-					Attendees = eventAttendees
-				};
-
-				Event e2 = new Event
-				{
-					Name = "Trick or Treat at the Rec",
-					Location = "Recreation and Wellness Center",
-					Type = EventType.Campus,
-					Description = "reat yourself to spooky treats, fun activities and more at UHCL's first Trick or Treat at The Rec!",
-					StartTime = Convert.ToDateTime("10/31/2019 04:00pm"),
-					EndTime = Convert.ToDateTime("10/31/2019 09:00pm"),
-					Owner = null,
-					CredentialsRequired = credentials,
-					Attendees = eventAttendees
-				};
-
-				dbconn.Events.Add(e1);
-				dbconn.Events.Add(e2);
-				dbconn.SaveChanges();
-			}
+				MobileId = accountOwner1.UserId,
+				Department = "College of Science and Engineering",
+				IsActive = true
+			};
+			MobileAccountsRepo.AddAccount(acc1);
+			System.Diagnostics.Debug.WriteLine(MobileAccountsRepo.StatusMessage);
 		}
+
+		protected void WebAccountsCRUD()
+		{
+			//get Users to be account owner
+			User accountOwner1 = UsersRepo.FindUserById("1646825");
+
+			WebAccount w = new WebAccount
+			{
+				WebId = accountOwner1.UserId,
+				Department = "College of Science and Engineering",
+				IsActive = true,
+				IsCredentialAuthority = false,
+				IsAttendanceManager = true,
+				IsInformationCollector = false
+			};
+			WebAccountsRepo.AddAccount(w);
+			System.Diagnostics.Debug.WriteLine(WebAccountsRepo.StatusMessage);
+		}
+
+		protected void EventsCRUD()
+		{
+			List<CredentialType> credentialsNeeded = new List<CredentialType>();
+			credentialsNeeded.Add(CredentialType.Name);
+			credentialsNeeded.Add(CredentialType.Major);
+
+			// Create event object
+			Event e1 = new Event
+			{
+				Name = "Delta Waffle Day",
+				Location = "Delta Building Lobby",
+				EventType = EventType.Campus,
+				Description = "Free Waffles at the Delta building!",
+				StartTime = Convert.ToDateTime("10/30/2019 02:30pm"),
+				EndTime = Convert.ToDateTime("10/30/2019 06:30pm"),
+				CredentialsNeeded = credentialsNeeded,
+				Owner = "8764710"
+			};
+			EventsRepo.AddEvent(e1);
+			System.Diagnostics.Debug.WriteLine(EventsRepo.StatusMessage);
+		}
+
+		protected void CredentialsCRUD()
+		{
+			Credential cred = new Credential
+			{
+				Name = "Student Full Name",
+				CredentialType = CredentialType.Name,
+				IssueDate = Convert.ToDateTime("01/15/2016"),
+				ExpirationDate = Convert.ToDateTime("12/21/2019"),
+				Value = "Naomi S. Wiggins",
+				IsValid = true,
+				Owner = "1304693",
+				Issuer = "8220423"
+			};
+			CredentialsRepo.AddCredential(cred);
+		}
+
 	}
 }
