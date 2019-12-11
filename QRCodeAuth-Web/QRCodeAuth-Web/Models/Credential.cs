@@ -1,4 +1,12 @@
-﻿
+﻿/*
+ * Purpose: 
+ * This is a model class for a Credential object
+ * 
+ * Contributors: 
+ * Naomi Wiggins 
+ * 
+ */
+
 using System;
 
 namespace QRCodeAuth_Web.Models
@@ -7,7 +15,6 @@ namespace QRCodeAuth_Web.Models
 	{
 		public Credential()
 		{
-
 		}
 
 		// Primary Key

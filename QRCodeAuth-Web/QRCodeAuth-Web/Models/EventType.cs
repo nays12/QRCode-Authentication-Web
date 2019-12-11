@@ -1,4 +1,12 @@
-﻿namespace QRCodeAuth_Web.Models
+﻿/*
+ * Purpose: 
+ * This is an enumeration declaration for a EventType attribute that a Event object can have
+ * 
+ * Contributors: 
+ * Naomi Wiggins 
+ * 
+ */
+namespace QRCodeAuth_Web.Models
 {
 	public enum EventType
 	{

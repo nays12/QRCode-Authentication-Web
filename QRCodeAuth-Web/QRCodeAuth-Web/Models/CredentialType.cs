@@ -1,4 +1,13 @@
-﻿namespace QRCodeAuth_Web.Models
+﻿/*
+ * Purpose: 
+ * This is an enumeration declaration for a CredentialType attribute that a Credential object can have
+ * 
+ * Contributors: 
+ * Naomi Wiggins 
+ * 
+ */
+
+namespace QRCodeAuth_Web.Models
 {
 	public enum CredentialType
 	{

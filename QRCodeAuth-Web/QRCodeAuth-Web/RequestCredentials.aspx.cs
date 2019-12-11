@@ -1,5 +1,10 @@
 ﻿/*
- * Purpose: Allows users to request digital credentials from a Mobile User's account 
+ * Purpose: Allows an authorized User to select the type of Credentials they would like to request from a 
+ * Mobile account. Creates a QR Code based off of the Credential type selections and User information.
+ * 
+ * Contributors:
+ * Marilin Ortuno
+ * Naomi Wiggins
  */
 
 using System;
@@ -9,11 +14,6 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 using System.Web.UI.WebControls;
 using ZXing;
-using System.Net;
-using System.IO;
-using System.Web;
-using System.Drawing;
-using System.Drawing.Imaging;
 using System.Web.Hosting;
 
 namespace QRCodeAuth_Web
@@ -31,7 +31,6 @@ namespace QRCodeAuth_Web
 			imgQRCode.Visible = false;
 			btnGetCreds.Visible = false;
 			GetLoggedInUserInfo();
-
 		}
 
 		public static void GetNewCredentials(List<Credential> creds)
@@ -130,7 +129,7 @@ namespace QRCodeAuth_Web
 			return types;
 		}
 
-		//Wil return the object that will be encoded into QRCode. 
+		// Creates an anonymous object from the Credential Types and the Loggedin User's information
 		public void CreateCredentialsObject()
         {
 			// Anonymous object

@@ -1,7 +1,16 @@
-﻿using System;
+﻿/*
+ * Purpose: 
+ * This is a Data Repository Class that is responsible for handling all the database operations invloving the
+ * Events Table in the Azure SQL Database
+ * 
+ * Contributors: 
+ * Naomi Wiggins 
+ * 
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using QRCodeAuth_Web.Models;
 
 namespace QRCodeAuth_Web.Data

@@ -1,12 +1,14 @@
-﻿using System;
+﻿/*
+ * Purpose: Allows a User to retrieve, modify, or delete the Credentials of a Mobile Account.
+ * 
+ * Contributors: 
+ * Naomi Wiggins
+ */
+
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Data.Entity.Infrastructure;
-using System.Data.Entity;
-
 using QRCodeAuth_Web.Data;
 using QRCodeAuth_Web.Models;
 

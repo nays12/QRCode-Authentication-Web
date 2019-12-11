@@ -1,4 +1,13 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RequestCredentials.aspx.cs" Inherits="QRCodeAuth_Web.RequestCredentials" %>
+﻿<%-- 
+Purpose: 
+Defines the UI for the page
+
+Contributors: 
+Marilin Ortuno
+Naomi Wiggins
+--%>
+
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RequestCredentials.aspx.cs" Inherits="QRCodeAuth_Web.RequestCredentials" %>
 
 <!DOCTYPE html>
 

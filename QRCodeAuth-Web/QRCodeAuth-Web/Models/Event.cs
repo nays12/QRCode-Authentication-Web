@@ -1,4 +1,13 @@
-﻿using System;
+﻿/*
+ * Purpose: 
+ * This is a model class for an Event object
+ * 
+ * Contributors: 
+ * Naomi Wiggins 
+ * 
+ */
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 

@@ -2,12 +2,11 @@
  * Purpose: Enables an Web Account user to create an event in which they collect the 
  * digital credentials of its attendees.
  * 
- * Algorithm: 
+ * Contributors: 
+ * Naomi Wiggins
  */
 
 using System;
-using System.Collections.Generic;
-using System.Web.UI.WebControls;
 using QRCodeAuth_Web.Data;
 using QRCodeAuth_Web.Models;
 

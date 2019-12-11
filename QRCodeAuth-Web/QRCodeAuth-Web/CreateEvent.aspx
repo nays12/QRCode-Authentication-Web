@@ -1,4 +1,13 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CreateEvent.aspx.cs" Inherits="QRCodeAuth_Web.CreateEvent" %>
+﻿<%-- 
+Purpose: 
+Defines the UI for the page
+
+Contributors: 
+Marilin Ortuno
+Naomi Wiggins
+--%>
+
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CreateEvent.aspx.cs" Inherits="QRCodeAuth_Web.CreateEvent" %>
 
 <!DOCTYPE html>
 

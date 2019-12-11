@@ -1,4 +1,12 @@
-﻿html{
+﻿/*
+ * Purpose: Defines the styles for the common UI elements of the application
+ * 
+ * Contributors: 
+ * Leonor Ortuno
+ * Marilin Ortuno
+ */
+
+html{
     height:100%;
 }
 
@@ -76,7 +84,6 @@ h1 {
 .image {
     margin: auto;
     display: block;
-    /*margin-left:5px;*/
     width: 100%;
     height: 100%;
 }
