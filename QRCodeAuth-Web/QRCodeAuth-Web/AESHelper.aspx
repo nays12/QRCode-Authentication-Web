@@ -1,4 +1,12 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AESHelper.aspx.cs" Inherits="QRCodeAuth_Web.AESHelper" %>
+﻿<%-- 
+Purpose: 
+This class using symmetric key cryptography to take an input and encrypt/decrypt it
+
+Contributors: 
+Zhihao Gao 	
+--%>
+
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AESHelper.aspx.cs" Inherits="QRCodeAuth_Web.AESHelper" %>
 
 <!DOCTYPE html>
 

@@ -3,7 +3,7 @@
  * This is a Data Repository Class that is responsible for handling all the database operations invloving the
  * MobileAccounts Table in the Azure SQL Database
  * 
- * Contributions: 
+ * Contributors: 
  * Naomi Wiggins 
  * 
  */

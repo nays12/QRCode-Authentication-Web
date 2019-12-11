@@ -1,12 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+﻿/*
+ * Purpose: 
+ * This class using symmetric key cryptography to take an input and encrypt/decrypt it
+ * 
+ * Contributors: 
+ * Zhihao Gao 
+ * 
+ */
+
+using System;
 using System.Text;
 using System.Security.Cryptography;
-using System.IO;
 
 namespace QRCodeAuth_Web
 {

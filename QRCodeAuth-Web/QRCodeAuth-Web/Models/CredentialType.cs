@@ -2,7 +2,7 @@
  * Purpose: 
  * This is an enumeration declaration for a CredentialType attribute that a Credential object can have
  * 
- * Contributions: 
+ * Contributors: 
  * Naomi Wiggins 
  * 
  */

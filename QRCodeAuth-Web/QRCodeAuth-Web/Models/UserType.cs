@@ -2,7 +2,7 @@
  * Purpose: 
  * This is an enumeration declaration for a UserType attribute that a User object can have
  * 
- * Contributions: 
+ * Contributors: 
  * Naomi Wiggins 
  * 
  */

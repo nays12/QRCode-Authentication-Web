@@ -2,7 +2,7 @@
  * Purpose: 
  * This is a model class for a MobileAccount object
  * 
- * Contributions: 
+ * Contributors: 
  * Naomi Wiggins 
  * 
  */

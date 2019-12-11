@@ -2,7 +2,7 @@
  * Purpose: 
  * This is a model class for a User object
  * 
- * Contributions: 
+ * Contributors: 
  * Naomi Wiggins 
  * 
  */

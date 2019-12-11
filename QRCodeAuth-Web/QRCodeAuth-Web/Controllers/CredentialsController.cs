@@ -3,11 +3,9 @@
  * This API Contoller is responsible for defining and performing the GET and POST request necessary to
  * recieve and send Credential objects between the Web and Mobile Applications
  * 
- * Contributions: 
- * Marilin Ortuno -> RecievedSharedCredentials()
- * 
- * Naomi Wiggins -> RecieveEventCredentials(), GetAllCredentials(), GetIssuedCredentials(), GetUpdatedCredentials()
- * GetCredentialIDtoDelete()
+ * Contributors: 
+ * Marilin Ortuno
+ * Naomi Wiggins 
  * 
  */
 

@@ -2,7 +2,7 @@
  * Purpose: 
  * This is a model class for an Event object
  * 
- * Contributions: 
+ * Contributors: 
  * Naomi Wiggins 
  * 
  */

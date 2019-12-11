@@ -3,7 +3,7 @@
  * This is a Data Repository Class that is responsible for handling all the database operations invloving the
  * WebAccounts Table in the Azure SQL Database
  * 
- * Contributions: 
+ * Contributors: 
  * Naomi Wiggins 
  * 
  */

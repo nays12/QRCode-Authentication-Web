@@ -2,7 +2,7 @@
  * Purpose: 
  * This is an enumeration declaration for a EventType attribute that a Event object can have
  * 
- * Contributions: 
+ * Contributors: 
  * Naomi Wiggins 
  * 
  */

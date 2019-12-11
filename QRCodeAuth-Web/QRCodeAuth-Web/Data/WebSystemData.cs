@@ -3,7 +3,7 @@
  * This is the DatabaseContext class that maps the Model classes to the database tables, defines the relationships 
  * between the database tables, and declares their Primary Keys.
  * 
- * Contributions: 
+ * Contributors: 
  * Naomi Wiggins 
  * 
  */

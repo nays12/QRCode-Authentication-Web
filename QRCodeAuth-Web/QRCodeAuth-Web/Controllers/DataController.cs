@@ -3,7 +3,7 @@
  * This API Contoller is responsible sending a randomly generated 6-digit code to the calling
  * mobile device for the Web App Login functionality.
  * 
- * Contributions: 
+ * Contributors: 
  * Naomi Wiggins
  * 
  */
