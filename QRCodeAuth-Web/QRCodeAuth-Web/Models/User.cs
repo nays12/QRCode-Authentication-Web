@@ -1,4 +1,11 @@
-﻿using System.Collections.Generic;
+﻿/*
+ * Purpose: 
+ * This is a model class for a User object
+ * 
+ * Contributions: 
+ * Naomi Wiggins 
+ * 
+ */
 
 namespace QRCodeAuth_Web.Models
 {

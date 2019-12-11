@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*
+ * Purpose: 
+ * This is a model class for a WebAccount object
+ * 
+ * Contributions: 
+ * Naomi Wiggins 
+ * 
+ */
 
 namespace QRCodeAuth_Web.Models
 {
@@ -7,6 +14,8 @@ namespace QRCodeAuth_Web.Models
 		public WebAccount()
 		{
 		}
+
+		// Primary Key
 		public string WebId { get; set; }
 		public string Department { get; set; }
 		public bool IsActive { get; set; }
