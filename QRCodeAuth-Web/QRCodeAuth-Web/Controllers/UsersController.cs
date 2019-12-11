@@ -1,7 +1,13 @@
-﻿using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
-using System.Linq;
-using System.Net;
+﻿/*
+ * Purpose: 
+ * This API Contoller is responsible for defining and performing the GET and POST request necessary to
+ * recieve and send User objects between the Web and Mobile Applications
+ * 
+ * Contributions: 
+ * Naomi Wiggins 
+ * 
+ */
+
 using System.Web.Http;
 using System.Web.Http.Description;
 using QRCodeAuth_Web.Data;
@@ -12,9 +18,6 @@ namespace QRCodeAuth_Web.Controllers
 {
     public class UsersController : ApiController
     {
-		private WebSystemData db = new WebSystemData();
-
-
 		[Route("api/Users/GetUserbyId")]
 		[HttpGet]
 		[ResponseType(typeof(User))]
