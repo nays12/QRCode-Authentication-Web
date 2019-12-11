@@ -1,4 +1,14 @@
-﻿using QRCodeAuth_Web.Data;
+﻿/*
+ * Purpose: 
+ * Allows a Web User to create a Credential object, adds it to the database, and sends it to the Credential Controller
+ * to be fetched by a Mobile Device
+ * 
+ * Contributors: 
+ * Marilin Ortuno
+ * Naomi Wiggins
+ */
+
+using QRCodeAuth_Web.Data;
 using QRCodeAuth_Web.Models;
 using System;
 using System.Collections.Generic;

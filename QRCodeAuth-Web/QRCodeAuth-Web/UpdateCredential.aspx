@@ -1,4 +1,12 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UpdateCredential.aspx.cs" Inherits="QRCodeAuth_Web.UpdateCredential" %>
+﻿<%-- 
+Purpose: 
+Defines the UI for the page
+
+Contributors: 
+Marilin Ortuno
+--%>
+
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UpdateCredential.aspx.cs" Inherits="QRCodeAuth_Web.UpdateCredential" %>
 
 <%@ Register assembly="Microsoft.AspNet.EntityDataSource" namespace="Microsoft.AspNet.EntityDataSource" tagprefix="ef" %>
 

@@ -1,4 +1,15 @@
-﻿using QRCodeAuth_Web.Models;
+﻿/*
+ * Purpose: Allows User to select from a list of their active Events, and select the types of Credentials they 
+ * would like to request during the Event. A QR Code is then generated from the User information, Event information,
+ * and Credential Types selected.
+ * event along with the 
+ * 
+ * Contributors: 
+ * Marilin Ortuno
+ * Naomi Wiggins
+ */
+
+using QRCodeAuth_Web.Models;
 using QRCodeAuth_Web.Data;
 using System;
 using System.Collections.Generic;
@@ -75,7 +86,6 @@ namespace QRCodeAuth_Web
 
 		public void CreateEventObject(Event ev)
 		{
-
 			// Anonymous object
 		   var eventAttendance = new
 		   {
@@ -173,7 +183,6 @@ namespace QRCodeAuth_Web
 			//Dispaly QRCode
 			imgEventQr.Visible = true;
 			imgEventQr.ImageUrl = "https://qrcodemobileauthenticationweb.azurewebsites.net/Images/" + qrName;
-
 		}
 		public static int generateRandomNum()
 		{
@@ -198,6 +207,5 @@ namespace QRCodeAuth_Web
 			fetchedCreds.Clear();
 			Response.Redirect("Home.aspx");
 		}
-
 	}
 }

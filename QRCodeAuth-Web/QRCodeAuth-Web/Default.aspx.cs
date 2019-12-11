@@ -1,8 +1,11 @@
 ﻿/*
- * Purpose: Startup page for the web application that requires authentication code from 
- * mobile device to login
+ * Purpose: Startup page for the web application that requires authentication code from a mobile device to login.
+ * Once the user is authenticated, their account information is put into the session state.
  * 
- * Algorithm: 
+ * Contributors: 
+ * Zhihao Gao
+ * Marilin Ortuno
+ * Naomi Wiggins
  * 
  */
 
