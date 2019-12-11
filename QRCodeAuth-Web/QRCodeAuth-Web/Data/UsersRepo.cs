@@ -1,8 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿/*
+ * Purpose: 
+ * This is a Data Repository Class that is responsible for handling all the database operations invloving the
+ * Users Table in the Azure SQL Database
+ * 
+ * Contributions: 
+ * Naomi Wiggins 
+ * 
+ */
 
+using System;
 using QRCodeAuth_Web.Models;
 
 namespace QRCodeAuth_Web.Data

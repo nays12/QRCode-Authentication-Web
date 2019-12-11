@@ -1,11 +1,19 @@
+/*
+ * Purpose: 
+ * This is the DatabaseContext class that maps the Model classes to the database tables, defines the relationships 
+ * between the database tables, and declares their Primary Keys.
+ * 
+ * Contributions: 
+ * Naomi Wiggins 
+ * 
+ */
+
+using System.Data.Entity;
+using System.ComponentModel.DataAnnotations.Schema;
+using QRCodeAuth_Web.Models;
+
 namespace QRCodeAuth_Web.Data
 {
-	using System;
-	using System.Data.Entity;
-	using System.ComponentModel.DataAnnotations.Schema;
-	using System.Linq;
-	using QRCodeAuth_Web.Models;
-
 	public partial class WebSystemData : DbContext
 	{
 		public WebSystemData()
@@ -34,7 +42,6 @@ namespace QRCodeAuth_Web.Data
 
 			// Credentials Table
 			modelBuilder.Entity<Credential>().HasKey(c => c.CredentialId).Property(c => c.CredentialId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-
 		}
 	}
 }

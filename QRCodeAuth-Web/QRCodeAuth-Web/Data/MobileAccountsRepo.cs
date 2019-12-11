@@ -1,8 +1,15 @@
-﻿using QRCodeAuth_Web.Models;
+﻿/*
+ * Purpose: 
+ * This is a Data Repository Class that is responsible for handling all the database operations invloving the
+ * MobileAccounts Table in the Azure SQL Database
+ * 
+ * Contributions: 
+ * Naomi Wiggins 
+ * 
+ */
+
+using QRCodeAuth_Web.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace QRCodeAuth_Web.Data
 {
