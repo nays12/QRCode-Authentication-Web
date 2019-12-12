@@ -1,7 +1,6 @@
 ﻿/*
  * Purpose: To configure the application to use all of the controllers in the Controllers folder
  * 
- * Methods: Register
  */
 
 using System.Web.Http;

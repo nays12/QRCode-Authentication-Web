@@ -6,6 +6,7 @@
  * Naomi Wiggins 
  * 
  */
+
 namespace QRCodeAuth_Web.Models
 {
 	public enum EventType
