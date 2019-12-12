@@ -77,5 +77,4 @@ namespace QRCodeAuth_Web
 			activeWebAccount = (WebAccount)Session["ActiveWebAccount"];
 		}
 	}
-
 }
