@@ -74,13 +74,6 @@ namespace QRCodeAuth_Web
 			}
 		}
 
-		// If cancel button is clicked redirect user back to home page. 
-		protected void btnCancel_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("Home.aspx");
-			fetchedCreds.Clear();
-        }
-
 		// Will return a list of the requested credential types selected by information collector. 
 		public List<CredentialType> getRequestedCredentialTypes()
 		{
@@ -173,6 +166,14 @@ namespace QRCodeAuth_Web
 			int code = ran.Next(min, max);
 
 			return code;
+		}
+
+		// If cancel button is clicked redirect user back to home page. 
+		protected void btnCancel_Click(object sender, EventArgs e)
+		{
+			fetchedCreds.Clear();
+			credentialOwnerId = "";
+			Response.Redirect("Home.aspx");
 		}
 
 		// Retrieve User info from session state

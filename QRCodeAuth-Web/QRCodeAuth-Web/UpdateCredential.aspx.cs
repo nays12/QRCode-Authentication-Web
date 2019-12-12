@@ -93,7 +93,7 @@ namespace QRCodeAuth_Web
 			credentials = CredentialsRepo.GetOwnerCredentials(userId);
 			lblStatus.Text = CredentialsRepo.StatusMessage;
 			GridView1.EditIndex = -1;
-			ResetPage();
+			BindGrid();
 		}
 
 		protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
@@ -105,13 +105,7 @@ namespace QRCodeAuth_Web
 			credentials = CredentialsRepo.GetOwnerCredentials(userId);
 			lblStatus.Text = CredentialsRepo.StatusMessage;
 
-			ResetPage();
-		}
-
-		protected void ResetPage()
-		{
 			BindGrid();
-			txtMobileId.Text ="";
 		}
 
 		protected void btnDone_Click(object sender, EventArgs e)
